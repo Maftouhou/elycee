@@ -19,3 +19,11 @@ Ordre des migrations et dependances des tables
 - Choices 	// Questions.Users()
 - Responses // Choices.Questions.Users()
 - Scores	// Questions.Users()
+
+php artisan make:model Comments	--migration
+php artisan make:model Users --migration
+php artisan make:model Posts --migration
+php artisan make:model Questions --migration
+php artisan make:model Choices --migration
+php artisan make:model Responses --migration
+php artisan make:model Scores --migration

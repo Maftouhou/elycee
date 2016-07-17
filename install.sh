@@ -14,7 +14,8 @@ DELETE FROM mysql.user WHERE user='$USER_USERNAME' and Password='$USER_PASSWORD'
 GRANT ALL PRIVILEGES ON $DBNAME.* to '$USER_USERNAME'@'$HOST' IDENTIFIED BY '$USER_PASSWORD' WITH GRANT OPTION;
 EOF
 )
-echo $MySQL | mysql --user=$USERNAME --password=$PASSWORD
+
+#echo $MySQL | mysql --user=$USERNAME --password=$PASSWORD
 
 if [ ! -d ./node_modules ]; then
     npm install --save-dev gulp
@@ -32,6 +33,6 @@ if [ ! -f gulpfile.js ]; then
 fi
 
 # deploiement des migrations avec injection des donnée d'exemple 
-php artisan migrate:refresh --seed
+# php artisan migrate:refresh --seed
 
 echo 'Tout est bon';
