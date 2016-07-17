@@ -1,5 +1,5 @@
 Schema relationnel des données
---------------------------------
+------------------------------
 Posts.users_id 					=> Users.ID 			// (onDelete->setNull)
 Questions.users_id 				=> Users.ID 			// (onDelete->setNull)
 Scores.users_id 				=> Users.ID 			// (onDelete->cascade)
@@ -10,8 +10,8 @@ Responses.choices_questions_id 	=> Choices.quetions.ID 	// (onDelete->cascade)
 Choices.questions_id 			=> Questions.ID 		// (onDelete->cascade)
 
 
-Ordre des migrations
---------------------------------
+Ordre des migrations et dependances des tables
+----------------------------------------------
 - Comments	// 
 - Users 	// 
 - Posts 	// Users()
