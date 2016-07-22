@@ -17,7 +17,7 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .constant('API_URL', 'http://localhost/elycee/public/api/v1/')
+  // .constant('API_URL', '/api/v1/')
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
