@@ -49,14 +49,16 @@
               <li><a href="#/">Contact</a></li>
             </ul>
         </header>
-       
-   
 
+      
         <div class="container">
             <div class="content" ng-view>
-              <h1> {{ $title }} </h1>
             </div>
         </div>
+
+    <script type="text/javascript">
+		
+	</script>
 
 
     <!-- build:js(.) scripts/vendor.js -->

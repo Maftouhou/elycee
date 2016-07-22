@@ -11,11 +11,15 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('index');
+});
 
-Route::get('/', 'IndexController@index');
+// Route::get('/', 'IndexController@index');
+
+Route::group(['prefix' => '/api/v1'], function(){
+	Route::resource('/index', 'IndexController@index');
+});
 
 // App::missing(function($exception) {
 //     return view('index');
