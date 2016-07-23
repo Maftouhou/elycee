@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 USERNAME='root'
-PASSWORD=''
+PASSWORD='root'
 DBNAME='db_elycee'
 HOST='localhost'
 
