@@ -15,8 +15,9 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::group(['prefix' => 'api/v1'], function(){
-	Route::resource('/index', 'IndexController@index');
+Route::group(['prefix' => 'api/v1/'], function(){
+	Route::resource('index', 'IndexController@index');
 	// Route::match(['get', 'post'], '/index', ['uses' =>'IndexController@index']);
+    // Route::post('auth/login', 'AuthController@login');
 });
 
