@@ -18,7 +18,7 @@ angular.module('elycee')
 
     $http.get("api/v1/index")
         .success(function(data) {
-            $scope.name = data[0].name;
-            console.log(data[0].name);
+            $scope.users = data;
+            console.log($scope.users);
     });
   });
