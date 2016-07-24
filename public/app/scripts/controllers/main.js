@@ -14,11 +14,11 @@ angular.module('elycee')
       'AngularJS',
       'Karma'
     ];
-    $scope.message = 'This is the home view.';
+    // $scope.message = 'This is the home view.';
 
-    $http.get("/api/v1/index")
-        .success(function(response) {
-            $scope.title = response;
-            console.log(response);
+    $http.get("api/v1/index")
+        .success(function(data) {
+            $scope.users = data;
+            console.log($scope.users);
     });
   });

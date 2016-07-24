@@ -15,12 +15,8 @@ Route::get('/', function () {
     return view('index');
 });
 
-// Route::get('/', 'IndexController@index');
-
-Route::group(['prefix' => '/api/v1'], function(){
+Route::group(['prefix' => 'api/v1'], function(){
 	Route::resource('/index', 'IndexController@index');
+	// Route::match(['get', 'post'], '/index', ['uses' =>'IndexController@index']);
 });
 
-// App::missing(function($exception) {
-//     return view('index');
-// });
