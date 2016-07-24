@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\User;
+use App\Post;
 
 class IndexController extends Controller
 {
@@ -14,6 +15,7 @@ class IndexController extends Controller
     {
         $title = "This is the data from IndexController";
         $user = User::all();
+        
         return $user;
         //$posts = Post::all();
         
