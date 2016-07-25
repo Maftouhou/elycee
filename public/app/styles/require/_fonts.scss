@@ -1,0 +1,289 @@
+/* -----
+Typography, WebFonts
+----- */
+
+@font-face {
+    font-family: 'gzaseminegra';
+    src: url('../fonts/gza-seminegra-webfont.woff2') format('woff2'),
+         url('../fonts/gza-seminegra-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Dia_Regular';
+    src: url('../fonts/Dia-Regular.eot');
+    src: url('../fonts/Dia-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Dia-Regular.woff') format('woff'),
+        url('../fonts/Dia-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Dia_Bold';
+    src: url('../fonts/Dia-Bold.eot');
+    src: url('../fonts/Dia-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Dia-Bold.woff') format('woff'),
+        url('../fonts/Dia-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'brezel_groteskbold_italic';
+    src: url('../fonts/brezelgrotesk-bolditalic-webfont.eot');
+    src: url('../fonts/brezelgrotesk-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/brezelgrotesk-bolditalic-webfont.woff2') format('woff2'),
+         url('../fonts/brezelgrotesk-bolditalic-webfont.woff') format('woff'),
+         url('../fonts/brezelgrotesk-bolditalic-webfont.ttf') format('truetype'),
+         url('../fonts/brezelgrotesk-bolditalic-webfont.svg#brezel_groteskbold_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'brezel_groteskitalic';
+    src: url('../fonts/brezelgrotesk-italic-webfont.eot');
+    src: url('../fonts/brezelgrotesk-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/brezelgrotesk-italic-webfont.woff2') format('woff2'),
+         url('../fonts/brezelgrotesk-italic-webfont.woff') format('woff'),
+         url('../fonts/brezelgrotesk-italic-webfont.ttf') format('truetype'),
+         url('../fonts/brezelgrotesk-italic-webfont.svg#brezel_groteskitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'bluu_nextbold';
+    src: url('../fonts/bluunext-bold.woff2') format('woff2'),
+         url('../fonts/bluunext-bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'bagnardregular';
+    src: url('../fonts/bagnard.woff2') format('woff2'),
+         url('../fonts/bagnard.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'bagnard_regularregular';
+    src: url('../fonts/bagnardsans.woff2') format('woff2'),
+         url('../fonts/bagnardsans.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Noe Display';
+    src: url('../fonts/NoeDisplay-RegularItalic.eot');
+    src: url('../fonts/NoeDisplay-RegularItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/NoeDisplay-RegularItalic.woff') format('woff'),
+        url('../fonts/NoeDisplay-RegularItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Noe Display';
+    src: url('../fonts/NoeDisplay-MediumItalic.eot');
+    src: url('../fonts/NoeDisplay-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/NoeDisplay-MediumItalic.woff') format('woff'),
+        url('../fonts/NoeDisplay-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Noe Display';
+    src: url('../fonts/NoeDisplay-BoldItalic.eot');
+    src: url('../fonts/NoeDisplay-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/NoeDisplay-BoldItalic.woff') format('woff'),
+        url('../fonts/NoeDisplay-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Noe Display';
+    src: url('../fonts/NoeDisplay-BlackItalic.eot');
+    src: url('../fonts/NoeDisplay-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/NoeDisplay-BlackItalic.woff') format('woff'),
+        url('../fonts/NoeDisplay-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Noe Display';
+    src: url('../fonts/NoeDisplay-Regular.eot');
+    src: url('../fonts/NoeDisplay-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/NoeDisplay-Regular.woff') format('woff'),
+        url('../fonts/NoeDisplay-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Noe Display';
+    src: url('../fonts/NoeDisplay-Bold.eot');
+    src: url('../fonts/NoeDisplay-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/NoeDisplay-Bold.woff') format('woff'),
+        url('../fonts/NoeDisplay-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Noe Display';
+    src: url('../fonts/NoeDisplay-Black.eot');
+    src: url('../fonts/NoeDisplay-Black.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/NoeDisplay-Black.woff') format('woff'),
+        url('../fonts/NoeDisplay-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Noe Display';
+    src: url('../fonts/NoeDisplay-Medium.eot');
+    src: url('../fonts/NoeDisplay-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/NoeDisplay-Medium.woff') format('woff'),
+        url('../fonts/NoeDisplay-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* This stylesheet generated by Transfonter (http://transfonter.org) on June 23, 2016 10:42 AM */
+
+@font-face {
+    font-family: 'Chap';
+    src: url('../fonts/Chap-Light.eot');
+    src: url('../fonts/Chap-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Chap-Light.woff') format('woff'),
+        url('../fonts/Chap-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Chap';
+    src: url('../fonts/Chap-SemiboldItalic.eot');
+    src: url('../fonts/Chap-SemiboldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Chap-SemiboldItalic.woff') format('woff'),
+        url('../fonts/Chap-SemiboldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Chap';
+    src: url('../fonts/Chap-Medium.eot');
+    src: url('../fonts/Chap-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Chap-Medium.woff') format('woff'),
+        url('../fonts/Chap-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Chap';
+    src: url('../fonts/Chap-MediumItalic.eot');
+    src: url('../fonts/Chap-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Chap-MediumItalic.woff') format('woff'),
+        url('../fonts/Chap-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Chap';
+    src: url('../fonts/Chap-Bold.eot');
+    src: url('../fonts/Chap-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Chap-Bold.woff') format('woff'),
+        url('../fonts/Chap-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Chap';
+    src: url('../fonts/Chap-Semibold.eot');
+    src: url('../fonts/Chap-Semibold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Chap-Semibold.woff') format('woff'),
+        url('../fonts/Chap-Semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Chap';
+    src: url('../fonts/Chap-RegularItalic.eot');
+    src: url('../fonts/Chap-RegularItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Chap-RegularItalic.woff') format('woff'),
+        url('../fonts/Chap-RegularItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Chap';
+    src: url('../fonts/Chap-Black.eot');
+    src: url('../fonts/Chap-Black.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Chap-Black.woff') format('woff'),
+        url('../fonts/Chap-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Chap';
+    src: url('../fonts/Chap-LightItalic.eot');
+    src: url('../fonts/Chap-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Chap-LightItalic.woff') format('woff'),
+        url('../fonts/Chap-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Chap';
+    src: url('../fonts/Chap-Regular.eot');
+    src: url('../fonts/Chap-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Chap-Regular.woff') format('woff'),
+        url('../fonts/Chap-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Chap';
+    src: url('../fonts/Chap-BlackItalic.eot');
+    src: url('../fonts/Chap-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Chap-BlackItalic.woff') format('woff'),
+        url('../fonts/Chap-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Chap';
+    src: url('../fonts/Chap-BoldItalic.eot');
+    src: url('../fonts/Chap-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Chap-BoldItalic.woff') format('woff'),
+        url('../fonts/Chap-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+
