@@ -5,3 +5,8 @@ Homestead.yaml
 Homestead.json
 /nbproject/private/
 .env
+config/database.php
+
+/resources/views/auth
+/resources/views/layouts
+/resources/views/partials

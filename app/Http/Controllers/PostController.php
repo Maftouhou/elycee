@@ -40,7 +40,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -67,7 +67,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $editPost = Post::find($id);
+        
+        return $editPost;
     }
 
     /**
