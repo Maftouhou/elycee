@@ -14,7 +14,7 @@ class CreatePicturesTable extends Migration
     {
         Schema::create('pictures', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('post_id')->unsigned();
+            $table->integer('post_id')->unsigned()->nullable();
             $table->string('name', 100);
             $table->string('uri', 1000);
             $table->smallInteger('size');
