@@ -16,9 +16,9 @@ angular.module('elycee')
     ];
     // $scope.message = 'This is the home view.';
 
-    $http.get("api/v1/index")
+    $http.get("api/post")
         .success(function(data) {
-            $scope.users = data;
-            console.log($scope.users);
+            $scope.posts = data;
+            console.log($scope.posts);
     });
   });
