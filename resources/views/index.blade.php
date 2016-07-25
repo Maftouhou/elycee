@@ -1,8 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
-
-@endsection
 <!DOCTYPE html>
 <html>
     <head>
