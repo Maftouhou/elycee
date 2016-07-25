@@ -1,0 +1,50 @@
+@import "import/home.scss";
+@import "require/_var.scss";
+@import "require/_mixin.scss";
+@import "require/_fonts.scss";
+
+html, body {
+	height: 100%;
+	font: 100%/1.5 $font;
+}
+input, textarea, select, button {
+	font: 100%/1.5 $font;
+}
+a {
+	text-decoration: none;
+}
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	display: table;
+}
+header {
+	position: fixed;
+	width: 100%;
+
+	ul {
+		margin: 20px 0 0 0;
+		padding: 0 0 0 28px;
+		li {
+			display: inline-block;
+			margin-right: 28px;
+		}
+		
+	}
+	ul li:nth-child(4) {
+			float: right;
+		}
+}
+.container {
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+}
+.content {
+	text-align: center;
+	display: inline-block;
+}
+.title {
+	font-size: 96px;
+}
