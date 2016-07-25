@@ -18,6 +18,8 @@ Route::get('/', function () {
 Route::group(['prefix' => 'api/', 'midleware' => ['web']], function(){
     Route::resource('post', 'PostController');
     
+    Route::any('login', 'LoginController@login');
+    Route::any('logout', 'LoginController@logout');
     
     // Route::match(['get', 'post'], '/index', ['uses' =>'IndexController@index']);
     // Route::post('auth/login', 'AuthController@login');
