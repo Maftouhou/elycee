@@ -1,0 +1,14 @@
+<h1>Mes réalisations</h1>
+
+<div class="row">
+  <div class="col-sm-6 col-md-4" ng-repeat="rea in realisations.liste">
+    <div class="thumbnail">
+      <img ng-src="images/{{rea.image}}" alt="">
+      <div class="caption">
+        <h3>{{rea.titre}}</h3>
+        <p>{{rea.description}}</p>
+        <p><a href="#" class="btn btn-primary">Visiter le projet</a></p>
+      </div>
+    </div>
+  </div>
+</div>
