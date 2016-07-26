@@ -395,7 +395,8 @@ body {
   height: 100%;
   display: table;
   position: absolute;
-  z-index: 0; }
+  z-index: 0;
+  background-color: #e8e8e8; }
 
 header {
   position: fixed;
@@ -433,7 +434,7 @@ header {
   position: absolute;
   width: 30%;
   z-index: 2;
-  right: 0;
+  right: -100%;
   top: 0;
   min-width: 380px;
   background-color: white;
@@ -522,7 +523,7 @@ header {
   height: 100%;
   top: 0;
   left: 0;
-  background-color: #e8e8e8;
+  /*background-color: #e8e8e8;*/
   z-index: -1; }
   .col_left .row {
     z-index: 0;
@@ -545,6 +546,7 @@ header {
       .col_left .row .inner_bloc .mask {
         height: 100%;
         width: 102px;
+        padding-top: 10px;
         overflow: hidden;
         position: relative; }
         .col_left .row .inner_bloc .mask a {
