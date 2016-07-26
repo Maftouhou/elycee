@@ -18,18 +18,9 @@ class PostController extends Controller
      */
     public function index()
     {
-//        $posts = Post::with('user', 'picture');
         $posts = Post::all();
-        $picture = Picture::all();
         
-        if ($posts->picture) {
-            return $posts->picture;
-        }else{
-            return $posts;
-        }
-        
-//        return $posts;
-        
+        return $posts;
     }
 
     /**
