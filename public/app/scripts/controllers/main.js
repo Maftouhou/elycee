@@ -17,4 +17,15 @@ angular.module('elycee')
         $scope.posts = data;
         console.log($scope.posts);
       });
+
+    // $('.col_right').hover( function(){
+    // 	console.log("hello");
+    // })
+
+  	const tl = new TimelineMax({ paused: true});
+  	console.log(tl);
+
+  	tl.from($(".bloc"), 1.7, { opacity: 0 }, 0);
+  	tl.restart();   
+
   });
