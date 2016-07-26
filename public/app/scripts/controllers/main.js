@@ -25,7 +25,7 @@ angular.module('elycee')
   	const tl = new TimelineMax({ paused: true});
   	console.log(tl);
 
-  	tl.from($(".bloc"), 1.7, { opacity: 0 }, 0);
+  	tl.from($(".el"), 1.7, { opacity: 0, scale: 1.2 }, 0.2);
   	tl.restart();   
 
   });
