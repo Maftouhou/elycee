@@ -3,9 +3,24 @@
 @import "require/_mixin.scss";
 @import "require/_fonts.scss";
 
+* {
+	margin: 0;
+	padding: 0;
+
+	box-sizing: border-box;
+
+	// text-rendering: optimizeLegibility;
+	
+	// -webkit-font-smoothing: antialiased;
+	// -moz-osx-font-smoothing: grayscale;
+
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
 html, body {
 	height: 100%;
 	font: 100%/1.5 $font;
+	// -webkit-font-smoothing: antialiased;
 }
 input, textarea, select, button {
 	font: 100%/1.5 $font;
@@ -22,6 +37,7 @@ body {
 header {
 	position: fixed;
 	width: 100%;
+	z-index: 3;
 
 	ul {
 		margin: 20px 0 0 0;
@@ -29,11 +45,19 @@ header {
 		li {
 			display: inline-block;
 			margin-right: 28px;
+			font-size: 14px;
+			a{
+				color: black;
+				opacity: 0.5;
+			}
 		}
 		
 	}
 	ul li:nth-child(4) {
 			float: right;
+			a{
+				color: black;
+			}
 		}
 }
 .container {
