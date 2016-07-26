@@ -19,7 +19,7 @@
               <li><a href="#/">e-l</a></li>
               <li><a href="#/about">Le lycée</a></li>
               <li><a href="#/contact">Contact</a></li>
-              <li><a href="#/login">Connexion</a></li>
+              <li><a href="#/login">Login</a></li>
             </ul>
         </header>
 
@@ -42,6 +42,8 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/gsap/src/uncompressed/TimelineMax.js"></script>
+    <script src="bower_components/gsap/src/uncompressed/TweenMax.js"></script>
     
     <!-- inject:js -->
     <script src="../dist/js/app.js"></script>

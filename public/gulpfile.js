@@ -66,7 +66,7 @@ gulp.task('build', ['scripts', 'styles', 'html']);
 gulp.task('serve', ['styles', 'html', 'scripts'], function() {
   
   gulp.watch('app/styles/**/*.scss', ['styles']);
-  gulp.watch('app/scripts/**/*.js', ['js']);
+  gulp.watch('app/scripts/**/*.js', ['scripts']);
 
   gulp.watch(['*.html', 'dist/*.css', 'dist/*.js']);
 });
