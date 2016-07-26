@@ -1,0 +1,12 @@
+<h1>Mes compétences</h1>
+
+<p>J'ai les compétences suivantes :</p>
+
+<div ng-repeat="comp in competences.liste">
+  <h4>{{comp.libelle}}</h4>
+  <div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="{{comp.niveau}}" aria-valuemin="0" aria-valuemax="100" style="width: {{comp.niveau}}%;">
+      {{comp.niveau}}%
+    </div>
+  </div>
+</div>
