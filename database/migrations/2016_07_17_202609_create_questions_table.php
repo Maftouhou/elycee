@@ -16,10 +16,10 @@ class CreateQuestionsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->nullable();
             $table->string('title', 1000);
-            $table->enum('class', ['terminal', 'premiere']);
-            $table->enum('status', ['publish', 'unpublish']);
+            $table->text('content');
+            $table->enum('class', ['premiere', 'terminal'])->default('terminal');
+            $table->enum('status', ['publish', 'unpublish'])->default('publish');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('SET NULL');
-            # $table->timestamps();
         });
     }
 

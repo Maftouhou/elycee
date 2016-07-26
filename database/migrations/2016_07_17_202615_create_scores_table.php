@@ -16,10 +16,9 @@ class CreateScoresTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->nullable();
             $table->integer('question_id')->unsigned()->nullable();
-            $table->enum('status_question', ['done', 'undone']);
+            $table->enum('status_question', ['done', 'undone'])->default('undone');
             $table->integer('note')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            # $table->timestamps();
         });
     }
 

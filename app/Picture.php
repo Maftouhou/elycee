@@ -6,12 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Picture extends Model
 {
-    protected $fillable=[
-        'name',
-        'uri',
-        'size',
-        'post_id',
-        'mime'
-
-    ];
+    //
 }

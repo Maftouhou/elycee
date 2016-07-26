@@ -18,10 +18,10 @@ class CreatePostsTable extends Migration
             $table->string('title', 1000);
             $table->text('abstract');
             $table->text('content');
+            $table->string('url_thumbnail', 1000);
             $table->timestamps('date');
             $table->boolean('status');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('SET NULL');
-            # $table->timestamps();
         });
     }
 

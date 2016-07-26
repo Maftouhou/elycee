@@ -21,7 +21,6 @@ class CreateResponsesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('choice_id')->references('id')->on('choices')->onDelete('cascade');
             $table->foreign('choice_question_id')->references('question_id')->on('choices')->onDelete('cascade');
-            # $table->timestamps();
         });
     }
 

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Post;
+use App\Picture;
 
 class PostController extends Controller
 {
@@ -17,9 +18,18 @@ class PostController extends Controller
      */
     public function index()
     {
-        $post = Post::all();
+//        $posts = Post::with('user', 'picture');
+        $posts = Post::all();
+        $picture = Picture::all();
         
-        return $post;
+        if ($posts->picture) {
+            return $posts->picture;
+        }else{
+            return $posts;
+        }
+        
+//        return $posts;
+        
     }
 
     /**
