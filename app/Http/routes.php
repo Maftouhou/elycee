@@ -16,12 +16,17 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'api/', 'midleware' => ['web']], function(){
-    Route::resource('post', 'PostController');
     
     Route::any('login', 'LoginController@login');
     Route::any('logout', 'LoginController@logout');
     
-    // Route::match(['get', 'post'], '/index', ['uses' =>'IndexController@index']);
-    // Route::post('auth/login', 'AuthController@login');
+    Route::resource('post', 'PostController');
+    
+    /**
+     * Mettre les Route specifique pour les article 
+     * en page d'accueil et les article en dashbord
+     */
+    Route::group(['midleware' => ['auth']], function(){
+        route::resource('articles', 'PostController');
+    });
 });
-
