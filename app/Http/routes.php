@@ -20,13 +20,13 @@ Route::group(['prefix' => 'api/', 'midleware' => ['web']], function(){
     Route::any('login', 'LoginController@login');
     Route::any('logout', 'LoginController@logout');
     
-    Route::resource('post', 'PostController');
+    Route::resource('articles', 'PostController');
     
     /**
      * Mettre les Route specifique pour les article 
      * en page d'accueil et les article en dashbord
      */
     Route::group(['midleware' => ['auth']], function(){
-        route::resource('articles', 'PostController');
+        route::resource('post', 'PostController');
     });
 });
