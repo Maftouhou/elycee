@@ -41,18 +41,9 @@ class LoginController extends Controller
             $file = file_get_contents('/uploads/users/users.json', true);
             $data = json_decode($file, true);
             
-            foreach ($data['users'] as $d_key => $d_val)
+            foreach ($data['users']['teacher'] as $d_key => $d_val)
             {
-                    # var_dump($data['users'][$d_key]);
-                $class = $d_val[];
-                dd($d_key);
-                
-                foreach ($class as $c_key => $c_value)
-                {
-                    # dd($c_value['username']);
-                }
-//                $result = json_decode($class, true);
-//                dd($data['users'][$d_key]);
+                echo $d_val['username'];
             }
             
             return view('auth.login');
