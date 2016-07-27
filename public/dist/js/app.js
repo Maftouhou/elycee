@@ -113,13 +113,12 @@ angular.module('elycee')
  * Controller of the elycee
  */
 angular.module('elycee')
-  .controller('ContactCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  	.controller('ContactCtrl', function () {
+	    const tl = new TimelineMax({ paused: true, completed: true});
+		  	tl.from($(".bg"), 1.7, { x: "100%", ease: Expo.easeOut }, 0);
+		  	tl.from($(".row"), 1.7, { x: "100%", opacity:0, ease: Expo.easeOut }, 0.2);
+		  	tl.restart(); 
+    });
 
 'use strict';
 

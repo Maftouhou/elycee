@@ -166,7 +166,8 @@
 				.inner_bloc {
 					overflow: hidden;
 					text-align: left;
-					margin: 66px 0;
+					top: 50%;
+    				transform: translateY(-50%);
 					padding-left: 10%;
 					position: absolute;
 					color: white;
