@@ -25,7 +25,7 @@
 
       
         <div class="container">
-            <div class="content" ng-view>
+            <div class="content transition" ng-view>
             </div>
         </div>
 
@@ -44,6 +44,7 @@
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/gsap/src/uncompressed/TimelineMax.js"></script>
     <script src="bower_components/gsap/src/uncompressed/TweenMax.js"></script>
+    <script src="bower_components/angular-ui-router-anim-in-out/anim-in-out.js"></script>
     
     <!-- inject:js -->
     <script src="../dist/js/app.js"></script>

@@ -15,10 +15,11 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'anim-in-out'
   ])
   // .constant('API_URL', 'api/v1/')
-  .config(function ($routeProvider) {
+  .config(function($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: '../app/views/main.html',
@@ -53,4 +54,18 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+  })
+   .animation('.transition', function() {
+    console.log();
+    return {
+      enter: function(element, done) {
+        console.log(element);   
+        TweenMax.from(element, 1, {opacity: 1, onComplete: done}, 0);
+      },
+      leave: function(element, done) { 
+        var colonneright = element[0].children[0].children[0]
+        TweenMax.to(element, 1, {opacity: 0, onComplete: done}, 0);
+         // TweenMax.to(colonneright, 1.7, { right: "-100%", ease: Expo.easeOut, onComplete: done }, 0);
+      }
+    };
   });

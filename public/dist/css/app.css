@@ -377,10 +377,14 @@ Typography, WebFonts
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent; }
 
 html, body {
-  font: 100%/1.5 "MaisonNeue-Book"; }
+  font: 100%/1.5 "MaisonNeue-Book";
+  /*-webkit-font-smoothing: antialiased;*/ }
 
 input, textarea, select, button {
   font: 100%/1.5 "MaisonNeue-Book"; }
@@ -403,20 +407,28 @@ header {
   width: 100%;
   z-index: 3; }
   header ul {
-    margin: 20px 0 0 0;
-    padding: 0 0 0 28px; }
+    margin: 68px 0 0 0;
+    padding: 0 68px 0 68px; }
     header ul li {
       display: inline-block;
       margin-right: 28px;
-      font-size: 14px; }
+      font-size: 10px;
+      float: right; }
       header ul li a {
         color: black;
         opacity: 0.5;
-        font-family: "bagnardregular"; }
-  header ul li:nth-child(4) {
-    float: right; }
-    header ul li:nth-child(4) a {
+        font-family: "MaisonNeue-Bold";
+        text-transform: uppercase;
+        letter-spacing: 0.2px;
+        transition: opacity 1900ms cubic-bezier(0.19, 1, 0.22, 1); }
+      header ul li a:hover {
+        opacity: 1; }
+  header ul li:nth-child(1) {
+    float: left; }
+    header ul li:nth-child(1) a {
       color: black; }
+  header ul li:nth-child(2) {
+    margin-right: 0px; }
 
 .container {
   text-align: center;
@@ -430,17 +442,89 @@ header {
 .title {
   font-size: 96px; }
 
-.col_right {
+#home-page .col_left {
+  position: fixed;
+  width: 70%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  /*background-color: #e8e8e8;*/
+  z-index: -1; }
+  #home-page .col_left .row {
+    z-index: 0;
+    width: 100%;
+    position: relative;
+    height: 100%;
+    top: 0px;
+    left: 0; }
+    #home-page .col_left .row .inner_bloc {
+      text-align: left;
+      position: absolute;
+      bottom: 5%;
+      left: 5%;
+      width: 30%;
+      z-index: 1; }
+      #home-page .col_left .row .inner_bloc h1 {
+        /*text-transform: uppercase;*/
+        font-size: 30px;
+        font-family: "MaisonNeue-Bold"; }
+      #home-page .col_left .row .inner_bloc .mask {
+        height: 100%;
+        width: 83px;
+        padding-top: 0px;
+        overflow: hidden;
+        position: relative; }
+        #home-page .col_left .row .inner_bloc .mask a {
+          overflow: hidden;
+          color: black;
+          font-size: 13px; }
+          #home-page .col_left .row .inner_bloc .mask a:hover::after {
+            content: "";
+            left: 100%;
+            transition: all 700ms cubic-bezier(0.19, 1, 0.22, 1); }
+          #home-page .col_left .row .inner_bloc .mask a:hover::before {
+            content: "";
+            left: 0%;
+            transition: all 700ms cubic-bezier(0.19, 1, 0.22, 1);
+            transition-delay: 0.2s; }
+        #home-page .col_left .row .inner_bloc .mask a::after {
+          content: "";
+          height: 1px;
+          background-color: #000;
+          position: absolute;
+          width: 100%;
+          top: 85%;
+          left: 0%;
+          transition: all 700ms cubic-bezier(0.19, 1, 0.22, 1);
+          transition-delay: 0.2s; }
+        #home-page .col_left .row .inner_bloc .mask a::before {
+          content: "";
+          height: 1px;
+          background-color: #000;
+          position: absolute;
+          width: 100%;
+          top: 85%;
+          left: -100%;
+          transition: all 700ms cubic-bezier(0.19, 1, 0.22, 1); }
+    #home-page .col_left .row .el {
+      /*background-image: url('http://66.media.tumblr.com/77b44de72440728855c2fa3a48d53e1e/tumblr_oatq1hXjnl1smsuzto1_1280.jpg');*/
+      background-size: cover;
+      background-position: center center;
+      width: 100%;
+      height: 100%;
+      top: 0; }
+
+#home-page .col_right {
   position: absolute;
   width: 30%;
-  z-index: 2;
+  z-index: 0;
   right: -100%;
   top: 0;
   min-width: 380px;
   background-color: white;
   letter-spacing: 0.2px;
   transition: all 900ms cubic-bezier(0.19, 1, 0.22, 1); }
-  .col_right:hover {
+  #home-page .col_right:hover {
     position: absolute;
     width: 50%;
     z-index: 2;
@@ -449,36 +533,36 @@ header {
     min-width: 380px;
     background-color: white;
     letter-spacing: 0.2px; }
-  .col_right .title {
+  #home-page .col_right .title {
     font-size: 49px;
     top: 75px;
     position: fixed;
     right: 300px; }
-  .col_right .info {
+  #home-page .col_right .info {
     font-size: 16px;
     line-height: 26px;
     margin: 0 68px 0 29%;
     padding-bottom: 90px;
     padding-top: 158px;
     text-align: left; }
-  .col_right .row {
+  #home-page .col_right .row {
     margin: 0 68px; }
-    .col_right .row a {
+    #home-page .col_right .row a {
       background-color: #e8e8e8;
       height: 175px;
-      margin-bottom: 40px;
+      margin-bottom: 68px;
       overflow: hidden;
       position: relative;
       display: block; }
-      .col_right .row a:hover .el {
+      #home-page .col_right .row a:hover .el {
         transform: scale(1.1); }
-      .col_right .row a:hover .mask {
+      #home-page .col_right .row a:hover .mask {
         background-color: black; }
-      .col_right .row a:hover .inner_bloc {
+      #home-page .col_right .row a:hover .inner_bloc {
         opacity: 1;
         left: 0px;
         transition: all 900ms cubic-bezier(0.19, 1, 0.22, 1); }
-      .col_right .row a .mask {
+      #home-page .col_right .row a .mask {
         background-color: rgba(0, 0, 0, 0.01);
         width: 100%;
         height: 100%;
@@ -487,7 +571,7 @@ header {
         left: 0;
         z-index: 2;
         transition: all 900ms cubic-bezier(0.19, 1, 0.22, 1); }
-      .col_right .row a .inner_bloc {
+      #home-page .col_right .row a .inner_bloc {
         overflow: hidden;
         text-align: left;
         margin: 66px 0;
@@ -500,68 +584,69 @@ header {
         left: 0px;
         transition: opacity 900ms cubic-bezier(0.19, 1, 0.22, 1);
         transition: left 0ms cubic-bezier(0.19, 1, 0.22, 1); }
-        .col_right .row a .inner_bloc h1 {
+        #home-page .col_right .row a .inner_bloc h1 {
           font-size: 13px;
           letter-spacing: 0.2;
           text-transform: uppercase;
           margin: 2px 0; }
-        .col_right .row a .inner_bloc p {
+        #home-page .col_right .row a .inner_bloc p {
           font-size: 13px;
           letter-spacing: 0.2;
           margin: 0;
           opacity: 0.5; }
-      .col_right .row a .el {
-        background-image: url("https://s-media-cache-ak0.pinimg.com/564x/85/6b/b9/856bb956f0dc35657f7b010b5dfdfb5a.jpg");
+      #home-page .col_right .row a .el {
+        /*background-image: url('https://s-media-cache-ak0.pinimg.com/564x/85/6b/b9/856bb956f0dc35657f7b010b5dfdfb5a.jpg');*/
         background-size: cover;
         width: 101%;
         height: 101%;
         transition: all 1900ms cubic-bezier(0.19, 1, 0.22, 1); }
 
-.col_left {
+#about-page .col_left {
   position: fixed;
-  width: 70%;
+  width: 50%;
   height: 100%;
   top: 0;
   left: 0;
   /*background-color: #e8e8e8;*/
   z-index: -1; }
-  .col_left .row {
+  #about-page .col_left .row {
     z-index: 0;
     width: 100%;
     position: relative;
     height: 100%;
     top: 0px;
     left: 0; }
-    .col_left .row .inner_bloc {
+    #about-page .col_left .row .inner_bloc {
       text-align: left;
       position: absolute;
       bottom: 5%;
       left: 5%;
       width: 30%;
       z-index: 1; }
-      .col_left .row .inner_bloc h1 {
+      #about-page .col_left .row .inner_bloc h1 {
         text-transform: uppercase;
         font-size: 90px;
-        line-height: 80px; }
-      .col_left .row .inner_bloc .mask {
+        line-height: 80px;
+        font-family: "MaisonNeue-Bold"; }
+      #about-page .col_left .row .inner_bloc .mask {
         height: 100%;
         width: 102px;
         padding-top: 10px;
         overflow: hidden;
         position: relative; }
-        .col_left .row .inner_bloc .mask a {
+        #about-page .col_left .row .inner_bloc .mask a {
           overflow: hidden;
           color: black; }
-          .col_left .row .inner_bloc .mask a:hover::after {
+          #about-page .col_left .row .inner_bloc .mask a:hover::after {
             content: "";
             left: 100%;
             transition: all 700ms cubic-bezier(0.19, 1, 0.22, 1); }
-          .col_left .row .inner_bloc .mask a:hover::before {
+          #about-page .col_left .row .inner_bloc .mask a:hover::before {
             content: "";
             left: 0%;
             transition: all 700ms cubic-bezier(0.19, 1, 0.22, 1);
             transition-delay: 0.2s; }
-        .col_left .row .inner_bloc .mask a::after {
+        #about-page .col_left .row .inner_bloc .mask a::after {
           content: "";
           height: 1px;
           background-color: #000;
@@ -571,7 +656,7 @@ header {
           left: 0%;
           transition: all 700ms cubic-bezier(0.19, 1, 0.22, 1);
           transition-delay: 0.2s; }
-        .col_left .row .inner_bloc .mask a::before {
+        #about-page .col_left .row .inner_bloc .mask a::before {
           content: "";
           height: 1px;
           background-color: #000;
@@ -580,10 +665,154 @@ header {
           top: 81%;
           left: -100%;
           transition: all 700ms cubic-bezier(0.19, 1, 0.22, 1); }
-    .col_left .row .el {
-      background-image: url("http://66.media.tumblr.com/77b44de72440728855c2fa3a48d53e1e/tumblr_oatq1hXjnl1smsuzto1_1280.jpg");
+    #about-page .col_left .row .el {
+      /*background-image: url('http://66.media.tumblr.com/77b44de72440728855c2fa3a48d53e1e/tumblr_oatq1hXjnl1smsuzto1_1280.jpg');*/
       background-size: cover;
       background-position: center center;
       width: 100%;
       height: 100%;
       top: 0; }
+
+#about-page .col_right {
+  position: absolute;
+  width: 50%;
+  z-index: 0;
+  right: -100%;
+  top: 0;
+  min-width: 380px;
+  background-color: white;
+  letter-spacing: 0.2px;
+  transition: all 900ms cubic-bezier(0.19, 1, 0.22, 1); }
+  #about-page .col_right .title {
+    font-size: 49px;
+    top: 75px;
+    position: fixed;
+    right: 300px; }
+  #about-page .col_right .info {
+    font-size: 40px;
+    line-height: 26px;
+    margin: 0 68px 0 29%;
+    padding-bottom: 90px;
+    padding-top: 158px;
+    text-align: left;
+    font-family: "MaisonNeue-Bold";
+    line-height: 40px; }
+  #about-page .col_right .row {
+    margin: 0 68px; }
+    #about-page .col_right .row a {
+      background-color: #e8e8e8;
+      height: 175px;
+      margin-bottom: 68px;
+      overflow: hidden;
+      position: relative;
+      display: block; }
+      #about-page .col_right .row a:hover .el {
+        transform: scale(1.1); }
+      #about-page .col_right .row a:hover .mask {
+        background-color: black; }
+      #about-page .col_right .row a:hover .inner_bloc {
+        opacity: 1;
+        left: 0px;
+        transition: all 900ms cubic-bezier(0.19, 1, 0.22, 1); }
+      #about-page .col_right .row a .mask {
+        background-color: rgba(0, 0, 0, 0.01);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        transition: all 900ms cubic-bezier(0.19, 1, 0.22, 1); }
+      #about-page .col_right .row a .inner_bloc {
+        overflow: hidden;
+        text-align: left;
+        margin: 66px 0;
+        padding-left: 10%;
+        position: absolute;
+        color: white;
+        -webkit-font-smoothing: antialiased;
+        opacity: 0;
+        z-index: 3;
+        left: 0px;
+        transition: opacity 900ms cubic-bezier(0.19, 1, 0.22, 1);
+        transition: left 0ms cubic-bezier(0.19, 1, 0.22, 1); }
+        #about-page .col_right .row a .inner_bloc h1 {
+          font-size: 13px;
+          letter-spacing: 0.2;
+          text-transform: uppercase;
+          margin: 2px 0; }
+        #about-page .col_right .row a .inner_bloc p {
+          font-size: 13px;
+          letter-spacing: 0.2;
+          margin: 0;
+          opacity: 0.5; }
+      #about-page .col_right .row a .el {
+        /*background-image: url('https://s-media-cache-ak0.pinimg.com/564x/85/6b/b9/856bb956f0dc35657f7b010b5dfdfb5a.jpg');*/
+        background-size: cover;
+        width: 101%;
+        height: 101%;
+        transition: all 1900ms cubic-bezier(0.19, 1, 0.22, 1); }
+
+#login-page a {
+  font-family: "MaisonNeue-Book";
+  font-size: 10px;
+  text-transform: uppercase;
+  top: 68px;
+  left: 68px;
+  color: white;
+  position: absolute;
+  z-index: 3; }
+
+#login-page .row {
+  text-align: left;
+  transform: translate(50%, -50%);
+  right: 50%;
+  top: 50%;
+  position: absolute;
+  width: 388px;
+  height: 355px;
+  z-index: 3; }
+  #login-page .row h3 {
+    font-family: "MaisonNeue-Bold";
+    font-size: 16px;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 65px; }
+  #login-page .row .input-email {
+    font-size: 35px;
+    margin-bottom: 65px; }
+  #login-page .row .input-password {
+    font-size: 35px;
+    margin-bottom: 65px; }
+  #login-page .row .underline {
+    border-bottom: 5px solid #262626;
+    padding-bottom: 0px; }
+  #login-page .row input, #login-page .row button:focus {
+    outline: 0 !important; }
+    #login-page .row input:focus.underline, #login-page .row button:focus:focus.underline {
+      border-bottom: 5px solid white;
+      padding-bottom: 0px; }
+  #login-page .row ::-webkit-input-placeholder {
+    opacity: 0.25;
+    color: white; }
+  #login-page .row button, #login-page .row input {
+    font-family: "MaisonNeue-Bold";
+    border: none;
+    background: none;
+    color: white;
+    transition: all 700ms cubic-bezier(0.19, 1, 0.22, 1); }
+  #login-page .row button {
+    font-size: 10px;
+    opacity: 0.25;
+    cursor: pointer; }
+    #login-page .row button:hover {
+      opacity: 1; }
+
+#login-page .bg {
+  background-color: black;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  top: 0;
+  left: 0; }
