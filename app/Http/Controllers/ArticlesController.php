@@ -8,7 +8,7 @@ use App\Http\Requests;
 
 use App\Post;
 
-class PostController extends Controller
+class ArticlesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -40,7 +40,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        
+        //
     }
 
     /**
@@ -51,9 +51,6 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        /**
-         * Prevoire un message en cas d'un Article innexistant
-         */
         $singlePost = Post::find($id);
         
         return $singlePost;
@@ -67,9 +64,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $editPost = Post::find($id);
-        
-        return $editPost;
+        //
     }
 
     /**
