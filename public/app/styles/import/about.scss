@@ -1,7 +1,7 @@
-#home-page {
+#about-page {
 	.col_left {
 		position: fixed;
-		width: 70%;
+		width: 50%;
 		height: 100%;
 		top: 0;
 		left: 0;	/*background-color: #e8e8e8;*/
@@ -24,21 +24,21 @@
 				z-index: 1;
 
 				h1 {
-					/*text-transform: uppercase;*/
-					font-size: 30px;
+					text-transform: uppercase;
+					font-size: 90px;
+					line-height: 80px;
 					font-family: $maisonBold;
 				}
 				.mask {
 					height: 100%;
-					width: 83px;
-					padding-top: 0px;
+					width: 102px;
+					padding-top: 10px;
 					overflow: hidden;
 					position: relative;
 
 					a {
 						overflow: hidden;
 						color: black;
-						font-size: 13px;
 
 						&:hover::after {
 							content: "";
@@ -58,7 +58,7 @@
 						background-color: #000;
 						position: absolute;
 						width: 100%;
-						top: 85%;
+						top: 81%;
 						left: 0%;
 						transition: all 700ms $easeOutExpo;
 						transition-delay: 0.2s;
@@ -69,7 +69,7 @@
 						background-color: #000;
 						position: absolute;
 						width: 100%;
-						top: 85%;
+						top: 81%;
 						left: -100%;
 						transition: all 700ms $easeOutExpo;
 					}
@@ -88,7 +88,7 @@
 	}
 	.col_right {
 		position: absolute;
-		width: 30%;
+		width: 50%;
 		z-index: 0;
 		right: -100%;
 		top: 0;
@@ -97,16 +97,6 @@
 		letter-spacing: 0.2px;
 		transition: all 900ms cubic-bezier(.19, 1, .22, 1);
 
-		&:hover {
-			position: absolute;
-			width: 50%;
-			z-index: 2;
-			right: 0;
-			top: 0;
-			min-width: 380px;
-			background-color: white;
-			letter-spacing: 0.2px;
-		}
 		.title {
 			font-size: 49px;
 			top: 75px;
@@ -114,29 +104,33 @@
 			right: 300px;
 		}
 		.info {
-			font-size: 16px;
+			font-size: 40px;
 			line-height: 26px;
 			margin: 0 68px 0 29%;
 			padding-bottom: 90px;
 			padding-top: 158px;
 			text-align: left;
+			font-family: $maisonBold;
+			line-height: 40px;
 		}
 		.row {
-			margin: 0 68px;
+			// margin: 0 68px;
 
 			a {
 				background-color: #e8e8e8;
-				height: 175px;
-				margin-bottom: 68px;
+				
+				margin-bottom: 100px;
 				overflow: hidden;
 				position: relative;
 				display: block;
 
 				&.right {
+					height: 475px;
 					width: 100%;
 					margin-left: 65%;
 				}
 				&.left {
+					height: 175px;
 					width: 50%;
 					margin-left: 15%;
 				}
@@ -166,7 +160,8 @@
 				.inner_bloc {
 					overflow: hidden;
 					text-align: left;
-					margin: 66px 0;
+					top: 50%;
+    				transform: translateY(-50%);
 					padding-left: 10%;
 					position: absolute;
 					color: white;

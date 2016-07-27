@@ -1,26 +1,30 @@
-<div class="col_right">
-	<div class="title"></div>
-	<div class="info">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-	<div class="row">
-		<a href="" ng-repeat="post in posts">
-			<span class="mask"></span>
-			<div class="inner_bloc">
-				<h1>{{ post.title }}</h1>
-				<p>Dolor sit</p>
-			</div>
-			<div class="el"></div>
-		</a>
+<div id="home-page" class="transition">
+	<div class="col_right">
+		<div class="title"></div>
+		<div class="info">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+		<div class="row">
+			<a href="" class="{{['right', 'left'][$index %2]}}" ng-repeat="post in posts">
+				<span class="mask"></span>
+				<div class="inner_bloc">
+					<h1>{{ post.title }}</h1>
+					<p>Dolor sit</p>
+				</div>
+				<div class="el" style="background-image:url('/uploads/{{ post.url_thumbnail }}')"></div>
+			</a>
+		</div>
+		<span class="bg"></span>
 	</div>
-</div>
-<div class="col_left">
-	<div class="row">
-			<div class="inner_bloc">
-			<h1>lorem ipsum dolor sit amet</h1>
-			<div class="mask">
-			<a href="">En savoir plus</a>
-			</div>
-			</div>
-			<div class="el"></div>
+	<div class="col_left">
+		<div class="row">
+				<div class="inner_bloc">
+				<h1>Miss</h1>
+				<div class="mask">
+				<a href="">En savoir plus</a>
+				</div>
+				</div>
+				<div class="el" style="background-image:url('http://66.media.tumblr.com/77b44de72440728855c2fa3a48d53e1e/tumblr_oatq1hXjnl1smsuzto1_1280.jpg')"></div>
+
+		</div>
 	</div>
 </div>
 
