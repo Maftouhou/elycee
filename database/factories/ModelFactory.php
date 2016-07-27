@@ -12,15 +12,15 @@
 */
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
-    $file = file_get_contents('/public/uploads/users/users.json', true);
+    $file = file_get_contents('./public/uploads/users/users.json', true);
     $data = json_decode($file, true);
 
-    foreach ($data['users']['terminal'] as $d_key => $d_val)
+    foreach ($data['users']['teacher'] as $d_key => $d_val)
     {
         return [
             'username'      => $d_val['username'],
             'password'      => Hash::make('pass'),
-            'role'          => 'terminal',
+            'role'          => 'teacher',
             'remember_token'=> str_random(10),
         ];
     }
@@ -43,7 +43,7 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
     );
     
     return [
-        'user_id'       => rand(1, 6),
+        'user_id'       => rand(1, 1),
         'title'         => $faker->title,
         'abstract'      => $faker->paragraph(2),
         'content'       => $faker->paragraph(5),
@@ -54,7 +54,7 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Comment::class, function (Faker\Generator $faker) {
     return [
-        'post_id'       => rand(1, 30),
+        'post_id'       => rand(1, 1),
         'title'         => $faker->title,
         'content'       => $faker->paragraph(2),
         'status'        => rand(1, 2),

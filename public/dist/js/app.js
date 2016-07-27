@@ -82,7 +82,7 @@ angular.module('elycee')
   .controller('AboutCtrl', function ($scope, $http) {
 
 
-  	 $http.get("api/post")
+  	 $http.get("api/articles")
       .success(function(data) {
         $scope.posts = data;
         console.log($scope.posts);

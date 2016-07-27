@@ -88,6 +88,7 @@
 	}
 	.col_right {
 		position: absolute;
+		overflow: hidden;
 		width: 50%;
 		z-index: 0;
 		right: -100%;

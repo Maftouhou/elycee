@@ -516,6 +516,7 @@ header {
 
 #home-page .col_right {
   position: absolute;
+  overflow: hidden;
   width: 30%;
   z-index: 0;
   right: -100%;
@@ -682,6 +683,7 @@ header {
 
 #about-page .col_right {
   position: absolute;
+  overflow: hidden;
   width: 50%;
   z-index: 0;
   right: -100%;
@@ -766,17 +768,17 @@ header {
       height: 101%;
       transition: all 1900ms cubic-bezier(0.19, 1, 0.22, 1); }
 
-#login-page a {
+#contact-page a {
   font-family: "MaisonNeue-Book";
   font-size: 10px;
   text-transform: uppercase;
   top: 68px;
   left: 68px;
   color: white;
-  position: absolute;
+  position: fixed;
   z-index: 3; }
 
-#login-page .row {
+#contact-page .row {
   text-align: left;
   transform: translate(50%, -50%);
   right: 50%;
@@ -785,50 +787,61 @@ header {
   width: 388px;
   height: 355px;
   z-index: 3; }
-  #login-page .row h3 {
+  #contact-page .row h3 {
     font-family: "MaisonNeue-Bold";
     font-size: 16px;
     text-transform: uppercase;
     color: white;
     margin-bottom: 65px; }
-  #login-page .row .input-email {
-    font-size: 35px;
+  #contact-page .row .input-email {
+    border: none;
+    font-size: 16px;
     margin-bottom: 65px; }
-  #login-page .row .input-password {
-    font-size: 35px;
+  #contact-page .row .input-password {
+    border: none;
+    font-size: 16px;
     margin-bottom: 65px; }
-  #login-page .row .underline {
+  #contact-page .row .underline {
     border-bottom: 5px solid #262626;
     padding-bottom: 0px; }
-  #login-page .row label {
+  #contact-page .row .input-text {
+    font-size: 16px;
+    margin-bottom: 65px; }
+  #contact-page .row label {
     color: #fff;
     font-size: 13px;
     opacity: 0.3; }
-  #login-page .row textarea#message {
-    padding-bottom: 0;
-    width: 100%; }
-  #login-page .row input, #login-page .row button:focus {
-    outline: 0 !important; }
-    #login-page .row input:focus.underline, #login-page .row button:focus:focus.underline {
-      border-bottom: 5px solid white;
-      padding-bottom: 0px; }
-  #login-page .row ::-webkit-input-placeholder {
+  #contact-page .row textarea {
+    height: 210px;
+    width: 100%;
+    padding: 16px;
+    border: 5px solid #262626;
+    background: none;
+    color: white; }
+  #contact-page .row input::-webkit-input-placeholder, #contact-page .row textarea::-webkit-input-placeholder {
     opacity: 0.25;
     color: white; }
-  #login-page .row button, #login-page .row input {
+  #contact-page .row textarea, #contact-page .row input, #contact-page .row button:focus {
+    outline: 0 !important; }
+    #contact-page .row textarea:focus.underline, #contact-page .row input:focus.underline, #contact-page .row button:focus:focus.underline {
+      border-bottom: 5px solid white;
+      padding-bottom: 0px; }
+  #contact-page .row textarea, #contact-page .row button, #contact-page .row input {
     font-family: "MaisonNeue-Bold";
-    border: none;
     background: none;
     color: white;
+    width: 100%;
     transition: all 700ms cubic-bezier(0.19, 1, 0.22, 1); }
-  #login-page .row button {
+  #contact-page .row button {
     font-size: 10px;
     opacity: 0.25;
-    cursor: pointer; }
-    #login-page .row button:hover {
+    cursor: pointer;
+    border: none;
+    margin-bottom: 65px; }
+    #contact-page .row button:hover {
       opacity: 1; }
 
-#login-page .bg {
+#contact-page .bg {
   background-color: black;
   position: fixed;
   width: 100%;
@@ -844,7 +857,7 @@ header {
   top: 68px;
   left: 68px;
   color: white;
-  position: absolute;
+  position: fixed;
   z-index: 3; }
 
 #login-page .row {

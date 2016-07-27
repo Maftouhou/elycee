@@ -1,4 +1,4 @@
-#login-page {
+#contact-page {
 	a {
 		font-family: $font;
 		font-size: 10px;
@@ -6,7 +6,7 @@
 		top: 68px;
 		left: 68px;
 		color: white;
-		position: absolute;
+		position: fixed;
 		z-index: 3;
 	}
 	.row {
@@ -27,27 +27,41 @@
 			margin-bottom: 65px;
 		}
 		.input-email {
-			font-size: 35px;
+			border: none;
+			font-size: 16px;
 			margin-bottom: 65px;
 		}
 		.input-password {
-			font-size: 35px;
+			border: none;
+			font-size: 16px;
 			margin-bottom: 65px;
 		}
 		.underline {
 			border-bottom: 5px solid #262626;
 			padding-bottom: 0px;
 		}
+		.input-text{
+			font-size: 16px;
+			margin-bottom: 65px;
+		}
 		label {
 			color: #fff;
 			font-size: 13px;
 			opacity: 0.3;
 		}
-		textarea#message {
-			padding-bottom: 0;
+		textarea {
+			height: 210px;
 			width: 100%;
+			padding: 16px;
+			border: 5px solid #262626;
+			background: none;
+			color: white;
 		}
-		input, button:focus {
+		input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+			opacity: 0.25;
+			color: white;
+		}
+		textarea, input, button:focus {
 			outline: 0 !important;
 
 			&:focus.underline {
@@ -55,21 +69,19 @@
 				padding-bottom: 0px;
 			}
 		}
-		::-webkit-input-placeholder {
-			opacity: 0.25;
-			color: white;
-		}
-		button, input {
+		textarea, button, input {
 			font-family: $maisonBold;
-			border: none;
 			background: none;
 			color: white;
+			width: 100%;
 			transition: all 700ms $easeOutExpo;
 		}
 		button {
 			font-size: 10px;
 			opacity: 0.25;
 			cursor: pointer;
+			border: none;
+			margin-bottom: 65px;
 
 			&:hover {
 				opacity: 1;
