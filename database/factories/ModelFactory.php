@@ -12,17 +12,24 @@
 */
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
-    return [
-        'username'      => $faker->userName,
-        'password'      => bcrypt(str_random(10)),
-        'role'          => $faker->word,
-        'remember_token'=> str_random(10),
-    ];
+    $file = file_get_contents('/public/uploads/users/users.json', true);
+    $data = json_decode($file, true);
+
+    foreach ($data['users']['terminal'] as $d_key => $d_val)
+    {
+        return [
+            'username'      => $d_val['username'],
+            'password'      => Hash::make('pass'),
+            'role'          => 'terminal',
+            'remember_token'=> str_random(10),
+        ];
+    }
+
 });
         
 $factory->define(App\Post::class, function (Faker\Generator $faker) {
 
-    $dirUpload = public_path(env('UPLOAD_PICTURE', 'uploads'));
+    $dirUpload = public_path(env('UPLOAD_PICTURE', 'uploads'.DIRECTORY_SEPARATOR.'images'));
     
     $files = File::allFiles($dirUpload);
     
@@ -47,6 +54,7 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Comment::class, function (Faker\Generator $faker) {
     return [
+        'post_id'       => rand(1, 30),
         'title'         => $faker->title,
         'content'       => $faker->paragraph(2),
         'status'        => rand(1, 2),
