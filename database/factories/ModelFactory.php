@@ -54,6 +54,7 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Comment::class, function (Faker\Generator $faker) {
     return [
+        'post_id'       => rand(1, 30),
         'title'         => $faker->title,
         'content'       => $faker->paragraph(2),
         'status'        => rand(1, 2),
