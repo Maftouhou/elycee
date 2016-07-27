@@ -23,10 +23,9 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $factory->define(App\Post::class, function (Faker\Generator $faker) {
 
     $dirUpload = public_path(env('UPLOAD_PICTURE', 'uploads'));
+    
     $files = File::allFiles($dirUpload);
-    foreach($files as $file) {
-        File::delete($file);
-    }
+    
     $uri = str_random(10).'_370x235.jpg';
     $id = rand(1,9);
     $fileName = file_get_contents("http://lorempicsum.com/futurama/370/235/$id");
