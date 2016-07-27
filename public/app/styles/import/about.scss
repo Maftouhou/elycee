@@ -114,16 +114,26 @@
 			line-height: 40px;
 		}
 		.row {
-			margin: 0 68px;
+			// margin: 0 68px;
 
 			a {
 				background-color: #e8e8e8;
-				height: 175px;
-				margin-bottom: 68px;
+				
+				margin-bottom: 100px;
 				overflow: hidden;
 				position: relative;
 				display: block;
 
+				&.right {
+					height: 475px;
+					width: 100%;
+					margin-left: 65%;
+				}
+				&.left {
+					height: 175px;
+					width: 50%;
+					margin-left: 15%;
+				}
 				&:hover {
 					.el {
 						transform: scale(1.1);
@@ -150,7 +160,8 @@
 				.inner_bloc {
 					overflow: hidden;
 					text-align: left;
-					margin: 66px 0;
+					top: 50%;
+    				transform: translateY(-50%);
 					padding-left: 10%;
 					position: absolute;
 					color: white;

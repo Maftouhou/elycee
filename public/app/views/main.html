@@ -3,7 +3,7 @@
 		<div class="title"></div>
 		<div class="info">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
 		<div class="row">
-			<a href="" ng-repeat="post in posts">
+			<a href="" class="{{['right', 'left'][$index %2]}}" ng-repeat="post in posts">
 				<span class="mask"></span>
 				<div class="inner_bloc">
 					<h1>{{ post.title }}</h1>
@@ -12,7 +12,7 @@
 				<div class="el" style="background-image:url('/uploads/{{ post.url_thumbnail }}')"></div>
 			</a>
 		</div>
-		<span class="white"></span>
+		<span class="bg"></span>
 	</div>
 	<div class="col_left">
 		<div class="row">
