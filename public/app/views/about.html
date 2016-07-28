@@ -3,11 +3,10 @@
 		<div class="title"></div>
 		<div class="info">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
 		<div class="row">
-			<a href="" class="{{['right', 'left'][$index %2]}}" ng-repeat="post in posts">
+			<a href="" class="{{['right', 'left'][$index %2]}}" ng-mouseenter="show()" ng-mouseleave="hide()" ng-repeat="post in posts">
 				<span class="mask"></span>
 				<div class="inner_bloc">
 					<h1>{{ post.title }}</h1>
-					<p>Dolor sit</p>
 				</div>
 				<div class="el" style="background-image:url('/uploads/images/{{ post.url_thumbnail }}')"></div>
 			</a>
@@ -15,12 +14,8 @@
 		<span class="bg"></span>
 	</div>
 	<div class="col_left">
-		<div class="row">
-				<div class="inner_bloc">
-				</div>
-				<div class="el" style="background-image:url('http://66.media.tumblr.com/77b44de72440728855c2fa3a48d53e1e/tumblr_oatq1hXjnl1smsuzto1_1280.jpg')"></div>
-
-		</div>
+		<div class="row"></div>
+		<div class="new"></div>
 	</div>
 </div>
 

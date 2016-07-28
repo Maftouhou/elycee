@@ -79,27 +79,41 @@ angular
  * Controller of the elycee
  */
 angular.module('elycee')
-  .controller('AboutCtrl', function ($scope, $http) {
+  	.controller('AboutCtrl', function ($scope, $http) {
 
 
-  	 $http.get("api/articles")
-      .success(function(data) {
-        $scope.posts = data;
-        console.log($scope.posts);
-      });
+  	 	$http.get("api/articles")
+      		.success(function(data) {
+        		$scope.posts = data;
+        		console.log($scope.posts);
+      	});
 
 
+	    $scope.show = function(){
+			$(".col_left .row").html('<div class="el" style="background-image:url(\'/uploads/images/'+this.post.url_thumbnail+'\')"></div>');
+			TweenLite.from($(".col_left .row"), 1, { opacity: 0, scale: 1.1, ease: Expo.easeOut});
+			TweenLite.to($(".col_left .row"), 1, { opacity: 1, scale: 1, ease: Expo.easeOut });
+			TweenLite.to($(".col_left .new"), 1, { opacity: 0, scale: 1, ease: Expo.easeOut });
+			console.log(this.post.url_thumbnail);
+		};
+		$scope.hide = function(){
+			TweenLite.to($(".col_left .row"), 1, { opacity: 0, scale: 1, ease: Expo.easeOut });
+			TweenLite.from($(".col_left .new"), 1, { opacity: 0, scale: 1.1, ease: Expo.easeOut });
+			TweenLite.to($(".col_left .new"), 1, { opacity: 1, scale: 1, ease: Expo.easeOut });
+			console.log(this.post);
+		};
 
-    const tl = new TimelineMax({ paused: true, completed: true});
 
-  	tl.to($(".col_right"), 1.7, { right: "0%", ease: Expo.easeOut }, 0);
-  	tl.from($(".info"), 1, { opacity: 0, x: "10%", ease: Expo.easeOut }, 1.8);
-  	tl.from($(".row"), 1, { opacity: 0, x: "10%", ease: Expo.easeOut }, 2);
+	    const tl = new TimelineMax({ paused: true, completed: true});
 
-  	tl.from($(".el"), 1.7, { opacity: 0, scale: 1.2 }, 2.2);
-  	tl.from($(".col_left h1"), 1, { opacity: 0, x: "-10%", ease: Expo.easeOut }, 3.8);
-  	tl.from($(".col_left .mask"), 1, { opacity: 0, x: "-10%", ease: Expo.easeOut }, 4);
-  	tl.restart();   
+	  	tl.to($(".col_right"), 1.7, { right: "0%", ease: Expo.easeOut }, 0);
+	  	tl.from($(".info"), 1, { opacity: 0, x: "10%", ease: Expo.easeOut }, 1.8);
+	  	tl.from($(".row"), 1, { opacity: 0, x: "10%", ease: Expo.easeOut }, 2);
+
+	  	tl.from($(".col_left .new"), 1.7, { opacity: 0, scale: 1.2 }, 2.2);
+	  	tl.from($(".col_left h1"), 1, { opacity: 0, x: "-10%", ease: Expo.easeOut }, 3.8);
+	  	tl.from($(".col_left .mask"), 1, { opacity: 0, x: "-10%", ease: Expo.easeOut }, 4);
+	  	tl.restart();   
 
   })
 
@@ -161,30 +175,43 @@ angular.module('elycee')
  * Controller of the elycee
  */
 angular.module('elycee')
-  .controller('MainCtrl', function($scope, $http) {
+    .controller('MainCtrl', function($scope, $http) {
   
     // $scope.message = 'This is the home view.';
 
-    $http.get("api/post")
-      .success(function(data) {
-        $scope.posts = data;
-        console.log($scope.posts);
-      });
+	    $http.get("api/post")
+	        .success(function(data) {
+		        $scope.posts = data;
+		        console.log($scope.posts);
+	    });
 
-    // $('.col_right').hover( function(){
-    // 	console.log("hello");
-    // })
 
-  	const tl = new TimelineMax({ paused: true, completed: true});
+	    $scope.show = function(){
+			// this.hoverEdit = true;
+			$(".col_left .row").html('<div class="el" style="background-image:url(\'/uploads/images/'+this.post.url_thumbnail+'\')"></div>');
+			TweenLite.from($(".col_left .row"), 1, { opacity: 0, scale: 1.1, ease: Expo.easeOut});
+			TweenLite.to($(".col_left .row"), 1, { opacity: 1, scale: 1, ease: Expo.easeOut });
+			TweenLite.to($(".col_left .new"), 1, { opacity: 0, scale: 1, ease: Expo.easeOut });
+			console.log(this.post.url_thumbnail);
+		};
+		$scope.hide = function(){
+			// this.hoverEdit = true;
+			TweenLite.to($(".col_left .row"), 1, { opacity: 0, scale: 1.1, ease: Expo.easeOut });
+			TweenLite.from($(".col_left .new"), 1, { opacity: 0, scale: 1.1, ease: Expo.easeOut });
+			TweenLite.to($(".col_left .new"), 1, { opacity: 1, scale: 1, ease: Expo.easeOut });
+			console.log(this.post);
+		};
 
-  	tl.to($(".col_right"), 1.7, { right: "0%", ease: Expo.easeOut }, 0);
-  	tl.from($(".info"), 1, { opacity: 0, x: "10%", ease: Expo.easeOut }, 1.8);
-  	tl.from($(".row"), 1, { opacity: 0, x: "10%", ease: Expo.easeOut }, 2);
+	  	const tl = new TimelineMax({ paused: true, completed: true});
 
-  	tl.from($(".el"), 1.7, { opacity: 0, scale: 1.2 }, 2.2);
-  	tl.from($(".col_left h1"), 1, { opacity: 0, x: "-10%", ease: Expo.easeOut }, 3.8);
-  	tl.from($(".col_left .mask"), 1, { opacity: 0, x: "-10%", ease: Expo.easeOut }, 4);
-  	tl.restart();   
+	  	tl.to($(".col_right"), 1.7, { right: "0%", ease: Expo.easeOut }, 0);
+	  	tl.from($(".info"), 1, { opacity: 0, x: "10%", ease: Expo.easeOut }, 1.8);
+	  	tl.from($(".row"), 1, { opacity: 0, x: "10%", ease: Expo.easeOut }, 2);
+
+	  	tl.from($(".col_left .new"), 1.7, { opacity: 0, scale: 1.2 }, 2.2);
+	  	tl.from($(".col_left h1"), 1, { opacity: 0, x: "-10%", ease: Expo.easeOut }, 3.8);
+	  	tl.from($(".col_left .mask"), 1, { opacity: 0, x: "-10%", ease: Expo.easeOut }, 4);
+	  	tl.restart();   
 
   })
 

@@ -513,6 +513,16 @@ header {
       width: 100%;
       height: 100%;
       top: 0; }
+  #home-page .col_left .new {
+    position: absolute;
+    background-image: url("/uploads/6fe5fcf2cb587b9a5f73d423bd4c26f0.jpg");
+    background-size: cover;
+    background-position: center center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; }
 
 #home-page .col_right {
   position: absolute;
@@ -540,12 +550,14 @@ header {
     position: fixed;
     right: 300px; }
   #home-page .col_right .info {
-    font-size: 16px;
+    font-size: 40px;
     line-height: 26px;
     margin: 0 68px 0 29%;
     padding-bottom: 90px;
     padding-top: 158px;
-    text-align: left; }
+    text-align: left;
+    font-family: "MaisonNeue-Bold";
+    line-height: 40px; }
   #home-page .col_right .row {
     margin: 0 68px; }
     #home-page .col_right .row a {
@@ -680,6 +692,16 @@ header {
       width: 100%;
       height: 100%;
       top: 0; }
+  #about-page .col_left .new {
+    position: absolute;
+    background-image: url("http://67.media.tumblr.com/170688abf0a46a7478e56ea6c645d104/tumblr_o0jctqm5Kk1u3acd7o1_1280.jpg");
+    background-size: cover;
+    background-position: center center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; }
 
 #about-page .col_right {
   position: absolute;
@@ -714,7 +736,7 @@ header {
     display: block; }
     #about-page .col_right .row a.right {
       height: 475px;
-      width: 100%;
+      width: 35%;
       margin-left: 65%; }
     #about-page .col_right .row a.left {
       height: 175px;
@@ -739,10 +761,11 @@ header {
       transition: all 900ms cubic-bezier(0.19, 1, 0.22, 1); }
     #about-page .col_right .row a .inner_bloc {
       overflow: hidden;
-      text-align: left;
+      text-align: center;
       top: 50%;
       transform: translateY(-50%);
-      padding-left: 10%;
+      width: 100%;
+      margin: 0 auto;
       position: absolute;
       color: white;
       -webkit-font-smoothing: antialiased;
@@ -755,7 +778,7 @@ header {
         font-size: 13px;
         letter-spacing: 0.2;
         text-transform: uppercase;
-        margin: 2px 0; }
+        margin: 0 auto; }
       #about-page .col_right .row a .inner_bloc p {
         font-size: 13px;
         letter-spacing: 0.2;
