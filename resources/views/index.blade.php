@@ -17,9 +17,9 @@
     	<header>
             <ul class="nav navbar-nav">
               <li><a href="#/">e-l</a></li>
-              <li><a href="#/about">Le lycée</a></li>
-              <li><a href="#/contact">Contact</a></li>
               <li><a href="#/login">Login</a></li>
+              <li><a href="#/contact">Contact</a></li>
+              <li><a href="#/about">Le lycée</a></li>
             </ul>
         </header>
 
@@ -44,7 +44,6 @@
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/gsap/src/uncompressed/TimelineMax.js"></script>
     <script src="bower_components/gsap/src/uncompressed/TweenMax.js"></script>
-    <script src="bower_components/angular-ui-router-anim-in-out/anim-in-out.js"></script>
     
     <!-- inject:js -->
     <script src="../dist/js/app.js"></script>
