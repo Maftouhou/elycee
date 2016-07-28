@@ -110,20 +110,26 @@
 		transition: all 900ms cubic-bezier(.19, 1, .22, 1);
 
 		.title {
-			font-size: 49px;
-			top: 75px;
-			position: fixed;
-			right: 300px;
+			font-size: 40px;
+		    margin: 0 68px 0 29%;
+		    padding-top: 180px;
+		    text-align: left;
+		    line-height: 40px;
+		    font-family: $maisonBold;
 		}
 		.info {
 			font-size: 40px;
-			line-height: 26px;
-			margin: 0 68px 0 29%;
-			padding-bottom: 90px;
-			padding-top: 158px;
-			text-align: left;
+		    margin: 0 68px 0 29%;
+		    padding-top: 35px;
+		    text-align: left;
+		    line-height: 40px;
 			font-family: $maisonBold;
-			line-height: 40px;
+		}
+		.date{
+			font-size: 10px;
+		    text-align: left;
+		    margin: 0 68px 0 29%;
+		    padding: 35px 0 90px;
 		}
 		.row {
 			// margin: 0 68px;
