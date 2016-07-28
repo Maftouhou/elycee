@@ -166,7 +166,7 @@ angular.module('elycee')
   
     // $scope.message = 'This is the home view.';
 
-    $http.get("api/post")
+    $http.get("api/articles")
       .success(function(data) {
         $scope.posts = data;
         console.log($scope.posts);
