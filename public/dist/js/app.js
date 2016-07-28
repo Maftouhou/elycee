@@ -207,12 +207,6 @@ angular.module('elycee')
 
 		$scope.val = function() {
 			console.log(this.post.id);
-             // var ide = id.eventPhase;
-             // console.log(id); // I want to get 102 as the result
-            //  if (confirm('Are you sure to delete?')) {
-            //     $('#contactsGrid tr[data-id="' + id + '"]').hide('slow');
-
-            // }
             $rootScope.id = this.post.id ;
          };
 
@@ -257,7 +251,7 @@ angular.module('elycee')
 angular.module('elycee')
   	.controller('SingleCtrl', function ($scope, $http, $rootScope) {
 
-  	 	$http.get("api/articles/:id")
+  	 	$http.get("api/articles\/"+ $rootScope.id +"\"")
       		.success(function(data) {
         		$scope.post = data;
         		// console.log($rootScope.id);
@@ -282,7 +276,8 @@ angular.module('elycee')
 	  	tl.to(".col_right", 1.7, { right: "0%", ease: Expo.easeOut }, 0);
 	  	tl.from(".info", 1, { opacity: 0, x: "10%", ease: Expo.easeOut }, 1.8);
 	  	tl.from(".row", 1, { opacity: 0, x: "10%", ease: Expo.easeOut }, 2);
-	  	// tl.from(".col_left .new", 1.7, { opacity: 0, scale: 1.2 }, 2.2);
+	  	tl.from(".col_left .solo", 1.7, { opacity: 0, scale: 1.2 }, 2.2);
+	  	tl.to(".col_left .solo", 1.7, { opacity: 1, scale: 1 }, 2.2);
 	  	tl.from(".col_left h1", 1, { opacity: 0, x: "-10%", ease: Expo.easeOut }, 3.8);
 	  	tl.from(".col_left .mask", 1, { opacity: 0, x: "-10%", ease: Expo.easeOut }, 4);
 	  	tl.restart();   

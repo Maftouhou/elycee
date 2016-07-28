@@ -20,12 +20,6 @@ angular.module('elycee')
 
 		$scope.val = function() {
 			console.log(this.post.id);
-             // var ide = id.eventPhase;
-             // console.log(id); // I want to get 102 as the result
-            //  if (confirm('Are you sure to delete?')) {
-            //     $('#contactsGrid tr[data-id="' + id + '"]').hide('slow');
-
-            // }
             $rootScope.id = this.post.id ;
          };
 
