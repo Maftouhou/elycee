@@ -257,10 +257,10 @@ angular.module('elycee')
 angular.module('elycee')
   	.controller('SingleCtrl', function ($scope, $http, $rootScope) {
 
-  	 	$http.get("api/articles/:id")
+  	 	$http.get("api/articles/"+id)
       		.success(function(data) {
         		$scope.post = data;
-        		// console.log($rootScope.id);
+        		console.log($rootScope.id);
       	});
 
 	 //    $scope.show = function(){
