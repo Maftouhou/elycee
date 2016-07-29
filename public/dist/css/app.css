@@ -518,7 +518,7 @@ header {
       left: 0; }
   #home-page .col_left .new {
     position: absolute;
-    background-image: url("/uploads/6fe5fcf2cb587b9a5f73d423bd4c26f0.jpg");
+    background-image: url("https://s-media-cache-ak0.pinimg.com/564x/88/2b/e4/882be43518f3407eb32fa59ddd5bbe99.jpg");
     background-size: cover;
     background-position: center center;
     top: 0;
@@ -717,19 +717,24 @@ header {
   letter-spacing: 0.2px;
   transition: all 900ms cubic-bezier(0.19, 1, 0.22, 1); }
   #single-page .col_right .title {
-    font-size: 49px;
-    top: 75px;
-    position: fixed;
-    right: 300px; }
+    font-size: 40px;
+    margin: 0 68px 0 29%;
+    padding-top: 180px;
+    text-align: left;
+    line-height: 40px;
+    font-family: "MaisonNeue-Bold"; }
   #single-page .col_right .info {
     font-size: 40px;
-    line-height: 26px;
     margin: 0 68px 0 29%;
-    padding-bottom: 90px;
-    padding-top: 158px;
+    padding-top: 35px;
     text-align: left;
-    font-family: "MaisonNeue-Bold";
-    line-height: 40px; }
+    line-height: 40px;
+    font-family: "MaisonNeue-Bold"; }
+  #single-page .col_right .date {
+    font-size: 10px;
+    text-align: left;
+    margin: 0 68px 0 29%;
+    padding: 35px 0 90px; }
   #single-page .col_right .row a {
     background-color: #e8e8e8;
     margin-bottom: 100px;
