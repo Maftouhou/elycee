@@ -27,7 +27,7 @@ class QuestionRequest extends Request
             'user_id'   => 'required|integer', 
             'title'     => 'required|string|max:1000', 
             'content'   => 'required|string', 
-            'class'     => 'required|string'
+            'class'     => 'required|string',
             'status'    => 'required|string'
         ];
     }

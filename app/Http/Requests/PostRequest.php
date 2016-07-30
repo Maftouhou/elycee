@@ -28,7 +28,7 @@ class PostRequest extends Request
             'title'         => 'required|string|max:1000', 
             'abstract'      => 'required|string', 
             'content'       => 'required|string', 
-            'url_thumbnail' => 'required|string|max:1000'
+            'url_thumbnail' => 'required|string|max:1000',
             'date'          => 'required|date', 
             'status'        => 'required|boolean'
         ];
