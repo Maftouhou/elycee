@@ -8,7 +8,7 @@
  * Controller of the elycee
  */
 angular.module('elycee')
-  	.controller('AboutCtrl', function ($scope, $http) {
+  	.controller('AboutCtrl', function ($scope, $http, $rootScope) {
 
 
   	 	$http.get("api/articles")
@@ -16,6 +16,11 @@ angular.module('elycee')
         		$scope.posts = data;
         		console.log($scope.posts);
       	});
+
+      	$scope.val = function() {
+			console.log(this.post.id);
+            $rootScope.id = this.post.id ;
+        };
 
 
 	    $scope.show = function(){

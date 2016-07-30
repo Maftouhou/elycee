@@ -65,12 +65,10 @@ angular
                 }, 0);
             },
             leave: function(element, done) {
-                var colonneright = element[0].children[0].children[0]
                 TweenMax.to(element, 1, {
                     opacity: 0,
                     onComplete: done
                 }, 0);
-                // TweenMax.to(colonneright, 1.7, { right: "-100%", ease: Expo.easeOut, onComplete: done }, 0);
             }
         };
     })
@@ -95,7 +93,7 @@ angular
  * Controller of the elycee
  */
 angular.module('elycee')
-  	.controller('AboutCtrl', function ($scope, $http) {
+  	.controller('AboutCtrl', function ($scope, $http, $rootScope) {
 
 
   	 	$http.get("api/articles")
@@ -103,6 +101,11 @@ angular.module('elycee')
         		$scope.posts = data;
         		console.log($scope.posts);
       	});
+
+      	$scope.val = function() {
+			console.log(this.post.id);
+            $rootScope.id = this.post.id ;
+        };
 
 
 	    $scope.show = function(){
@@ -251,7 +254,7 @@ angular.module('elycee')
 angular.module('elycee')
   	.controller('SingleCtrl', function ($scope, $http, $rootScope) {
 
-  	 	$http.get("api/articles\/"+ $rootScope.id +"\"")
+  	 	$http.get("api/articles/"+ $rootScope.id)
       		.success(function(data) {
         		$scope.post = data;
         		// console.log($rootScope.id);
@@ -274,8 +277,7 @@ angular.module('elycee')
 	    const tl = new TimelineMax({ paused: true, completed: true});
 
 	  	tl.to(".col_right", 1.7, { right: "0%", ease: Expo.easeOut }, 0);
-	  	tl.from(".info", 1, { opacity: 0, x: "10%", ease: Expo.easeOut }, 1.8);
-	  	tl.from(".row", 1, { opacity: 0, x: "10%", ease: Expo.easeOut }, 2);
+	  	tl.staggerFrom(".cat", 1, { opacity: 0, x: "10%", ease: Expo.easeOut }, 0.2, 2);
 	  	tl.from(".col_left .solo", 1.7, { opacity: 0, scale: 1.2 }, 2.2);
 	  	tl.to(".col_left .solo", 1.7, { opacity: 1, scale: 1 }, 2.2);
 	  	tl.from(".col_left h1", 1, { opacity: 0, x: "-10%", ease: Expo.easeOut }, 3.8);

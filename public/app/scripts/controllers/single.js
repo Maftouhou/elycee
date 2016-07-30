@@ -10,7 +10,7 @@
 angular.module('elycee')
   	.controller('SingleCtrl', function ($scope, $http, $rootScope) {
 
-  	 	$http.get("api/articles\/"+ $rootScope.id +"\"")
+  	 	$http.get("api/articles/"+ $rootScope.id)
       		.success(function(data) {
         		$scope.post = data;
         		// console.log($rootScope.id);
@@ -33,8 +33,7 @@ angular.module('elycee')
 	    const tl = new TimelineMax({ paused: true, completed: true});
 
 	  	tl.to(".col_right", 1.7, { right: "0%", ease: Expo.easeOut }, 0);
-	  	tl.from(".info", 1, { opacity: 0, x: "10%", ease: Expo.easeOut }, 1.8);
-	  	tl.from(".row", 1, { opacity: 0, x: "10%", ease: Expo.easeOut }, 2);
+	  	tl.staggerFrom(".cat", 1, { opacity: 0, x: "10%", ease: Expo.easeOut }, 0.2, 2);
 	  	tl.from(".col_left .solo", 1.7, { opacity: 0, scale: 1.2 }, 2.2);
 	  	tl.to(".col_left .solo", 1.7, { opacity: 1, scale: 1 }, 2.2);
 	  	tl.from(".col_left h1", 1, { opacity: 0, x: "-10%", ease: Expo.easeOut }, 3.8);

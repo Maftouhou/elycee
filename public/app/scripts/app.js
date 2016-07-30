@@ -65,12 +65,10 @@ angular
                 }, 0);
             },
             leave: function(element, done) {
-                var colonneright = element[0].children[0].children[0]
                 TweenMax.to(element, 1, {
                     opacity: 0,
                     onComplete: done
                 }, 0);
-                // TweenMax.to(colonneright, 1.7, { right: "-100%", ease: Expo.easeOut, onComplete: done }, 0);
             }
         };
     })

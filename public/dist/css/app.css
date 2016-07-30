@@ -554,13 +554,12 @@ header {
     right: 300px; }
   #home-page .col_right .info {
     font-size: 40px;
-    line-height: 26px;
+    line-height: 50px;
     margin: 0 68px 0 29%;
     padding-bottom: 90px;
     padding-top: 158px;
     text-align: left;
-    font-family: "MaisonNeue-Bold";
-    line-height: 40px; }
+    font-family: "MaisonNeue-Bold"; }
   #home-page .col_right .row {
     margin: 0 68px; }
     #home-page .col_right .row a {
@@ -721,14 +720,14 @@ header {
     margin: 0 68px 0 29%;
     padding-top: 180px;
     text-align: left;
-    line-height: 40px;
+    line-height: 50px;
     font-family: "MaisonNeue-Bold"; }
   #single-page .col_right .info {
     font-size: 40px;
     margin: 0 68px 0 29%;
     padding-top: 35px;
     text-align: left;
-    line-height: 40px;
+    line-height: 50px;
     font-family: "MaisonNeue-Bold"; }
   #single-page .col_right .date {
     font-size: 10px;
@@ -898,13 +897,12 @@ header {
     right: 300px; }
   #about-page .col_right .info {
     font-size: 40px;
-    line-height: 26px;
+    line-height: 50px;
     margin: 0 68px 0 29%;
     padding-bottom: 90px;
     padding-top: 158px;
     text-align: left;
-    font-family: "MaisonNeue-Bold";
-    line-height: 40px; }
+    font-family: "MaisonNeue-Bold"; }
   #about-page .col_right .row a {
     background-color: #e8e8e8;
     margin-bottom: 100px;
