@@ -202,11 +202,11 @@ angular.module('elycee')
 
 		// $scope.message = 'This is the home view.';
 
-		$http.get("api/articles")
-			.success(function(data) {
-				$scope.posts = data;
-				console.log($scope.posts);
-			});
+    $http.get("api/articles")
+      .success(function(data) {
+        $scope.posts = data;
+        console.log($scope.posts);
+      });
 
 		$scope.val = function() {
 			console.log(this.post.id);
@@ -257,7 +257,7 @@ angular.module('elycee')
   	 	$http.get("api/articles/"+ $rootScope.id)
       		.success(function(data) {
         		$scope.post = data;
-        		// console.log($rootScope.id);
+        		console.log($rootScope.id);
       	});
 
 	 //    $scope.show = function(){

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class PostRequest extends Request
+class CommentRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +24,9 @@ class PostRequest extends Request
     public function rules()
     {
         return [
-            'user_id'       => 'required|integer', 
+            'post_id'       => 'required|integer', 
             'title'         => 'required|string|max:1000', 
-            'abstract'      => 'required|string', 
             'content'       => 'required|string', 
-            'url_thumbnail' => 'required|string|max:1000'
-            'date'          => 'required|date', 
             'status'        => 'required|boolean'
         ];
     }

@@ -1,0 +1,52 @@
+Action à gerer avec les API : 
+======================================
+1 SCHEMA Post :
+    API Articles /api/articles
+        &::index(Afficher tout les article)     => GET/
+        &::show(Afficher un seul article)       => GET/
+
+    API Posts /api/post
+        &::index(Afficher tout les article)     => GET/
+        &::show(Afficher un seul article)       => GET/
+        &::create(Créer un article)             => POST/
+        &::edit(Afficer l'article à aditer)     => GET/
+        &::update(mettre à jour l'article)      => PUT/
+        &::destroy(suprimer un article)         => DELETE/
+
+2 SCHEMA Comment :
+    API Comments /api/comment
+        &::index(Afficher les commentaire en fonction du post) // A recuperer en meme temps avec les posts
+        &::create(Créer un commentaire )        => POST/
+
+3 SCHEMA Question :
+    API Questions /api/question
+        &::index(Afficher tout les questions)   => GET/
+        &::show(Afficher un seul questions)     => GET/     // (en modal) affiche une quition et les choix associé si c'est un prof
+        &::create(Créer un questions)           => POST/    // Immediatement passe à la creation d'un choix
+        &::edit(Afficer l'questions à aditer)   => GET/     
+        &::update(mettre à jour l'questions)    => PUT/     // Proposer d'editer une choix 
+        &::destroy(suprimer un questions)       => DELETE/  // supprime les choix associé 
+    // Si l'utilisateur connecté est un etudiant, la methode show appelera un formulaire pour repondre à la question en fonction de sa classe
+
+4 SCHEMA Choice :
+    API Choices /api/choice
+    // Si on fait la creation, immediatement, on fait la creation d'un choix
+    // Si on modifie une question, on propose de modifier une choix
+    // Si supprime une question, une cascade de supression du choix se fait. 
+        &::index(Afficher tout les choix)       => GET/
+        &::show(Afficher un seul choix)         => GET/
+        &::create(Créer un choix)               => POST/
+        &::edit(Afficer l'choix à aditer)       => GET/
+        &::update(mettre à jour l'choix)        => PUT/
+
+5 SCHEMA Response :
+    API Responses /api/responses 
+        &::create(pour la methode store pour sauvegarder les reponse de l'eleve)    => POST/ 
+    // Cette action verifiera la reponse et metra a jour la table reponse
+    // Une question est accessible si son status est 'undone'.
+    // Une fois le status passe à 'done', il ne peut plus etre accessible
+
+5 SCHEMA User :
+    API Users /api/login
+        &::login(Autentification)   => ANY/
+        &::logout()                 => ANY/

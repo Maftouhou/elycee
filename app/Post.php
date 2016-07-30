@@ -11,6 +11,7 @@ class Post extends Model
         'title', 
         'abstract', 
         'content', 
+        'url_thumbnail', 
         'date', 
         'status'
     ];
@@ -24,5 +25,4 @@ class Post extends Model
     {
         return $this->hasOne('App\Picture');
     }
-    
 }
