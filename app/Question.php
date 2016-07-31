@@ -13,4 +13,9 @@ class Question extends Model
         'class', 
         'status'
     ];
+    
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

@@ -30,5 +30,8 @@ Route::group(['prefix' => 'api/', 'midleware' => ['web']], function(){
     
     Route::group(['midleware' => ['auth']], function(){
         route::resource('post', 'PostController');
+        route::get('dashboard', 'PostController@dashboard');
+        
+        route::resource('questions', 'QuestionController');
     });
 });

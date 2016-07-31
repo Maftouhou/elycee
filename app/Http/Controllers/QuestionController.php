@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use App\Question;
 
+use Auth;
+
 class QuestionController extends Controller
 {
     
@@ -24,15 +26,25 @@ class QuestionController extends Controller
     {
         if (Auth::user()->role === 'terminal') 
         {
-            $questions  = Question::where('role', 'terminal');
+            $questions  = Question::where('class', 'terminal');
 
-            return view('admin.dashboard.reponse.main')->compact('questions');
+            return view('admin.dashboard.reponse.main_reponse', compact('questions'));
         }
         else if (Auth::user()->role === 'premiere')
         {
-            $questions  = Question::where('role', 'terminal');
+            $questions  = Question::where('class', 'premiere');
 
-            return view('admin.dashboard.reponse.main')->compact('questions');
+            return view('admin.dashboard.reponse.main_reponse', compact('questions'));
+        }
+        else if (Auth::user()->role === 'teacher')
+        {
+            $questions  = Question::all();
+
+            return view('admin.dashboard.question.main_quest', compact('questions'));
+        }
+        else
+        {
+            return redirect('api/dashboard');
         }
     }
 
@@ -43,7 +55,12 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        //
+        if (Auth::user()->role === 'teacher') {
+            
+            return view('admin.dashboard.question.create_quest');
+        }
+
+        return redirect('api/questions');
     }
 
     /**
@@ -54,7 +71,7 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return 'question are ready to be stored';
     }
 
     /**

@@ -26,10 +26,8 @@ class PostRequest extends Request
         return [
             'user_id'       => 'required|integer', 
             'title'         => 'required|string|max:1000', 
-            'abstract'      => 'required|string', 
             'content'       => 'required|string', 
-            'url_thumbnail' => 'required|string|max:1000',
-            'date'          => 'required|date', 
+            'url_thumbnail' => 'required',
             'status'        => 'required|boolean'
         ];
     }

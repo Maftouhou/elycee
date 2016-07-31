@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRequest;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use Auth;
-use App\Post;
-use App\User;
 use App\Comment;
+
+use App\User;
+
+use App\Post;
+
+use Auth;
 
 class PostController extends Controller
 {
@@ -39,6 +44,24 @@ class PostController extends Controller
                 ]
         ];
     }
+    
+    public function dashboard()
+    {
+        if (Auth::user()) 
+        {
+            $posts      = Post::all();
+            $comments   = Comment::all();
+            $user_role  = Auth::user()->role;
+            
+            return view('admin.dashboard.index', compact('posts', 'comments', 'user_role'));
+        }  
+        else 
+        {
+            
+            return view('auth.login');
+        }
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -49,12 +72,10 @@ class PostController extends Controller
         if (Auth::user()) 
         {
             $posts      = Post::all();
-            $class      = 'menu_teacher';
             $comments   = Comment::all();
             $user_role  = Auth::user()->role;
             
-            return view('admin.dashboard.index', compact('posts', 'comments', 'user_role'))
-                    ->with('class', $class);
+            return view('admin.dashboard.post.main_post', compact('posts', 'comments', 'user_role'));
         }  
         else 
         {
@@ -70,7 +91,12 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        if (Auth::user()->role === 'teacher') {
+            
+            return view('admin.dashboard.post.create_post');
+        }
+
+        return redirect('api/post');
     }
 
     /**
@@ -79,9 +105,27 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        
+        if (Auth::user()->role === 'teacher') 
+        {
+            $post       = new Post;
+            
+            $dirUpload  = public_path(env('UPLOAD_PICTURE', 'uploads'.DIRECTORY_SEPARATOR.'images'));
+            $uri        = time().'_'.Auth::user()->id.'.jpg';
+            
+            $post->title            = $request->title;
+            $post->abstract         = str_limit($request->content, 30);
+            $post->content          = $request->content;
+            $post->url_thumbnail    = $uri;
+            # $post->date           = date("d-m-Y h:i:sa");
+            $post->status           = $request->status;
+            
+            $post->save();
+            $request->file('url_thumbnail')->move($dirUpload, $uri);
+            
+            return redirect('api/post');
+        }
     }
 
     /**
@@ -92,9 +136,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        /**
-         * Prevoire un message en cas d'un Article innexistant
-         */
+        
         $singlePost = Post::find($id);
         
         return $singlePost;
@@ -108,9 +150,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $editPost = Post::find($id);
+        $post = Post::find($id);
         
-        return $editPost;
+        return view('admin.dashboard.post.edit_post', compact('post'));
     }
 
     /**

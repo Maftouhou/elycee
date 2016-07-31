@@ -1,4 +1,17 @@
-<div id="reponse_container_eleve">
+@extends('layouts.master')
+
+@section('content')
+<h2>Creation un article</h2>
+<div id="article_container">
+    <div class="panel">
+        <p class="action_response {{session('class')}}">
+            {{session('message')}}
+            <span></span>
+        </p>
+        <ul>
+            <li><a href="{{url('api/post/create')}}">Ajouter</a></li>
+        </ul>
+    </div>
     <table class="article_list">
         <thead>
             <tr>
@@ -15,7 +28,7 @@
         <?php $odd++; ?>
         <tbody>
             <tr class="{{$odd%2==0?'evenClass':'oddClass'}}">
-                <td><a href="{{url('post', $post->id)}}">{{str_limit($post->title, 7)}}</a></td>
+                <td><a href="{{url('api/post', $post->id)}}">{{str_limit($post->title, 7)}}</a></td>
                 <td><b><em>
                     @if($post->user) {{$post->user->username}}
                     @else pas d'auteur
@@ -28,7 +41,7 @@
                 </td>
                 <td>{{$post->status}}</td>
                 <td>
-                    <a class="edit_post" href="{{url('post/'.$post->id.'/edit')}}" class="">&ocir;</a>
+                    <a class="edit_post" href="{{url('api/post/'.$post->id.'/edit')}}" class="">&ocir;</a>
                 </td>
                 <td>
                     <button class="delete_post_request"></button>
@@ -49,3 +62,4 @@
         @endforelse
     </table>
 </div>
+@endsection

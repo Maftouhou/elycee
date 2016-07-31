@@ -37,7 +37,7 @@ class ResponseController extends Controller
             $class      = 'menu_premiere';
             $questions  = Question::where('role', 'terminal');
 
-            return view('admin.dashboard.reponse.main', compact('questions'))->with(['class' => $class]);
+            return view('admin.dashboard.reponse.main_reponse', compact('questions'))->with(['class' => $class]);
         }
     }
     

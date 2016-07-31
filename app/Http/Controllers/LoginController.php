@@ -21,7 +21,8 @@ class LoginController extends Controller
             if (Auth::attempt($credencials)) {
                 
                 $greeting   = 'Bonjour '.Auth::user()->username;
-                return redirect('api/post')->with(['message' => $greeting]);
+                
+                return redirect('api/dashboard')->with(['message' => $greeting]);
             }else{
                 
                return back()->withInput($request->only('login'));
