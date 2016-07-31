@@ -17,10 +17,14 @@ class ArticlesController extends Controller
      */
     public function index()
     {
+        $posts = Post::where('status', 1)
+               ->orderBy('updated_at', 'desc')
+               ->take(3)
+               ->get();
+
         # $posts = Post::all();
         
-        # return $posts;
-        return 'Test';
+        return $posts;
     }
 
     /**

@@ -15,17 +15,19 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::group(['prefix' => 'api/', 'midleware' => ['web']], function(){
     
+    Route::any('login', 'LoginController@login');
+    
+Route::group(['prefix' => 'api/', 'midleware' => ['web']], function(){
     Route::any('login', 'LoginController@login');
     Route::any('logout', 'LoginController@logout');
     
-    Route::resource('articles', 'PostController');
-    
+    Route::resource('articles', 'ArticlesController');
     /**
      * Mettre les Route specifique pour les article 
      * en page d'accueil et les article en dashbord
      */
+    
     Route::group(['midleware' => ['auth']], function(){
         route::resource('post', 'PostController');
     });

@@ -1,0 +1,451 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 5 mai 2016, 16:54:57
+    Author     : Sub.Session
+*/
+
+header#page_header{
+    nav{
+        margin: 25px 0 10px 0;
+        ul{
+            font-weight: bold;
+            display: inline;
+            li{
+                display: inline;
+            }
+            &#connexion{
+                float: right;
+                a {
+                    padding: 10px;
+                    background-color: red;
+                    border: 2px solid white;
+                    color: white;
+                    
+                    &#dashbord{
+                        background-color: #3FBFBF;
+                    }
+                }
+            }
+            &#navigation{
+                float: left;
+                a {
+                    padding: 10px;
+                    border: 1px solid red;
+                    color: red;
+                }
+            }
+        }
+    }
+}
+
+section#page_content{
+    position: relative;
+    top: 30px;
+    border-top: 1px solid red;
+    
+    main{
+        article{
+            width: 292px;
+            min-height: 300px;
+            margin: 0 0 16px 0;
+            display: inline-block;
+            
+            &.single_post{
+                width: auto !important;
+            }
+            
+            h2{
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 111111111;
+                position: absolute;
+                width: 230px;
+                height: 50px;
+                font-size: 25px;
+                
+                a{
+                    color: #ffffff;
+                    font-weight: bold;
+                }
+            }
+            
+            &:nth-child(odd){
+                float: left;
+            }
+            
+            &:nth-child(even){
+                float: right;
+            }
+            
+            figure{
+                position: relative;
+                img{
+                    width: 230px;
+                    height: 146px;
+                    
+                    &.simgle_image{
+                        width: auto !important;
+                        max-width: 370px !important;
+                    }
+                }
+                
+                div.vote_banner{
+                    width: 60px;
+                    height: 87px;
+                    background-color: #D42500;
+                    display: inline;
+                    float: right;
+                    
+                    span{
+                        &:first-child{
+                            position: relative;
+                            color: white;
+                            left: 5px;
+                        }
+
+                        &:last-child{
+                            position: relative;
+                            left: 16px;
+                            top: 2px;
+                            color: white;
+                            font-size: 18px;
+                        }
+                    }
+                    
+                    a.vote_banner_marker{
+                        font-size: 40px;
+                        position: relative;
+                        left: 15px;
+                        color: #FFCA00;
+                        line-height: 26px;
+                        
+                        &:hover{
+                            color: yellow;
+                            top: 6px !important;
+                            text-decoration: none;
+                        }
+                        &:visited, &:active{
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+            
+            figcaption{
+                margin: 12px;
+                
+                p.article_content{
+                    margin-bottom: 15px;
+                    font-size: 16px;
+                    line-height: 25px;
+                    
+                    span{
+                        padding: 3px 13px;
+                        border: 1px solid rgba(31, 19, 31, 0.1);
+                        border-radius: 5px;
+                        
+                        &:hover{
+                            border: 1px solid rgba(31, 19, 31, 0.4);
+                            cursor: pointer;
+                        }
+                        a, a:hover{
+                            text-decoration: none;
+                        }
+                    }
+                }
+                
+                p.meta_data{
+                    font-size: 11px;
+                    color: gray;
+                    
+                    .meta_data_user{
+                        font-style: italic;
+                    }
+                }
+            }
+        }
+        
+        div.panel{
+            min-height: 36px;
+            border-bottom: 5px solid #3FBFBF;
+            margin: 0 0 12px 0;
+            
+            ul{
+                margin: 10px 0;
+                
+                li{
+                    font-size: 15px;
+                    padding: 5px;
+                    border: 1px solid #3FBFBF;
+                    display: inline;
+                    
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        
+        p.action_response{
+            
+        }
+        
+        table.article_list{
+            min-width: 660px;
+            
+            thead > tr > td{
+                font-size: 12px;
+                font-weight: bold;
+            }
+            
+            tbody {
+                
+                tr {
+                    &.oddClass{
+                        background-color: #E9F4FF;
+                    }
+                    &.evenClass{
+                        background-color: white;
+                    }
+
+                    td{
+                        font-size: 12px;
+                        border-right: 1px solid gray;
+                        padding: 0 3px;
+
+                        &:last-child{
+                            border-right: 0;
+                        }
+
+                        a.edit_post{
+                            border-radius: 30px;
+                            color: #0087FF;
+                            font-size: 25px;
+
+                            &:hover{
+                                text-decoration: none;
+                            }
+                        }
+                        
+                        button{
+                            width: 25px;
+                            height: 25px;
+                            background-color: #FF8787;
+                            border: 3px solid red;
+                            border-radius: 40px;
+                            float: right;
+                        }
+
+                        div.delete_post_confirmation{
+                            display: none;
+                            width: 380px;
+                            height: 220px;
+                            background-color: white;
+                            border: 1px solid #3FBFBF;
+                            border-radius: 10px;
+                            
+                            p{
+                                margin: 65px 0 0 25px;
+                                font-size: 20px;
+                                font-family: arial;
+                                color: gray;
+                            }
+                            
+                            form.delete_post{
+                                margin: 15px 0 0 25px;
+
+                                input{
+                                    padding: 10px 20px;
+                                    color: #ffffff;
+                                    border: 0;
+                                    
+                                    &[type="submit"]{
+                                        background-color: red;
+                                    }
+                                    &[type="reset"]{
+                                        background-color: gray;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    form{
+        fieldset{
+            p{
+                margin: 15px;
+                
+                input{
+                    &[type="text"], &[type="password"]{
+                        width: 245px;
+                        height: 40px;
+                        border: 0;
+                        background-color: #F3F3F3 !important;
+                        padding-left: 7px;
+                    }
+                    
+                    &[type="submit"]{
+                        padding: 10px 20px;
+                        background-color: #272727;
+                        color: #ffffff;
+                        border: 0;
+                    }
+                } 
+                
+                select{
+                    width: 165px;
+                    background-color: #E2E2E2;
+                    color: black;
+                    font-size: 16px;
+                    
+                    &[name="category_id"]{
+                        height: 31px;
+                        border: 0;
+                    }
+                    
+                    &[name="tag_id[]"]{
+                        border: 1px solid gray;
+                    
+                        option{
+                            &:nth-child(even){
+                                background-color: #CCDFFF;
+                            }
+
+                            &:nth-child(odd){
+                                background-color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    .category_page{
+        margin-top: 70px;
+    }
+    
+    .error_page{
+        .error_container {
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .error_content {
+            text-align: center;
+            display: inline-block;
+        }
+
+        .error_title {
+            font-size: 72px;
+            margin-bottom: 40px;
+        }
+    }
+}
+
+footer#page_footer{
+    position: relative;
+    top: 30px;
+    border-top: 1px solid red;
+    padding: 14px 0 10px 0;
+    margin: 10px 0 0 0;
+
+    ul{
+        text-align: center;
+        li{
+            display: inline;
+            padding: 5px;
+            border-right: 1px solid red;
+            
+            &:last-child{
+                border-right: 0;
+            }
+        }
+    }
+}
+
+aside#sidebar{
+    position: relative;
+    top: 30px;
+    border-top: 1px solid red;
+    padding-top: 20px;
+    
+    ul{
+        list-style: none;
+        margin: 0 0 25px 25px;
+        
+        &#category{
+            text-transform: uppercase;
+            li{
+                line-height: 25px;
+                &:before{
+                    content: '';
+                    padding: 2px;
+                    background-color: red;
+                    border-right: 5px solid white;
+                }
+                color: red;
+
+                &:hover{
+                    color: blue;
+                }
+            }
+        }
+
+        &#la_une li{
+            figure{
+                #image_la_une{
+                    padding: 20px;
+                    background-color: #EB79EB;
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+}
+
+.ErrorMssgClass{
+    padding: 5px;
+    border: 1px solid red;
+    margin-top: 2px;
+    border-radius: 6px;
+    color: red;
+    background-color: #FFEEEE;
+    
+    span{
+        background-color: red;
+        content: 'X';
+        border: 1px solid #fff;
+        border-radius: 20px;
+        padding: 9px;
+        float: right;
+        cursor: pointer;
+    }
+}
+
+.SuccessMssgClass{
+    padding: 5px;
+    border: 1px solid #007FC5;
+    margin-top: 2px;
+    border-radius: 6px;
+    color: #007FC5;
+    background-color: #E4F6FF;
+    
+    span{
+        background-color: #007FC5;
+        content: 'X';
+        border: 1px solid #fff;
+        border-radius: 20px;
+        padding: 9px;
+        float: right;
+        cursor: pointer;
+    }
+}

@@ -20,22 +20,14 @@ class LoginController extends Controller
             
             if (Auth::attempt($credencials)) {
                 
-                return 'Login True';
-//                return redirect('post');
+                $greeting   = 'Bonjour '.Auth::user()->username;
+                return redirect('api/post')->with(['message' => $greeting]);
             }else{
                 
-                return 'Login false';
-//                return back()->withInput($request->only('login'));
+               return back()->withInput($request->only('login'));
             }
             
         }else{
-            $file = file_get_contents('/uploads/users/users.json', true);
-            $data = json_decode($file, true);
-            
-            foreach ($data['users']['teacher'] as $d_key => $d_val)
-            {
-                echo $d_val['username'];
-            }
             
             return view('auth.login');
         }
@@ -43,6 +35,8 @@ class LoginController extends Controller
     
     public function logout()
     {
+        Auth::logout();
         
+        return redirect('/');
     }
 }

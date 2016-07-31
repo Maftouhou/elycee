@@ -6,8 +6,15 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Question;
+
 class QuestionController extends Controller
 {
+    
+    public function __construct() {
+        
+        return;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +22,18 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        //
+        if (Auth::user()->role === 'terminal') 
+        {
+            $questions  = Question::where('role', 'terminal');
+
+            return view('admin.dashboard.reponse.main')->compact('questions');
+        }
+        else if (Auth::user()->role === 'premiere')
+        {
+            $questions  = Question::where('role', 'terminal');
+
+            return view('admin.dashboard.reponse.main')->compact('questions');
+        }
     }
 
     /**

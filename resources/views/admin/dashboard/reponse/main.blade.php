@@ -1,26 +1,11 @@
-@extends('layouts.master')
-
-@section('content')
-<div class="panel">
-    <p class="action_response {{session('class')}}">
-        {{session('message')}}
-        <span></span>
-    </p>
-    <ul>
-        <li><a href="{{url('post/create')}}">Create a post</a></li>
-    </ul>
-</div>
-<div class="core">
+<div id="reponse_container_eleve">
     <table class="article_list">
         <thead>
             <tr>
                 <td>Titre</td>
                 <td>Auteur</td>
+                <td>comment</td>
                 <td>Status</td>
-                <td>Publication</td>
-                <td>Category</td>
-                <td>Tags</td>
-                <td>Modification</td>
                 <td>Editer</td>
                 <td>Suprimer</td>
             </tr>
@@ -32,26 +17,16 @@
             <tr class="{{$odd%2==0?'evenClass':'oddClass'}}">
                 <td><a href="{{url('post', $post->id)}}">{{str_limit($post->title, 7)}}</a></td>
                 <td><b><em>
-                    @if($post->user) {{$post->user->name}}
+                    @if($post->user) {{$post->user->username}}
                     @else pas d'auteur
                     @endif
                 </em></b></td>
-                <td>{{$post->status}}</td>
-                <td>{{$post->created_at->format('d-m-Y')}}</td>
                 <td>
-                    @if($post->category) {{$post->category->title}}
-                    @else pas de category
+                    @if($post->comment) {{count($post->comment)}}
+                    @else pas de commentaire associé
                     @endif
                 </td>
-                <td>
-                    @forelse($post->tags as $tag)
-                        @if (!is_null($tag)) {{$tag->name}}
-                        @else Pas de tag
-                        @endif
-                    @empty Pas de tag
-                    @endforelse
-                </td>
-                <td>{{$post->updated_at->format('d-m-Y')}}</td>
+                <td>{{$post->status}}</td>
                 <td>
                     <a class="edit_post" href="{{url('post/'.$post->id.'/edit')}}" class="">&ocir;</a>
                 </td>
@@ -74,4 +49,3 @@
         @endforelse
     </table>
 </div>
-@endsection

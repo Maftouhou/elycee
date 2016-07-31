@@ -41,7 +41,7 @@ Action à gerer avec les API :
 
 5 SCHEMA Response :
     API Responses /api/responses 
-        &::create(pour la methode store pour sauvegarder les reponse de l'eleve)    => POST/ 
+        &::create(pour la methode store pour sauvegarder les reponse de l'eleve)    => POST/
     // Cette action verifiera la reponse et metra a jour la table reponse
     // Une question est accessible si son status est 'undone'.
     // Une fois le status passe à 'done', il ne peut plus etre accessible
