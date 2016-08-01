@@ -1,6 +1,13 @@
 @extends('layouts.master')
 
 @section('content')
+    @if($errors->any)
+    <ul class="form_field_error">
+        @foreach($errors->all() as $error)
+        <li>{{$error}}</li>
+        @endforeach
+    </ul>
+    @endif
     <form action="{{url('api/post', $post->id)}}" method="POST" enctype="multipart/form-data">
         {{method_field('PATCH')}}
         {{csrf_field()}}
@@ -15,7 +22,10 @@
             
             @if($post->url_thumbnail)
                 <p>
+                    @if($post->url_thumbnail)
                     <img width="90" src="{{url('uploads/images/', $post->url_thumbnail)}}" alt="">
+                    @else Vous pouvez ajouter une photo en clicant ci-dessous
+                    @endif
                 </p>
             @endif
             <p> <label for="picture">Télécharger une photo</label></p>

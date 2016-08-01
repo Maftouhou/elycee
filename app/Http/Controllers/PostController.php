@@ -24,7 +24,6 @@ class PostController extends Controller
         $this->middleware('auth');
     }
     
-    
     private function notifications($postTitle)
     {
         return $NotificationMessage = [
@@ -117,12 +116,16 @@ class PostController extends Controller
             $post->title            = $request->title;
             $post->abstract         = str_limit($request->content, 30);
             $post->content          = $request->content;
-            $post->url_thumbnail    = $uri;
             # $post->date           = date("d-m-Y h:i:sa");
             $post->status           = $request->status;
             
+            if ($request->url_thumbnail) 
+            {
+                $post->url_thumbnail    = $uri;
+                $request->file('url_thumbnail')->move($dirUpload, $uri);
+            }
+            
             $post->save();
-            $request->file('url_thumbnail')->move($dirUpload, $uri);
             
             return redirect('api/post');
         }
@@ -162,9 +165,33 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostRequest $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        
+        $dirUpload  = public_path(env('UPLOAD_PICTURE', 'uploads'.DIRECTORY_SEPARATOR.'images'));
+        $uri        = time().'_'.Auth::user()->id.'.jpg';
+
+        $post->title            = $request->title;
+        $post->abstract         = str_limit($request->content, 30);
+        $post->content          = $request->content;
+        # $post->date           = date("d-m-Y h:i:sa");
+        $post->status           = $request->status;
+
+        if ($request->url_thumbnail) 
+        {
+            if(file_exists($dirUpload.DIRECTORY_SEPARATOR.$post->url_thumbnail) === true && $post->url_thumbnail !== '')
+            {
+                unlink($dirUpload.DIRECTORY_SEPARATOR.$post->url_thumbnail);
+            }
+            
+            $post->url_thumbnail = $uri;
+            $request->file('url_thumbnail')->move($dirUpload, $uri);
+        }
+
+        $post->save();
+        
+        return redirect('api/post');
     }
 
     /**
@@ -175,6 +202,15 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dirUpload  = public_path(env('UPLOAD_PICTURE', 'uploads'.DIRECTORY_SEPARATOR.'images'));
+        $post = Post::findOrFail($id);
+        
+        $post->delete();
+        if(file_exists($dirUpload.DIRECTORY_SEPARATOR.$post->url_thumbnail) === true && $post->url_thumbnail !== '')
+        {
+            unlink($dirUpload.DIRECTORY_SEPARATOR.$post->url_thumbnail);
+        }
+        
+        return redirect('api/post');
     }
 }

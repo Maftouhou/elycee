@@ -47,7 +47,7 @@
                     <button class="delete_post_request"></button>
                     <div class="delete_post_confirmation">
                         <p>Etes vous sûr de vouloir supprimer l'article : {{$post->title}}</p>
-                        <form class="delete_post" action="{{url('post', $post->id)}}" method="POST">
+                        <form class="delete_post" action="{{url('api/post', $post->id)}}" method="POST">
                             {{method_field('DELETE')}}
                             {{csrf_field()}}
                             <input class="canncel_delete" type="reset" value="Annuler">

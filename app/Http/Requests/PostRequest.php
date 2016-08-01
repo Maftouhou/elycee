@@ -27,7 +27,7 @@ class PostRequest extends Request
             'user_id'       => 'required|integer', 
             'title'         => 'required|string|max:1000', 
             'content'       => 'required|string', 
-            'url_thumbnail' => 'required',
+            'url_thumbnail' => 'max:1000',
             'status'        => 'required|boolean'
         ];
     }
