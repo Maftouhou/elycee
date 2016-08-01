@@ -120,7 +120,7 @@ class PostController extends Controller
             
             if ($request->url_thumbnail) 
             {
-                $post->url_thumbnail    = $uri;
+                $post->url_thumbnail = $uri;
                 $request->file('url_thumbnail')->move($dirUpload, $uri);
             }
             

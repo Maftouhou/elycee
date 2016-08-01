@@ -365,7 +365,7 @@ section#page_content main table.article_list tbody tr td div.delete_post_confirm
     height: 220px;
     background-color: #fff;
     border: 1px solid #3FBFBF;
-    border-radius: 10px
+    /*border-radius: 10px*/
 }
 
 section#page_content main table.article_list tbody tr td div.delete_post_confirmation p {

@@ -21,7 +21,7 @@ class QuestionController extends Controller
     }
     /**
      * Display a listing of the resource.
-     *
+     * 
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -76,6 +76,9 @@ class QuestionController extends Controller
         Question::create($request->all());
         
         return redirect('api/questions');
+        // Renvoyer à la vue permettant de créer la reponse
+        // Cette vue va appeler une methode dans le ReponseController
+        // pour enregister en base
     }
 
     /**
@@ -86,7 +89,9 @@ class QuestionController extends Controller
      */
     public function show($id)
     {
-        //
+        $question = Question::findOrFail($id);
+        
+        return $question;
     }
 
     /**
@@ -97,7 +102,9 @@ class QuestionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $question = Question::findOrFail($id);
+        
+        return view('admin.dashboard.question.edit_quest', compact('question'));
     }
 
     /**
@@ -107,9 +114,11 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(QuestionRequest $request, $id)
     {
-        //
+        Question::findOrFail($id)->update($request->all());
+        
+        return redirect('api/questions');
     }
 
     /**
@@ -120,6 +129,8 @@ class QuestionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Question::findOrFail($id)->delete();
+        
+        return redirect('api/questions');
     }
 }
