@@ -1,7 +1,7 @@
 <?php $loginState = Auth::check() ? true : false ?>
 <nav>
     <ul id="navigation">
-        <li><a href="{{url('/')}}">&utrif; Home</a></li>
+        <li><a href="{{url('/index')}}">&utrif; Home</a></li>
         <li><a>Contact &squarf;</a></li>
     </ul>
     <ul id="connexion">       

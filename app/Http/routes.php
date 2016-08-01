@@ -14,9 +14,11 @@
 Route::get('/', function () {
     return view('index');
 });
-
     
     Route::any('login', 'LoginController@login');
+    Route::resource('index', 'ArticlesController');
+    
+    Route::resource('comments', 'CommentController');
     
 Route::group(['prefix' => 'api/', 'midleware' => ['web']], function(){
     Route::any('login', 'LoginController@login');

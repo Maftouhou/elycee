@@ -140,9 +140,11 @@ class PostController extends Controller
     public function show($id)
     {
         
-        $singlePost = Post::find($id);
+        $post = Post::find($id);
+        $comment    = Comment::all();
         
-        return $singlePost;
+        # return $singlePost;
+        return view('admin.dashboard.post.main_comments', compact('post', 'comment'));
     }
 
     /**

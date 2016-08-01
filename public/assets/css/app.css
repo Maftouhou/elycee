@@ -568,3 +568,12 @@ aside#sidebar ul#la_une li figure #image_la_une {
 .menu_eleve {
     display: block !important;
 }
+
+.view_post_comment {
+    padding: 50px;
+    display: none;
+    width: 600px;
+    height: 400px;
+    background-color: #fff;
+    border: 1px solid #3FBFBF;
+}

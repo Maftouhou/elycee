@@ -49,7 +49,7 @@
         </div>
         
     </div> <!-- end Container -->
-    <script src="{{url('assets/js/app.min.js')}}" ></script>
+    <script src="{{url('assets/js/app.js')}}" ></script>
     <script src="{{url('assets/js/jQuery.easymodal_1.3.js')}}" ></script>
 </body>
 </html>

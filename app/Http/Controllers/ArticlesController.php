@@ -19,12 +19,13 @@ class ArticlesController extends Controller
     {
         $posts = Post::where('status', 1)
                ->orderBy('updated_at', 'desc')
-               ->take(3)
+               ->take(5)
                ->get();
 
         # $posts = Post::all();
         
-        return $posts;
+        # return $posts;
+        return view('front.index', compact('posts'));
     }
 
     /**
@@ -56,9 +57,10 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
-        $singlePost = Post::find($id);
+        $post = Post::find($id);
         
-        return $singlePost;
+        # return $singlePost;
+        return view('front.show', compact('post'));
     }
 
     /**
