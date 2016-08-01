@@ -36,10 +36,10 @@
             <legend>Gerer la publication </legend>
             <p>
                 <label for="publish">Publier maintement </label>
-                <input id="publish" type="radio" name="status" value="0" {{$post->status === 0 ? "checked" : ""}} />
+                <input id="publish" type="radio" name="status" value="1" {{$post->status === 1 ? "checked" : ""}} />
             
                 <label for="unpublish">Publier Plus tard </label>
-                <input id="unpublish" type="radio" name="status" value="1" {{$post->status === 1 ? "checked" : ""}} />
+                <input id="unpublish" type="radio" name="status" value="0" {{$post->status === 0 ? "checked" : ""}} />
             </p>
             <p>
                 <input type="submit" value="Envoyer">

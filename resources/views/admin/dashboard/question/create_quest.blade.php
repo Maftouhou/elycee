@@ -19,8 +19,8 @@
             <p> Contenu de l'article </p>
             <p> <textarea name="content" id="" cols="50" rows="6" placeholder="Contenu de l article"></textarea> </p>
             <p> Selectionner la classe <br />
-                <select>
-                    <option name="class"> -- selectionner -- </option>
+                <select name="class">
+                    <option> -- selectionner -- </option>
                     <option value="premiere" > Première</option>
                     <option value="terminal"> Terminal</option>
                 </select>
@@ -32,10 +32,10 @@
             <legend>Gerer la publication </legend>
             <p>
                 <label for="publish">Publier maintement </label>
-                <input id="publish" type="radio" name="status" value="0" />
+                <input id="publish" type="radio" name="status" value="publish" />
             
                 <label for="unpublish">Publier Plus tard </label>
-                <input id="unpublish" type="radio" name="status" value="1" />
+                <input id="unpublish" type="radio" name="status" value="unpublish" />
             </p>
             <p>
                 <input type="submit" value="Envoyer">

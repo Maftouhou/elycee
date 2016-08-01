@@ -50,9 +50,8 @@ class PostController extends Controller
         {
             $posts      = Post::all();
             $comments   = Comment::all();
-            $user_role  = Auth::user()->role;
             
-            return view('admin.dashboard.index', compact('posts', 'comments', 'user_role'));
+            return view('admin.dashboard.index', compact('posts', 'comments'));
         }  
         else 
         {

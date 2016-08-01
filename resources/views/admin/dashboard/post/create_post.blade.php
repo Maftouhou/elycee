@@ -26,10 +26,10 @@
             <legend>Gerer la publication </legend>
             <p>
                 <label for="publish">Publier maintement </label>
-                <input id="publish" type="radio" name="status" value="0" />
+                <input id="publish" type="radio" name="status" value="1" />
             
                 <label for="unpublish">Publier Plus tard </label>
-                <input id="unpublish" type="radio" name="status" value="1" />
+                <input id="unpublish" type="radio" name="status" value="0" />
             </p>
             <p>
                 <input type="submit" value="Envoyer">

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\QuestionRequest;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -69,9 +71,11 @@ class QuestionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(QuestionRequest $request)
     {
-        return 'question are ready to be stored';
+        Question::create($request->all());
+        
+        return redirect('api/questions');
     }
 
     /**
