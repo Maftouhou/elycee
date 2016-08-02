@@ -16,6 +16,15 @@
 		left: 0%;
 		top: 0;
 		background-color: black;
+		display: none;
+
+		&.menu_teacher {
+		    display : block !important;
+		}
+
+		&.menu_eleve {
+		    display: block !important;
+		}
 
 		ul.nav.navbar-nav.side-nav {
 			margin-top: 152px;

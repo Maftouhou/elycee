@@ -107,6 +107,7 @@ angular
                 password: password
             }).
             then(function(response) {
+                console.log(response);
 
                 localStorageService.set('XSRF-TOKEN', response.data.token);
                 onSuccess(response);
