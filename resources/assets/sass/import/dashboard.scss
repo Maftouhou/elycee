@@ -1,0 +1,85 @@
+#dashboard-page {
+	a.back {
+		font-family: $font;
+		font-size: 10px;
+		text-transform: uppercase;
+		top: 68px;
+		left: 68px;
+		color: white;
+		position: fixed;
+		z-index: 3;
+	}
+	.collapse.navbar-collapse.navbar-ex1-collapse {
+		position: fixed;
+		width: 30%;
+		height: 100%;
+		text-align: left;
+		left: -100%;
+		top: 0;
+		background-color: black;
+
+		ul.nav.navbar-nav.side-nav {
+			margin-top: 152px;
+
+			li {
+				margin-left: 20%;
+				padding-top: 40px;
+				list-style: none;
+				font-size: 30px;
+				overflow: hidden;
+				font-family: MaisonNeue-Bold;
+
+				a {
+					position: relative;
+					color: white;
+					opacity: 0.25;
+					transition: opacity 700ms $easeOutExpo;
+					&:hover{
+						opacity: 1;
+					}
+					&:focus{
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+	.container-fluid {
+		width: 70%;
+		position: absolute;
+		right: 0;
+		top: 0;
+    	margin-top: 150px;
+
+		.panel.panel-default {
+			background-color: white;
+			margin-top: 30px;
+			position: relative;
+
+			.panel-heading {
+				line-height: 99px;
+				border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+				text-align: left;
+				font-size: 17px;
+				padding-left: 46px;
+				font-family: MaisonNeue-Bold;
+				letter-spacing: 0.5px;
+			}
+			.panel-body {
+				font-family: MaisonNeue-Book;
+				text-align: left;
+				padding-left: 46px;
+				line-height: 100px;
+			}
+		}
+	}
+	/*.bg {
+		background-color: #e8e8e8;
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		top: 0;
+		left: 0;
+	}*/
+}

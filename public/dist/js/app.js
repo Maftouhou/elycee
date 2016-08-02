@@ -16,9 +16,10 @@ angular
         'ngRoute',
         'ngSanitize',
         'ngTouch',
+        'LocalStorageModule',
     ])
     // .constant('API_URL', 'api/v1/')
-    .config(function($routeProvider) {
+    .config(function($routeProvider, localStorageServiceProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: '../app/views/main.html',
@@ -52,7 +53,9 @@ angular
             })
             .otherwise({
                 redirectTo: '/'
-            });
+            })
+        localStorageServiceProvider
+            .setStorageType('cookies');
     })
     .animation('.transition', function() {
         console.log();
@@ -82,6 +85,57 @@ angular
                 });
             }
         }
+    })
+    .factory('userService', function($http, localStorageService) {
+
+        function checkIfLoggedIn() {
+
+            if(localStorageService.get('XSRF-TOKEN', "cookies"))
+                return true;
+            else
+                return false;
+
+        }
+
+        function login(username, password, onSuccess, onError){
+
+            console.log(localStorageService);
+
+            $http.post('api/login', 
+            {
+                username: username,
+                password: password
+            }).
+            then(function(response) {
+
+                localStorageService.set('XSRF-TOKEN', response.data.token);
+                onSuccess(response);
+
+            }, function(response) {
+
+                onError(response);
+
+            });
+
+        }
+
+        function logout(){
+
+            localStorageService.remove('XSRF-TOKEN', "cookies");
+
+        }
+
+        function getCurrentToken(){
+            return localStorageService.get('XSRF-TOKEN', "cookies");
+        }
+
+    return {
+        checkIfLoggedIn: checkIfLoggedIn,
+        login: login,
+        logout: logout,
+        getCurrentToken: getCurrentToken
+    }
+
     });
 'use strict';
 
@@ -167,9 +221,25 @@ angular.module('elycee')
  * Controller of the elycee
  */
 angular.module('elycee')
-	.controller('DashboardCtrl', function() {
+	.controller('DashboardCtrl', ['$scope', '$http', '$location', 'userService', function($scope, $http, $location, userService) {
+
+   		$scope.out = function() {
+			console.log("deze");
+	        userService.logout();
+	        $location.path('api/logout');
+        };
+
+        // if(!userService.checkIfLoggedIn())
+        // $location.path('/login');
+
+        const tl = new TimelineMax({ paused: true, completed: true});
+
+	  	tl.to(".collapse", 1.7, { left: "0%", ease: Expo.easeOut }, 0);
+	  	tl.staggerFrom(".collapse ul li a", 1.2, { left: "-100%", opacity: 0, ease: Expo.easeOut }, 0.2, 0.8);
+	  	tl.staggerFrom(".panel.panel-default", 1.2, { y: "100%", opacity: 0, ease: Expo.easeOut }, 0.2, 0.8);
+	  	tl.restart(); 
 		
-	});
+	}]);
 'use strict';
 
 /**
@@ -180,14 +250,39 @@ angular.module('elycee')
  * Controller of the elycee
  */
 angular.module('elycee')
-	.controller('LoginCtrl', function() {
+	.controller('LoginCtrl', ['$scope', '$http', '$location', 'userService', function($scope, $http, $location, userService) {
+
+   		$scope.log = function() {
+			console.log("deze");
+	        userService.login(
+
+	            $scope.username, $scope.password,
+
+	            function(response){
+	                $location.path('/dashboard');
+	                console.log(response);
+	            },
+	            function(response){
+	                alert('Something went wrong with the login process. Try again later!');
+	                console.log(response);
+	            }
+	        );
+         };
+
+   		console.log(userService);
+
+	    $scope.username = 'abel';
+	    $scope.password = 'pass';
+
+	    if(userService.checkIfLoggedIn())
+        $location.path('/');
 
 		const tl = new TimelineMax({ paused: true, completed: true});
 	  	tl.from(".bg", 1.7, { x: "100%", ease: Expo.easeOut }, 0);
 	  	tl.from(".row", 1.7, { x: "100%", opacity:0, ease: Expo.easeOut }, 0.2);
 	  	tl.restart();   
 		
-	});
+	}]);
 'use strict';
 
 /**
@@ -202,11 +297,11 @@ angular.module('elycee')
 
 		// $scope.message = 'This is the home view.';
 
-    $http.get("api/articles")
-      .success(function(data) {
-        $scope.posts = data;
-        console.log($scope.posts);
-      });
+		$http.get("api/articles")
+			.success(function(data) {
+				$scope.posts = data;
+				console.log($scope.posts);
+			});
 
 		$scope.val = function() {
 			console.log(this.post.id);
@@ -257,7 +352,7 @@ angular.module('elycee')
   	 	$http.get("api/articles/"+ $rootScope.id)
       		.success(function(data) {
         		$scope.post = data;
-        		console.log($rootScope.id);
+        		// console.log($rootScope.id);
       	});
 
 	 //    $scope.show = function(){
