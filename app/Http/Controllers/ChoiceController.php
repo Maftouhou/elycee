@@ -76,7 +76,15 @@ class ChoiceController extends Controller
      */
     public function show($id)
     {
-        //
+        $choice = Choice::where([
+            'question_id' => $id
+        ])->get();
+        
+        $choiceArr = json_decode($choice, true);
+        
+        dd($choiceArr, unserialize($choiceArr[0]['content']));
+        
+        # return get_object_vars($choice);
     }
 
     /**
