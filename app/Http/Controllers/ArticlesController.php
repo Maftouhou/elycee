@@ -18,8 +18,9 @@ class ArticlesController extends Controller
     public function index()
     {
         $posts = Post::where('status', 1)
-               ->orderBy('updated_at', 'desc')
-               ->get();
+                ->orderBy('updated_at', 'desc')
+                ->with('comment')
+                ->get();
         
         return $posts;
     }
@@ -53,7 +54,9 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
-        $post = Post::find($id);
+        $post = Post::where('id', $id)
+                ->with('comment')
+                ->get();
         
         return $post;
     }
