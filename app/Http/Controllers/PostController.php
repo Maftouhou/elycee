@@ -112,6 +112,7 @@ class PostController extends Controller
             $dirUpload  = public_path(env('UPLOAD_PICTURE', 'uploads'.DIRECTORY_SEPARATOR.'images'));
             $uri        = time().'_'.Auth::user()->id.'.jpg';
             
+            $post->user_id          = Auth::user()->id;
             $post->title            = $request->title;
             $post->abstract         = str_limit($request->content, 30);
             $post->content          = $request->content;
