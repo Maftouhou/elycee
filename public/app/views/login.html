@@ -3,9 +3,9 @@
   <div class="row">
      <h3>Login</h3>
      <form>
-        <input type="email" class="input-email underline" placeholder="Votre adresse e-mail">
-        <input type="password" class="input-password underline" placeholder="Votre mot de passe">
-        <button>Connexion</button>
+        <input type="text" class="input-username underline" placeholder="Votre nom d'utilisateur" ng-model="username" required>
+        <input type="password" class="input-password underline" placeholder="Votre mot de passe" ng-model="password" required>
+        <button type="submit" ng-click="log()">Connexion</button>
      </form>
   </div>
   <span class="bg"></span>

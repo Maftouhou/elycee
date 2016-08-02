@@ -16,9 +16,10 @@ angular
         'ngRoute',
         'ngSanitize',
         'ngTouch',
+        'LocalStorageModule',
     ])
     // .constant('API_URL', 'api/v1/')
-    .config(function($routeProvider) {
+    .config(function($routeProvider, localStorageServiceProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: '../app/views/main.html',
@@ -52,7 +53,9 @@ angular
             })
             .otherwise({
                 redirectTo: '/'
-            });
+            })
+        localStorageServiceProvider
+            .setStorageType('cookies');
     })
     .animation('.transition', function() {
         console.log();
@@ -82,4 +85,55 @@ angular
                 });
             }
         }
+    })
+    .factory('userService', function($http, localStorageService) {
+
+        function checkIfLoggedIn() {
+
+            if(localStorageService.get('XSRF-TOKEN', "cookies"))
+                return true;
+            else
+                return false;
+
+        }
+
+        function login(username, password, onSuccess, onError){
+
+            console.log(localStorageService);
+
+            $http.post('api/login', 
+            {
+                username: username,
+                password: password
+            }).
+            then(function(response) {
+
+                localStorageService.set('XSRF-TOKEN', response.data.token);
+                onSuccess(response);
+
+            }, function(response) {
+
+                onError(response);
+
+            });
+
+        }
+
+        function logout(){
+
+            localStorageService.remove('XSRF-TOKEN', "cookies");
+
+        }
+
+        function getCurrentToken(){
+            return localStorageService.get('XSRF-TOKEN', "cookies");
+        }
+
+    return {
+        checkIfLoggedIn: checkIfLoggedIn,
+        login: login,
+        logout: logout,
+        getCurrentToken: getCurrentToken
+    }
+
     });

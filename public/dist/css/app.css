@@ -1073,7 +1073,7 @@ header {
     text-transform: uppercase;
     color: white;
     margin-bottom: 65px; }
-  #login-page .row .input-email {
+  #login-page .row .input-username {
     font-size: 35px;
     margin-bottom: 65px; }
   #login-page .row .input-password {
@@ -1111,3 +1111,72 @@ header {
   z-index: 2;
   top: 0;
   left: 0; }
+
+#dashboard-page {
+  /*.bg {
+		background-color: #e8e8e8;
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		top: 0;
+		left: 0;
+	}*/ }
+  #dashboard-page a.back {
+    font-family: "MaisonNeue-Book";
+    font-size: 10px;
+    text-transform: uppercase;
+    top: 68px;
+    left: 68px;
+    color: white;
+    position: fixed;
+    z-index: 3; }
+  #dashboard-page .collapse.navbar-collapse.navbar-ex1-collapse {
+    position: fixed;
+    width: 30%;
+    height: 100%;
+    text-align: left;
+    left: -100%;
+    top: 0;
+    background-color: black; }
+    #dashboard-page .collapse.navbar-collapse.navbar-ex1-collapse ul.nav.navbar-nav.side-nav {
+      margin-top: 152px; }
+      #dashboard-page .collapse.navbar-collapse.navbar-ex1-collapse ul.nav.navbar-nav.side-nav li {
+        margin-left: 20%;
+        padding-top: 40px;
+        list-style: none;
+        font-size: 30px;
+        overflow: hidden;
+        font-family: MaisonNeue-Bold; }
+        #dashboard-page .collapse.navbar-collapse.navbar-ex1-collapse ul.nav.navbar-nav.side-nav li a {
+          position: relative;
+          color: white;
+          opacity: 0.25;
+          transition: opacity 700ms cubic-bezier(0.19, 1, 0.22, 1); }
+          #dashboard-page .collapse.navbar-collapse.navbar-ex1-collapse ul.nav.navbar-nav.side-nav li a:hover {
+            opacity: 1; }
+          #dashboard-page .collapse.navbar-collapse.navbar-ex1-collapse ul.nav.navbar-nav.side-nav li a:focus {
+            opacity: 1; }
+  #dashboard-page .container-fluid {
+    width: 70%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 150px; }
+    #dashboard-page .container-fluid .panel.panel-default {
+      background-color: white;
+      margin-top: 30px;
+      position: relative; }
+      #dashboard-page .container-fluid .panel.panel-default .panel-heading {
+        line-height: 99px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+        text-align: left;
+        font-size: 17px;
+        padding-left: 46px;
+        font-family: MaisonNeue-Bold;
+        letter-spacing: 0.5px; }
+      #dashboard-page .container-fluid .panel.panel-default .panel-body {
+        font-family: MaisonNeue-Book;
+        text-align: left;
+        padding-left: 46px;
+        line-height: 100px; }
