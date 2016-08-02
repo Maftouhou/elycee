@@ -8,7 +8,7 @@ use App\Http\Requests;
 
 use App\Post;
 
-class ArticlesController extends Controller
+class FrontController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,11 @@ class ArticlesController extends Controller
     public function index()
     {
         $posts = Post::where('status', 1)
-               ->orderBy('updated_at', 'desc')
-               ->get();
-        
-        return $posts;
+                ->orderBy('updated_at', 'desc')
+                ->take(5)
+                ->get();
+
+        return view('front.index', compact('posts'));
     }
 
     /**
@@ -55,7 +56,8 @@ class ArticlesController extends Controller
     {
         $post = Post::find($id);
         
-        return $post;
+        # return $singlePost;
+        return view('front.show', compact('post'));
     }
 
     /**

@@ -49,7 +49,7 @@
             </tr>
         </tbody>
         @empty
-            <p>Pas d'article</p>
+            <p>Pas de question dans cette liste</p>
         @endforelse
     </table>
 </div>
