@@ -16,8 +16,8 @@ Route::get('/', function () {
 });
     
     Route::any('login', 'LoginController@login');
-    Route::resource('index', 'ArticlesController');
     
+    Route::resource('index', 'ArticlesController');
     Route::resource('comments', 'CommentController');
     
 Route::group(['prefix' => 'api/', 'midleware' => ['web']], function(){
@@ -25,15 +25,12 @@ Route::group(['prefix' => 'api/', 'midleware' => ['web']], function(){
     Route::any('logout', 'LoginController@logout');
     
     Route::resource('articles', 'ArticlesController');
-    /**
-     * Mettre les Route specifique pour les article 
-     * en page d'accueil et les article en dashbord
-     */
     
     Route::group(['midleware' => ['auth']], function(){
         route::resource('post', 'PostController');
-        route::get('dashboard', 'PostController@dashboard');
-        
+        Route::resource('choices', 'ChoiceController');
         route::resource('questions', 'QuestionController');
+        
+        route::get('dashboard', 'PostController@dashboard');
     });
 });

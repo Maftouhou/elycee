@@ -10,6 +10,8 @@ use App\Http\Requests;
 
 use App\Question;
 
+use App\Choice;
+
 use Auth;
 
 class QuestionController extends Controller
@@ -73,12 +75,22 @@ class QuestionController extends Controller
      */
     public function store(QuestionRequest $request)
     {
-        Question::create($request->all());
+        # Question::create($request->all());
         
-        return redirect('api/questions');
-        // Renvoyer à la vue permettant de créer la reponse
-        // Cette vue va appeler une methode dans le ReponseController
-        // pour enregister en base
+        $question   = new Question;
+        $choice_num = $request->choice_num;
+        
+        $question->user_id      = $request->user_id;
+        $question->title        = $request->title;
+        $question->content      = $request->content;
+        $question->class        = $request->class;
+        $question->status       = $request->status;
+        
+        $question->save();
+        
+        # dd($question->id);
+        
+        return view('admin.dashboard.question.choices.create_choice', compact('question', 'choice_num'));
     }
 
     /**
@@ -130,6 +142,7 @@ class QuestionController extends Controller
     public function destroy($id)
     {
         Question::findOrFail($id)->delete();
+        Choice::where('question_id', $id)->delete();
         
         return redirect('api/questions');
     }

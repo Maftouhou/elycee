@@ -14,6 +14,8 @@
             <legend>Creer un nouvel article </legend>
             <p> <input type="hidden" name="user_id" value="{{Auth::user()->id}}" /></p>
             
+            <p> Nombre des choix des reponses </p>
+            <p> <input type="text" name="choice_num" placeholder="Entrer le nombre des choix possible"> </p>
             <p> Titre de l'article </p>
             <p> <input type="text" name="title" placeholder="Titre de l'Article"> </p>
             <p> Contenu de l'article </p>

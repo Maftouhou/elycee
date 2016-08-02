@@ -14,6 +14,7 @@
         <fieldset>
             <legend>Creer un nouvel article </legend>
             <p> <input type="hidden" name="user_id" value="{{Auth::user()->id}}" /></p>
+            <p> <input type="hidden" name="choice_num" value="1"> </p>
             
             <p> Titre de la question </p>
             <p> <input type="text" name="title" placeholder="Titre de l'Article" value="{{$question->title}}"> </p>
