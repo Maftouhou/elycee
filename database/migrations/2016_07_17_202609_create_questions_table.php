@@ -20,6 +20,7 @@ class CreateQuestionsTable extends Migration
             $table->enum('class', ['premiere', 'terminal'])->default('terminal');
             $table->enum('status', ['publish', 'unpublish'])->default('publish');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('SET NULL');
+            $table->timestamps();
         });
     }
 

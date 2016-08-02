@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container-fluid">
-    @if ($user_role === 'teacher')
+    @if (Auth::user()->role === 'teacher')
         <div class="col-lg-6 col-md-6 ">
             <div class="panel panel-default">
                 <div class="panel-heading">Gestion des questions</div>
@@ -33,7 +33,8 @@
             </div>
         </div>
     </div>
-    @elseif ($user_role === 'terminal' || $user_role === 'premiere') 
+    @elseif (Auth::user()->role === 'terminal' || Auth::user()->role === 'premiere') 
+
         <h2>Liste des question à repondre</h2>
         <a href="{{url('api/questions')}}" title="Repondre au question">Acceder au quesitonnaire</a>
     @else

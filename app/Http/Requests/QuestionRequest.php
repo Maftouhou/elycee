@@ -24,11 +24,11 @@ class QuestionRequest extends Request
     public function rules()
     {
         return [
-            'user_id'   => 'required|integer', 
-            'title'     => 'required|string|max:1000', 
-            'content'   => 'required|string', 
-            'class'     => 'required|string',
-            'status'    => 'required|string'
+            'user_id'       => 'required|integer', 
+            'title'         => 'required|string|max:1000', 
+            'content'       => 'required|string', 
+            'class'         => 'required|string',
+            'status'        => 'required|string'
         ];
     }
 }

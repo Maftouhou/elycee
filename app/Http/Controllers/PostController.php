@@ -50,9 +50,8 @@ class PostController extends Controller
         {
             $posts      = Post::all();
             $comments   = Comment::all();
-            $user_role  = Auth::user()->role;
             
-            return view('admin.dashboard.index', compact('posts', 'comments', 'user_role'));
+            return view('admin.dashboard.index', compact('posts', 'comments'));
         }  
         else 
         {
@@ -113,6 +112,7 @@ class PostController extends Controller
             $dirUpload  = public_path(env('UPLOAD_PICTURE', 'uploads'.DIRECTORY_SEPARATOR.'images'));
             $uri        = time().'_'.Auth::user()->id.'.jpg';
             
+            $post->user_id          = Auth::user()->id;
             $post->title            = $request->title;
             $post->abstract         = str_limit($request->content, 30);
             $post->content          = $request->content;
@@ -121,7 +121,7 @@ class PostController extends Controller
             
             if ($request->url_thumbnail) 
             {
-                $post->url_thumbnail    = $uri;
+                $post->url_thumbnail = $uri;
                 $request->file('url_thumbnail')->move($dirUpload, $uri);
             }
             
@@ -140,9 +140,11 @@ class PostController extends Controller
     public function show($id)
     {
         
-        $singlePost = Post::find($id);
+        $post = Post::find($id);
+        $comment    = Comment::all();
         
-        return $singlePost;
+        # return $singlePost;
+        return view('admin.dashboard.post.main_comments', compact('post', 'comment'));
     }
 
     /**

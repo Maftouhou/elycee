@@ -27,18 +27,18 @@
         <?php $odd++; ?>
         <tbody>
             <tr class="{{$odd%2==0?'evenClass':'oddClass'}}">
-                <td><a href="{{url('questions', $question->id)}}">{{str_limit($question->title, 7)}}</a></td>
+                <td><a href="{{url('api/questions', $question->id)}}">{{str_limit($question->title, 7)}}</a></td>
                 <td> {{str_limit($question->content, 20)}} </td>
                 <td> {{$question->class}} </td>
-                <td> {{$question->status}}</td>
+                <td> {{$question->status}} </td>
                 <td>
-                    <a class="edit_post" href="{{url('post/'.$question->id.'/edit')}}" class="">&ocir;</a>
+                    <a class="edit_post" href="{{url('api/questions/'.$question->id.'/edit')}}" class="">&ocir;</a>
                 </td>
                 <td>
                     <button class="delete_post_request"></button>
                     <div class="delete_post_confirmation">
                         <p>Etes vous sûr de vouloir supprimer la question : {{$question->title}}</p>
-                        <form class="delete_post" action="{{url('post', $question->id)}}" method="POST">
+                        <form class="delete_post" action="{{url('api/questions', $question->id)}}" method="POST">
                             {{method_field('DELETE')}}
                             {{csrf_field()}}
                             <input class="canncel_delete" type="reset" value="Annuler">
@@ -49,7 +49,7 @@
             </tr>
         </tbody>
         @empty
-            <p>Pas d'article</p>
+            <p>Pas de question dans cette liste</p>
         @endforelse
     </table>
 </div>

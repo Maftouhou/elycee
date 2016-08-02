@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\QuestionRequest;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
 use App\Question;
+
+use App\Choice;
 
 use Auth;
 
@@ -19,20 +23,20 @@ class QuestionController extends Controller
     }
     /**
      * Display a listing of the resource.
-     *
+     * 
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
         if (Auth::user()->role === 'terminal') 
         {
-            $questions  = Question::where('class', 'terminal');
+            $questions  = Question::where('class', 'terminal')->get();
 
             return view('admin.dashboard.reponse.main_reponse', compact('questions'));
         }
         else if (Auth::user()->role === 'premiere')
         {
-            $questions  = Question::where('class', 'premiere');
+            $questions  = Question::where('class', '=', 'premiere')->get();
 
             return view('admin.dashboard.reponse.main_reponse', compact('questions'));
         }
@@ -69,9 +73,24 @@ class QuestionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(QuestionRequest $request)
     {
-        return 'question are ready to be stored';
+        # Question::create($request->all());
+        
+        $question   = new Question;
+        $choice_num = $request->choice_num;
+        
+        $question->user_id      = $request->user_id;
+        $question->title        = $request->title;
+        $question->content      = $request->content;
+        $question->class        = $request->class;
+        $question->status       = $request->status;
+        
+        $question->save();
+        
+        # dd($question);
+        
+        return view('admin.dashboard.question.choices.create_choice', compact('question', 'choice_num'));
     }
 
     /**
@@ -82,7 +101,9 @@ class QuestionController extends Controller
      */
     public function show($id)
     {
-        //
+        $question = Question::findOrFail($id);
+        
+        return $question;
     }
 
     /**
@@ -93,7 +114,9 @@ class QuestionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $question = Question::findOrFail($id);
+        
+        return view('admin.dashboard.question.edit_quest', compact('question'));
     }
 
     /**
@@ -103,9 +126,11 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(QuestionRequest $request, $id)
     {
-        //
+        Question::findOrFail($id)->update($request->all());
+        
+        return redirect('api/questions');
     }
 
     /**
@@ -116,6 +141,9 @@ class QuestionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Question::findOrFail($id)->delete();
+        Choice::where('question_id', $id)->delete();
+        
+        return redirect('api/questions');
     }
 }

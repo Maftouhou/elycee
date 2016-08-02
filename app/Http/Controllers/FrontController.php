@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CommentRequest;
-
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Comment;
+use App\Post;
 
-class CommentController extends Controller
+class FrontController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,17 +17,12 @@ class CommentController extends Controller
      */
     public function index()
     {
-        if (Auth::user()) 
-        {
-            $comments   = Comment::all();
-            
-            return view('admin.dashboard.post.main_comments', compact('comments'));
-        }  
-        else 
-        {
-            
-            return view('auth.login');
-        }
+        $posts = Post::where('status', 1)
+                ->orderBy('updated_at', 'desc')
+                ->take(5)
+                ->get();
+
+        return view('front.index', compact('posts'));
     }
 
     /**
@@ -48,11 +41,9 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CommentRequest $request)
+    public function store(Request $request)
     {
-        Comment::create($request->all());
-        
-        return back();
+        //
     }
 
     /**
@@ -63,7 +54,10 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+        
+        # return $singlePost;
+        return view('front.show', compact('post'));
     }
 
     /**
@@ -97,9 +91,6 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        $comment = Comment::findOrFail($id);
-        $comment->delete();
-        
-        return back();
+        //
     }
 }

@@ -14,24 +14,23 @@
 Route::get('/', function () {
     return view('index');
 });
-
     
     Route::any('login', 'LoginController@login');
+    
+    Route::resource('index', 'FrontController');
+    Route::resource('comments', 'CommentController');
     
 Route::group(['prefix' => 'api/', 'midleware' => ['web']], function(){
     Route::any('login', 'LoginController@login');
     Route::any('logout', 'LoginController@logout');
     
     Route::resource('articles', 'ArticlesController');
-    /**
-     * Mettre les Route specifique pour les article 
-     * en page d'accueil et les article en dashbord
-     */
     
     Route::group(['midleware' => ['auth']], function(){
         route::resource('post', 'PostController');
-        route::get('dashboard', 'PostController@dashboard');
-        
+        Route::resource('choices', 'ChoiceController');
         route::resource('questions', 'QuestionController');
+        
+        route::get('dashboard', 'PostController@dashboard');
     });
 });

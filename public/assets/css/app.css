@@ -365,7 +365,7 @@ section#page_content main table.article_list tbody tr td div.delete_post_confirm
     height: 220px;
     background-color: #fff;
     border: 1px solid #3FBFBF;
-    border-radius: 10px
+    /*border-radius: 10px*/
 }
 
 section#page_content main table.article_list tbody tr td div.delete_post_confirmation p {
@@ -567,4 +567,13 @@ aside#sidebar ul#la_une li figure #image_la_une {
 
 .menu_eleve {
     display: block !important;
+}
+
+.view_post_comment {
+    padding: 50px;
+    display: none;
+    width: 600px;
+    height: 400px;
+    background-color: #fff;
+    border: 1px solid #3FBFBF;
 }
