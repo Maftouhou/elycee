@@ -18,18 +18,17 @@
         </div>
         <div class="row">
             <div class="col-lg-2">
-                <aside id="sidebar">
+                
                     @include('partials.sidebar')
-                </aside>
+              
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-10">
                 <section id="page_content">
                     <main id="main_content">
                             @yield('content')
                     </main>
                 </section>
             </div>
-            <div class="col-lg-2"></div>
         </div>
         <div class="row">
             <div class="col-lg-12">
@@ -44,3 +43,57 @@
     <script src="{{url('assets/js/jQuery.easymodal_1.3.js')}}" ></script>
 </body>
 </html>
+<!-- 
+
+<div id="dashboard-page">
+    <a href back class="back">back</a>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="">Fiches</a>
+                    </li>
+                    <li>
+                        <a href="">Articles</a>
+                    </li>
+                    <li>
+                        <a href="">Élèves</a>
+                    </li>
+                    <li>
+                        <a href ng-click="out()">Logout</a>
+                    </li>
+                </ul>
+            </div>
+    <div class="container-fluid">
+        <div class="col-lg-6 col-md-6 ">
+            <div class="panel panel-default">
+                <div class="panel-heading">Gestion des fiches</div>
+                <div class="panel-body">Lorem ipsum dolor</div>
+                <div class="panel-body">Lorem ipsum dolor</div>
+                <div class="panel-body">Lorem ipsum dolor</div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Statistiques</div>
+                <div class="panel-body">12 commentaires</div>
+                <div class="panel-body">08 fiches publiées</div>
+                <div class="panel-body">24 élèves</div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Gestion des articles</div>
+                <div class="panel-body">Lorem ipsum dolor</div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Gestion des élèves</div>
+                <div class="panel-body">Panel content</div>
+            </div>
+        </div>
+    </div>
+</div> -->
