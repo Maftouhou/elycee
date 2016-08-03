@@ -14,7 +14,7 @@ a.back {
 		width: 380px;
 		height: 100%;
 		text-align: left;
-		left: 0;
+		left: 0%;
 		top: 0;
 		background-color: black;
 		display: none;
@@ -26,10 +26,12 @@ a.back {
 			display: block !important;
 		}
 		ul.nav.navbar-nav.side-nav {
-			margin-top: 152px;
+		    width: 246px;
+		    overflow: hidden;
+		    margin: 152px auto 0 auto;
 
 			li {
-				margin-left: 20%;
+				position: relative;
 				padding-top: 40px;
 				list-style: none;
 				font-size: 30px;

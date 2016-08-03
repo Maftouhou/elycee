@@ -8,11 +8,11 @@
         @endforeach
     </ul>
     @endif
+    <h2>Editer l'article</h2>
+    <div id="article_container">
     <form action="{{url('api/post', $post->id)}}" method="POST" enctype="multipart/form-data">
         {{method_field('PATCH')}}
         {{csrf_field()}}
-        <fieldset>
-            <legend>Creer un nouvel article </legend>
             <p> <input type="hidden" name="user_id" value="{{Auth::user()->id}}" /></p>
             
             <p> Titre de l'article </p>
@@ -30,9 +30,7 @@
             @endif
             <p> <label for="picture">Télécharger une photo</label></p>
             <p> <input type="file" id="picture" name="url_thumbnail" /> </p>
-        </fieldset>
 
-        <fieldset>
             <legend>Gerer la publication </legend>
             <p>
                 <label for="publish">Publier maintement </label>
@@ -44,6 +42,6 @@
             <p>
                 <input type="submit" value="Envoyer">
             </p>
-        </fieldset>
     </form>
+</div>
 @endsection

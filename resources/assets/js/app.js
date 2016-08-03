@@ -35,3 +35,10 @@
     }
     
 })(jQuery);
+
+const tl = new TimelineMax({ paused: true, completed: true});
+
+// tl.to(".sidebar-wrapper", 1.7, { left: "0%", ease: Expo.easeOut }, 0);
+tl.staggerFrom(".sidebar-wrapper ul li", 1.2, { left: "-100%", opacity: 0, ease: Expo.easeOut }, 0.2, 0.8);
+tl.staggerFrom(".panel.panel-default", 1.2, { y: "100%", opacity: 0, ease: Expo.easeOut }, 0.2, 0.8);
+tl.restart(); 

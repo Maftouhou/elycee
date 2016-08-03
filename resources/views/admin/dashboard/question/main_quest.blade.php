@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<div>
+<div class="bloc_question">
 <h2>Creation des questions</h2>
 <div id="article_container">
     <div class="panel">
