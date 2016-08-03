@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+<div>
 <h2>Creation des questions</h2>
 <div id="article_container">
     <div class="panel">
@@ -26,16 +27,16 @@
         @forelse($questions->reverse() as $question)
         <?php $odd++; ?>
         <tbody>
-            <tr class="{{$odd%2==0?'evenClass':'oddClass'}}">
+            <tr>
                 <td><a href="{{url('api/questions', $question->id)}}">{{str_limit($question->title, 7)}}</a></td>
                 <td> {{str_limit($question->content, 20)}} </td>
                 <td> {{$question->class}} </td>
                 <td> {{$question->status}} </td>
                 <td>
-                    <a class="edit_post" href="{{url('api/questions/'.$question->id.'/edit')}}" class="">&ocir;</a>
+                    <a class="edit_post" href="{{url('api/questions/'.$question->id.'/edit')}}" class=""></a>
                 </td>
                 <td>
-                    <button class="delete_post_request"></button>
+                    <a class="delete_post_request"></a>
                     <div class="delete_post_confirmation">
                         <p>Etes vous sûr de vouloir supprimer la question : {{$question->title}}</p>
                         <form class="delete_post" action="{{url('api/questions', $question->id)}}" method="POST">
@@ -52,5 +53,6 @@
             <p>Pas de question dans cette liste</p>
         @endforelse
     </table>
+</div>
 </div>
 @endsection

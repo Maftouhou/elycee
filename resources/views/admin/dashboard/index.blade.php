@@ -2,7 +2,6 @@
 
 @section('content')
 
-<div class="container-fluid">
     @if (Auth::user()->role === 'teacher')
         <div class="col-lg-6 col-md-6 ">
             <div class="panel panel-default">
@@ -32,7 +31,7 @@
                 <div class="panel-body">Panel content</div>
             </div>
         </div>
-    </div>
+        
     @elseif (Auth::user()->role === 'terminal' || Auth::user()->role === 'premiere') 
 
         <h2>Liste des question à repondre</h2>

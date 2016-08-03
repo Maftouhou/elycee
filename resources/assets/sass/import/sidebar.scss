@@ -1,0 +1,55 @@
+a.back {
+	font-family: $font;
+	font-size: 10px;
+	text-transform: uppercase;
+	top: 68px;
+	left: 68px;
+	color: white;
+	position: fixed;
+	z-index: 3;
+}
+.row {
+	.sidebar-wrapper {
+		position: fixed;
+		width: 380px;
+		height: 100%;
+		text-align: left;
+		left: 0;
+		top: 0;
+		background-color: black;
+		display: none;
+
+		&.menu_teacher {
+			display: block !important;
+		}
+		&.menu_eleve {
+			display: block !important;
+		}
+		ul.nav.navbar-nav.side-nav {
+			margin-top: 152px;
+
+			li {
+				margin-left: 20%;
+				padding-top: 40px;
+				list-style: none;
+				font-size: 30px;
+				overflow: hidden;
+				font-family: MaisonNeue-Bold;
+
+				a {
+					position: relative;
+					color: white;
+					opacity: 0.25;
+					transition: opacity 700ms $easeOutExpo;
+
+					&:hover {
+						opacity: 1;
+					}
+					&:focus {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+}
