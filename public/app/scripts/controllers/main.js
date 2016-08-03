@@ -10,8 +10,6 @@
 angular.module('elycee')
 	.controller('MainCtrl', function($scope, $http, $rootScope) {
 
-		// $scope.message = 'This is the home view.';
-
 		$http.get("api/articles")
 			.success(function(data) {
 				$scope.posts = data;

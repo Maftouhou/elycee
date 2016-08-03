@@ -14,6 +14,8 @@
 			height: 100%;
 			top: 0px;
 			left: 0;
+			margin-left: 0px; 
+    		margin-right: 0px;
 			.inner_bloc {
 				text-align: left;
 				position: absolute;
@@ -89,7 +91,7 @@
 		}
 		.new{
 			position: absolute;
-		    background-image: url("https://s-media-cache-ak0.pinimg.com/564x/88/2b/e4/882be43518f3407eb32fa59ddd5bbe99.jpg");
+		    background-image: url("http://images.adsttc.com/media/images/55ae/d1e6/e58e/ceb3/3000/006c/slideshow/MV4A3201.jpg?1437520326");
 		    background-size: cover;
 		    background-position: center center;
 		    top: 0;
@@ -102,7 +104,7 @@
 	.col_right {
 		position: absolute;
 		overflow: hidden;
-		width: 30%;
+		width: 50%;
 		z-index: 0;
 		right: -100%;
 		top: 0;
@@ -137,7 +139,9 @@
 			font-family: $maisonBold;
 		}
 		.row {
-			margin: 0 68px;
+			margin: 0 0px;
+			margin-left: 0px; 
+    		margin-right: 0px;
 
 			a {
 				background-color: #e8e8e8;
@@ -148,12 +152,12 @@
 				display: block;
 
 				&.right {
-					width: 100%;
+					width: 35%;
 					margin-left: 65%;
 				}
 				&.left {
-					width: 50%;
-					margin-left: 15%;
+					width: 40%;
+					margin-left: 25%;
 				}
 				&:hover {
 					.el {
@@ -180,10 +184,10 @@
 				}
 				.inner_bloc {
 					overflow: hidden;
-					text-align: left;
+					text-align: center;
 					top: 50%;
+					width:100%;
 					transform: translateY(-50%);
-					padding-left: 10%;
 					position: absolute;
 					color: white;
 					-webkit-font-smoothing: antialiased;

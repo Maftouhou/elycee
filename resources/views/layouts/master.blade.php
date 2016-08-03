@@ -32,7 +32,9 @@
             </div>
         </div> -->  
     </div>
-    <script src="{{url('assets/js/app.js')}}" ></script>
+    <script src="../bower_components/gsap/src/uncompressed/TimelineMax.js"></script>
+    <script src="../bower_components/gsap/src/uncompressed/TweenMax.js"></script>
+    <script src="{{url('assets/js/app.min.js')}}" ></script>
     <script src="{{url('assets/js/jQuery.easymodal_1.3.js')}}" ></script>
 </body>
 </html>

@@ -11,11 +11,9 @@ angular.module('elycee')
 	.controller('DashboardCtrl', ['$scope', '$http', '$location', 'userService', function($scope, $http, $location, userService) {
 
    		$scope.out = function() {
-			console.log("deze");
 	        userService.logout();
 	        $location.path('api/logout');
         };
-
         // if(!userService.checkIfLoggedIn())
         // $location.path('/login');
 

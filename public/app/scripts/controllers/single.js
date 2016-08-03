@@ -12,23 +12,9 @@ angular.module('elycee')
 
   	 	$http.get("api/articles/"+ $rootScope.id)
       		.success(function(data) {
-        		$scope.post = data;
-        		// console.log($rootScope.id);
+        		$scope.post = data[0];
+        		console.log();
       	});
-
-	 //    $scope.show = function(){
-		// 	$(".col_left .row").html('<div class="el" style="background-image:url(\'/uploads/images/'+this.post.url_thumbnail+'\')"></div>');
-		// 	TweenLite.from(".col_left .row", 1, { opacity: 0, scale: 1.1, ease: Expo.easeOut});
-		// 	TweenLite.to(".col_left .row", 1, { opacity: 1, scale: 1, ease: Expo.easeOut });
-		// 	TweenLite.to(".col_left .new", 1, { opacity: 0, scale: 1, ease: Expo.easeOut });
-		// 	console.log(this.post.url_thumbnail);
-		// };
-		// $scope.hide = function(){
-		// 	TweenLite.to(".col_left .row", 1, { opacity: 0, scale: 1, ease: Expo.easeOut });
-		// 	TweenLite.from(".col_left .new", 1, { opacity: 0, scale: 1.1, ease: Expo.easeOut });
-		// 	TweenLite.to(".col_left .new", 1, { opacity: 1, scale: 1, ease: Expo.easeOut });
-		// 	console.log(this.post);
-		// };
 
 	    const tl = new TimelineMax({ paused: true, completed: true});
 

@@ -11,7 +11,6 @@ angular.module('elycee')
 	.controller('LoginCtrl', ['$scope', '$http', '$location', 'userService', function($scope, $http, $location, userService) {
 
    		$scope.log = function() {
-			console.log("deze");
 	        userService.login(
 
 	            $scope.username, $scope.password,
@@ -26,8 +25,6 @@ angular.module('elycee')
 	            }
 	        );
          };
-
-   		console.log(userService);
 
 	    $scope.username = 'abel';
 	    $scope.password = 'pass';
