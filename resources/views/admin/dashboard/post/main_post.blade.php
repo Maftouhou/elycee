@@ -41,10 +41,10 @@
                 </td>
                 <td>{{$post->status}}</td>
                 <td>
-                    <a class="edit_post" href="{{url('api/post/'.$post->id.'/edit')}}" class="">&ocir;</a>
+                    <a class="edit_post" href="{{url('api/post/'.$post->id.'/edit')}}" class="">edit</a>
                 </td>
                 <td>
-                    <button class="delete_post_request"></button>
+                    <a class="delete_post_request">delete</a>
                     <div class="delete_post_confirmation">
                         <p>Etes vous sûr de vouloir supprimer l'article : {{$post->title}}</p>
                         <form class="delete_post" action="{{url('api/post', $post->id)}}" method="POST">

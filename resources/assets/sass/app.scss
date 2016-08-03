@@ -1,5 +1,5 @@
 @import "_reset.scss";
-// @import "_body.scss";
+@import "_body.scss";
 @import "require/_var.scss";
 @import "require/_mixin.scss";
 @import "require/_fonts.scss";
@@ -87,5 +87,5 @@ header {
 .title {
 	font-size: 96px;
 }
-
+@import "import/sidebar.scss";
 @import "import/dashboard.scss";
