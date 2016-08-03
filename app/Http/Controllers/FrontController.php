@@ -20,9 +20,11 @@ class FrontController extends Controller
         $posts = Post::where('status', 1)
                 ->orderBy('updated_at', 'desc')
                 ->take(5)
+                ->with('comment')
                 ->get();
 
-        return view('front.index', compact('posts'));
+        # return view('front.index', compact('posts'));
+        return $posts;
     }
 
     /**
@@ -54,10 +56,12 @@ class FrontController extends Controller
      */
     public function show($id)
     {
-        $post = Post::find($id);
-        
-        # return $singlePost;
-        return view('front.show', compact('post'));
+        $post = Post::where('id', $id)
+                ->with('comment')
+                ->get();
+        # dd($post);
+        return $post;
+        # return view('front.show', compact('post'));
     }
 
     /**
