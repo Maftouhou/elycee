@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Question;
+
 use App\Comment;
 
 use App\User;
@@ -48,10 +50,15 @@ class PostController extends Controller
     {
         if (Auth::user()) 
         {
-            $posts      = Post::all();
+            $users      = User::where('role', '<>', 'teacher')->get();
+            $posts      = Post::orderBy('created_at', 'desc')->get();
             $comments   = Comment::all();
+            $questions  = Question::orderBy('created_at', 'desc')
+                        ->take('3')
+                        ->get();
             
-            return view('admin.dashboard.index', compact('posts', 'comments'));
+            # dd($questions);
+            return view('admin.dashboard.index', compact('posts', 'comments', 'questions', 'users'));
         }  
         else 
         {

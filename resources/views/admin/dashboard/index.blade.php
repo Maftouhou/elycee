@@ -5,24 +5,31 @@
     @if (Auth::user()->role === 'teacher')
         <div class="col-lg-6 col-md-6 ">
             <div class="panel panel-default">
-                <div class="panel-heading">Gestion des questions</div>
-                <div class="panel-body">Question 1</div>
-                <div class="panel-body">Question 2</div>
-                <div class="panel-body">Question 3</div>
+                <div class="panel-heading">
+                    <a href="#">Gestion des questions</a>
+                </div>
+                @foreach($questions as $q_key => $question)
+                <div class="panel-body">{{$question->title}}</div>
+                @endforeach
             </div>
         </div>
         <div class="col-lg-6 col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading">Statistiques</div>
-                <div class="panel-body">12 commentaires</div>
-                <div class="panel-body">08 fiches publiées</div>
-                <div class="panel-body">24 élèves</div>
+                <div class="panel-body">{{count($comments)}} commentaires</div>
+                <div class="panel-body">{{count($posts)}} Posts publiées</div>
+                <div class="panel-body">{{count($questions)}} questions publiées</div>
+                <div class="panel-body">{{count($users)}} élèves</div>
             </div>
         </div>
         <div class="col-lg-6 col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading">Gestion des articles</div>
-                <div class="panel-body">Articles 1</div>
+                @foreach($posts as $p_key => $post)
+                    <div class="panel-body">{{$post->title}}</div>
+                    @if($p_key > 1) @break; 
+                    @endif
+                @endforeach
             </div>
         </div>
         <div class="col-lg-6 col-md-6">
@@ -33,7 +40,6 @@
         </div>
         
     @elseif (Auth::user()->role === 'terminal' || Auth::user()->role === 'premiere') 
-
         <h2>Liste des question à repondre</h2>
         <a href="{{url('api/questions')}}" title="Repondre au question">Acceder au quesitonnaire</a>
     @else
