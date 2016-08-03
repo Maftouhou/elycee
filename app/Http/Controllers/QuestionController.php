@@ -88,7 +88,7 @@ class QuestionController extends Controller
         
         $question->save();
         
-        # dd($question);
+        # dd($choice_num, $question);
         
         return view('admin.dashboard.question.choices.create_choice', compact('question', 'choice_num'));
     }

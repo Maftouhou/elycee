@@ -8,49 +8,99 @@ use App\Http\Requests;
 
 use App\Question;
 
-use App\User;
+use App\Choice;
 
 use Auth;
 
 class ResponseController extends Controller
 {
+    
     public function __construct() {
         
         return;
     }
+    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function index()
     {
-        if (Auth::user()->role === 'terminal') 
-        {
-            /**
-             * recupearion des choix des reponses dans la tables Choices
-             * et les envoyer à la vue
-             */
-            $questions  = Question::where('role', 'terminal');
-
-            return view('admin.dashboard.reponse.create_reponse', compact('questions'));
-        }
-        else if (Auth::user()->role === 'premiere')
-        {
-            $questions  = Question::where('role', 'premiere');
-
-            return view('admin.dashboard.reponse.create_reponse', compact('questions'));
-        }
+        //
     }
-    
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function store($id)
+    public function show($id)
     {
-        
+        $choice = Choice::where([
+            'question_id' => $id
+        ])->with('question')->get();
+
+        $choice_Arr = json_decode($choice, true);
+        $choice_Obj = unserialize($choice_Arr[0]['content']);
+        $content_choice_Arr = (array) $choice_Obj;
+
+        return view('admin.dashboard.reponse.create_reponse', compact('choice_Arr', 'content_choice_Arr'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }

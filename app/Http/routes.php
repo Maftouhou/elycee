@@ -30,8 +30,7 @@ Route::group(['prefix' => 'api/', 'midleware' => ['web']], function(){
         route::resource('post', 'PostController');
         Route::resource('choices', 'ChoiceController');
         route::resource('questions', 'QuestionController');
-        Route::get('qcmreposne', 'ResponseController@show');
-        Route::post('qcmreposne', 'ResponseController@store');
+        Route::resource('qcm_reposne', 'ResponseController');
         
         route::get('dashboard', 'PostController@dashboard');
     });

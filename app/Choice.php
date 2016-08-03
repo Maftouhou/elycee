@@ -11,4 +11,9 @@ class Choice extends Model
         'content', 
         'status'
     ];
+    
+    public function question()
+    {
+        return $this->belongsTo('App\Question');
+    }
 }

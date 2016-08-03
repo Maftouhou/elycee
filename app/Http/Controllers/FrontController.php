@@ -23,8 +23,8 @@ class FrontController extends Controller
                 ->with('comment')
                 ->get();
 
-        # return view('front.index', compact('posts'));
-        return $posts;
+        return view('front.index', compact('posts'));
+        # return $posts;
     }
 
     /**
@@ -56,12 +56,14 @@ class FrontController extends Controller
      */
     public function show($id)
     {
-        $post = Post::where('id', $id)
+        $posts = Post::where('id', $id)
                 ->with('comment')
                 ->get();
         # dd($post);
-        return $post;
-        # return view('front.show', compact('post'));
+        # return $post;
+        
+        $post = $posts[0];
+        return view('front.show', compact('post'));
     }
 
     /**

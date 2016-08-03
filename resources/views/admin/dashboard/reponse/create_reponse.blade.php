@@ -11,15 +11,20 @@
     <form action="{{url('api/')}}" method="POST">
         {{csrf_field()}}
         <fieldset>
-            <legend>Enregistrer les reponse à la question {{$question->title}}</legend>
+            <legend>Reponse à la question {{ $choice_Arr[0]['question']['title'] }}</legend>
             <p> <input type="hidden" name="user_id" value="{{Auth::user()->id}}" /></p>
-            <p> <input type="hidden" name="question_id" value="{{$question->id}}" /></p>
+            <p> <input type="hidden" name="question_id" value="{{$choice_Arr[0]['question_id']}}" /></p>
+            @if($choice_Arr[0]['question'])
+            <p>{{ $choice_Arr[0]['question']['content'] }}</p>
+            @endif
             
-            @for ($i = 0; $i < $choice_num; $i++)
-                <p> Reponse  $i</p>
-                <p> <textarea name="content" id="" cols="50" rows="6" placeholder="Contenu de l article"></textarea> </p>
-                <input type="checkbox" name="vrai_{{$i}}" value="1" />
-                <input type="checkbox" name="faux_{{$i}}" value="0" />
+            @for ($i = 0; $i < $content_choice_Arr['choice_num']; $i++)
+                <p> Reponse  {{$i+1}}</p>
+                <?php $j = $i+1; ?>
+                <p>{{$content_choice_Arr[ 'content_'."$j"]}}</p>
+                
+                <p> Vrais <input type="radio" name="choice_{{$i+1}}" value="1" /> </p>
+                <p> Faux <input type="radio" name="choice_{{$i+1}}" value="0" /> </p>
             @endfor
             <p>
                 <input type="submit" value="Envoyer">
