@@ -23,21 +23,23 @@ class ResponseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function show($id)
     {
         if (Auth::user()->role === 'terminal') 
         {
-            $class      = 'menu_terminal';
+            /**
+             * recupearion des choix des reponses dans la tables Choices
+             * et les envoyer à la vue
+             */
             $questions  = Question::where('role', 'terminal');
 
-            return view('admin.dashboard.reponse.main', compact('questions'))->with(['class' => $class]);
+            return view('admin.dashboard.reponse.create_reponse', compact('questions'));
         }
         else if (Auth::user()->role === 'premiere')
         {
-            $class      = 'menu_premiere';
-            $questions  = Question::where('role', 'terminal');
+            $questions  = Question::where('role', 'premiere');
 
-            return view('admin.dashboard.reponse.main_reponse', compact('questions'))->with(['class' => $class]);
+            return view('admin.dashboard.reponse.create_reponse', compact('questions'));
         }
     }
     
@@ -47,7 +49,7 @@ class ResponseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function answer($id)
+    public function store($id)
     {
         
     }
