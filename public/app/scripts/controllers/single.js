@@ -26,6 +26,8 @@ angular.module('elycee')
 	            	$http.get("api/articles/"+id)
       					.success(function(data) {
         				$scope.comments = data[0].comment;
+        				$scope.commentText = '';
+        				$scope.titleText = '';
         				console.log(data);
       				});
 	            })
