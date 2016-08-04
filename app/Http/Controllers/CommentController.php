@@ -10,6 +10,8 @@ use App\Http\Requests;
 
 use App\Comment;
 
+use Auth;
+
 class CommentController extends Controller
 {
     /**
@@ -27,7 +29,6 @@ class CommentController extends Controller
         }  
         else 
         {
-            
             return view('auth.login');
         }
     }

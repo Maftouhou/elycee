@@ -90,19 +90,18 @@ angular
 
         function checkIfLoggedIn() {
 
-            if(localStorageService.get('XSRF-TOKEN', "cookies"))
+            if (localStorageService.get('XSRF-TOKEN', "cookies"))
                 return true;
             else
                 return false;
 
         }
 
-        function login(username, password, onSuccess, onError){
+        function login(username, password, onSuccess, onError) {
 
             console.log(localStorageService);
 
-            $http.post('api/login', 
-            {
+            $http.post('api/login', {
                 username: username,
                 password: password
             }).
@@ -120,21 +119,44 @@ angular
 
         }
 
-        function logout(){
+        function logout() {
 
             localStorageService.remove('XSRF-TOKEN', "cookies");
 
         }
 
-        function getCurrentToken(){
+        function getCurrentToken() {
             return localStorageService.get('XSRF-TOKEN', "cookies");
         }
 
-    return {
-        checkIfLoggedIn: checkIfLoggedIn,
-        login: login,
-        logout: logout,
-        getCurrentToken: getCurrentToken
-    }
+        return {
+            checkIfLoggedIn: checkIfLoggedIn,
+            login: login,
+            logout: logout,
+            getCurrentToken: getCurrentToken
+        }
+
+    })
+    .factory('commentService', function($http) {
+
+        return {
+            get : function() {
+                return $http.get('api/articles/');
+            },
+            // save a comment (pass in comment data)
+            save: function(commentText, postId, status, title) {
+                console.log(commentText, postId, status, title);
+                return $http({
+                    method: 'POST',
+                    url: '/comments',
+                    data: { 
+                        content: commentText, 
+                        post_id: postId, 
+                        status: status,
+                        title: title  
+                    }
+                });
+            }
+        }
 
     });

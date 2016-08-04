@@ -8,13 +8,32 @@
  * Controller of the elycee
  */
 angular.module('elycee')
-  	.controller('SingleCtrl', function ($scope, $http, $rootScope) {
+  	.controller('SingleCtrl', function ($scope, $http, $rootScope, commentService) {
+  		var id = $rootScope.id;
 
-  	 	$http.get("api/articles/"+ $rootScope.id)
+  	 	$http.get("api/articles/"+id)
       		.success(function(data) {
         		$scope.post = data[0];
-        		console.log();
+        		$scope.comments = data[0].comment;
       	});
+
+      	// $scope.commentText = {};
+      	$scope.submitComment = function() {
+
+	        commentService.save($scope.commentText, id, 1, $scope.titleText)
+	            .success(function(data) {
+	            	// reload comments
+	            	$http.get("api/articles/"+id)
+      					.success(function(data) {
+        				$scope.comments = data[0].comment;
+        				console.log(data);
+      				});
+	            })
+	            .error(function(data) {
+	                console.log("error ");
+	            });
+    	};
+
 
 	    const tl = new TimelineMax({ paused: true, completed: true});
 

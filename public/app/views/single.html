@@ -3,6 +3,19 @@
 		<div class="cat title">{{ post.title }}</div>
 		<div class="cat info">{{ post.content }}</div>
 		<div class="cat date"><span style="font-family: MaisonNeue-Demi;">DATE DE PUBLICATION:</span> {{ post.created_at }}</div>
+		<div class="cat comment_container">
+			<h1>Ajouter un commentaire</h1>
+			<form ng-submit="submitComment()">
+				<input type="text" class="input-title" ng-model="titleText" placeholder="Quel est le sujet ?...">
+				<textarea type="textarea" class="textarea" ng-model="commentText" placeholder="Ecrivez un commentaire ici..."></textarea>
+				<button type="submit">Publier</button>
+			</form>
+			<h1>Commentaires</h1>
+			<div class="comment" ng-repeat="comment in comments | orderBy: 'created_at':true">
+			<h4>{{ comment.title }}</h4>
+			<p>{{ comment.content }}</p>
+			</div>
+		</div>
 		<div class="row">
 		</div>
 		<span class="bg"></span>
