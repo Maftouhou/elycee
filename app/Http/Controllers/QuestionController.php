@@ -30,13 +30,19 @@ class QuestionController extends Controller
     {
         if (Auth::user()->role === 'terminal') 
         {
-            $questions  = Question::where('class', 'terminal')->get();
+            $questions  = Question::where([
+                'class'     => 'terminal',
+                'status'    => 'publish'
+            ])->get();
             
             return view('admin.dashboard.reponse.main_reponse', compact('questions'));
         }
         else if (Auth::user()->role === 'premiere')
         {
-            $questions  = Question::where('class', '=', 'premiere')->get();
+            $questions  = Question::where([
+                'class'     => 'premiere',
+                'status'    => 'publish'
+            ])->get();
             
             return view('admin.dashboard.reponse.main_reponse', compact('questions'));
         }
