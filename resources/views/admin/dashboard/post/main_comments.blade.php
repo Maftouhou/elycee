@@ -11,7 +11,7 @@
         <thead>
             <tr>
                 <td>Titre</td>
-                <td>Afficher</td>
+                <!--<td>Afficher</td>-->
                 <td>Suprimer</td>
             </tr>
         </thead>
@@ -22,12 +22,12 @@
             <tr class="{{$odd%2==0?'evenClass':'oddClass'}}">
                 <td><a href="#">{{$comment->title}}</a></td>
                 
-                <td>
-                    <button class="edit_post"></button>
+<!--                <td>
+                    <a href="#" class="edit_post">Afficher</a>
                     <p class="view_post_comment">{{$comment->content}}</p>
-                </td>
+                </td>-->
                 <td>
-                    <button class="delete_post_request"></button>
+                    <a href="#" class="delete_post_request">Suprimer</a>
                     <div class="delete_post_confirmation">
                         <p>Etes vous sûr de vouloir supprimer le commentaire : {{$comment->title}}</p>
                         <form class="delete_post" action="{{url('comments', $comment->id)}}" method="POST">

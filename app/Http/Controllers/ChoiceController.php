@@ -107,7 +107,19 @@ class ChoiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $choices = Choice::findOrFail($id);
+        
+        $data_choices           = $request->all();
+        $data_choices_obj       = (object) $data_choices;
+        $data_choices_obj_final = serialize($data_choices_obj);
+
+        
+        $choices->question_id   = $request->question_id;
+        $choices->content       = $data_choices_obj_final;
+        
+        $choices->save();
+        
+        return redirect('api/questions');
     }
 
     /**

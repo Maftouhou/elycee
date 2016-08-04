@@ -6,10 +6,12 @@
         <div class="col-lg-6 col-md-6 ">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <a href="#">Gestion des questions</a>
+                    <a href="{{url('api/questions')}}">Gestion des questions</a>
                 </div>
                 @foreach($questions as $q_key => $question)
-                <div class="panel-body">{{$question->title}}</div>
+                    <div class="panel-body">{{$question->title}}</div>
+                    @if($q_key > 1) @break; 
+                    @endif
                 @endforeach
             </div>
         </div>
@@ -24,7 +26,7 @@
         </div>
         <div class="col-lg-6 col-md-6">
             <div class="panel panel-default">
-                <div class="panel-heading">Gestion des articles</div>
+                <div class="panel-heading"><a href="{{url('api/post')}}">Gestion des articles</a></div>
                 @foreach($posts as $p_key => $post)
                     <div class="panel-body">{{$post->title}}</div>
                     @if($p_key > 1) @break; 

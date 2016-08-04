@@ -53,9 +53,7 @@ class PostController extends Controller
             $users      = User::where('role', '<>', 'teacher')->get();
             $posts      = Post::orderBy('created_at', 'desc')->get();
             $comments   = Comment::all();
-            $questions  = Question::orderBy('created_at', 'desc')
-                        ->take('3')
-                        ->get();
+            $questions  = Question::orderBy('created_at', 'desc')->get();
             
             # dd($questions);
             return view('admin.dashboard.index', compact('posts', 'comments', 'questions', 'users'));
