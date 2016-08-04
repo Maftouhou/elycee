@@ -5,7 +5,7 @@
     </ul>
     <ul id="connexion">       
         @if($loginState === true)
-            <li><a href="{{url('api/dashboard')}}" style="color:white;">Bonjour {{Auth::user()->username}}</a></li>
+            <li><a href="{{url('api/dashboard')}}" style="color:white;">Bonjour {{Auth::user()->username}} - ({{Auth::user()->role}})</a></li>
             <li><a id="login" href="{{url('api/logout')}}">Logout</a></li>
             <li><a id="dashbord" href="{{url('api/dashboard')}}">Dashbord </a></li>
         @else
