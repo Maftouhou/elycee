@@ -125,11 +125,92 @@
 		    line-height: 50px;
 			font-family: $maisonBold;
 		}
-		.date{
+		.date {
 			font-size: 10px;
 		    text-align: left;
 		    margin: 0 68px 0 29%;
-		    padding: 35px 0 90px;
+		    padding: 35px 0 68px;
+		}
+		.comment_container {
+			text-align: left;
+			padding: 0 68px 0 29%;
+			background-color: #f3f3f3;
+
+			h1{
+				padding-top: 68px;
+			    font-size: 16px;
+			    font-weight: 400;
+			    font-family: MaisonNeue-Bold;
+			    text-transform: uppercase;
+			}
+			.input-title{
+				border: none;
+				background: none;
+				font-family: MaisonNeue-Bold;
+				font-size: 30px;
+				padding-top: 35px;
+				width: 100%;
+				border-bottom: 5px solid #e8e8e8;
+				transition: all 700ms $easeOutExpo;
+				&:focus {
+					outline: 0 !important;
+				}
+				&:focus{
+				border-bottom: 5px solid black;
+				}	
+			}
+			.textarea{
+			    line-height: 60px;
+			    height: 55px;
+			    overflow: auto;
+			    resize: both;
+			    margin-top: 35px;
+			    width: 100%;
+			    background: none;
+			    border: none;
+			    border-bottom: 5px solid #e8e8e8;
+			    font-family: MaisonNeue-Bold;
+			    font-size: 30px;
+			    transition: all 700ms $easeOutExpo;
+			    &:focus {
+					outline: 0 !important;
+				}
+				&:focus{
+				border-bottom: 5px solid black;
+				}	
+			}
+			[contenteditable]:empty:not(:focus):before{
+			content:attr(data-text) 
+			}
+			button{
+				font-size: 10px;
+				text-align: left;
+				opacity: 0.25;
+				cursor: pointer;
+				border: none;
+				color: black;
+				background: none;
+				&:hover{
+					opacity: 1;
+				}
+			}	
+
+			.comment {
+				font-size: 10px;
+			    text-align: left;
+			    padding: 35px 0 35px;
+			    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+			    h4{
+			    	font-family: $maisonBold;
+			    	font-size: 30px;
+			    	font-weight: 100;
+			    }
+			    p{
+			    	font-family: $maisonBold;
+			    	font-size: 30px;
+			    }
+			}
 		}
 		.row {
 			// margin: 0 68px;

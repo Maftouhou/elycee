@@ -737,7 +737,71 @@ header {
     font-size: 10px;
     text-align: left;
     margin: 0 68px 0 29%;
-    padding: 35px 0 90px; }
+    padding: 35px 0 68px; }
+  #single-page .col_right .comment_container {
+    text-align: left;
+    padding: 0 68px 0 29%;
+    background-color: #f3f3f3; }
+    #single-page .col_right .comment_container h1 {
+      padding-top: 68px;
+      font-size: 16px;
+      font-weight: 400;
+      font-family: MaisonNeue-Bold;
+      text-transform: uppercase; }
+    #single-page .col_right .comment_container .input-title {
+      border: none;
+      background: none;
+      font-family: MaisonNeue-Bold;
+      font-size: 30px;
+      padding-top: 35px;
+      width: 100%;
+      border-bottom: 5px solid #e8e8e8;
+      transition: all 700ms cubic-bezier(0.19, 1, 0.22, 1); }
+      #single-page .col_right .comment_container .input-title:focus {
+        outline: 0 !important; }
+      #single-page .col_right .comment_container .input-title:focus {
+        border-bottom: 5px solid black; }
+    #single-page .col_right .comment_container .textarea {
+      line-height: 60px;
+      height: 55px;
+      overflow: auto;
+      resize: both;
+      margin-top: 35px;
+      width: 100%;
+      background: none;
+      border: none;
+      border-bottom: 5px solid #e8e8e8;
+      font-family: MaisonNeue-Bold;
+      font-size: 30px;
+      transition: all 700ms cubic-bezier(0.19, 1, 0.22, 1); }
+      #single-page .col_right .comment_container .textarea:focus {
+        outline: 0 !important; }
+      #single-page .col_right .comment_container .textarea:focus {
+        border-bottom: 5px solid black; }
+    #single-page .col_right .comment_container [contenteditable]:empty:not(:focus):before {
+      content: attr(data-text); }
+    #single-page .col_right .comment_container button {
+      font-size: 10px;
+      text-align: left;
+      opacity: 0.25;
+      cursor: pointer;
+      border: none;
+      color: black;
+      background: none; }
+      #single-page .col_right .comment_container button:hover {
+        opacity: 1; }
+    #single-page .col_right .comment_container .comment {
+      font-size: 10px;
+      text-align: left;
+      padding: 35px 0 35px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08); }
+      #single-page .col_right .comment_container .comment h4 {
+        font-family: "MaisonNeue-Bold";
+        font-size: 30px;
+        font-weight: 100; }
+      #single-page .col_right .comment_container .comment p {
+        font-family: "MaisonNeue-Bold";
+        font-size: 30px; }
   #single-page .col_right .row a {
     background-color: #e8e8e8;
     margin-bottom: 100px;
