@@ -114,6 +114,11 @@ class ResponseController extends Controller
         
         # dd(count($check_done), $check_done);
         
+        if(Question::findOrFail($id)->class !== Auth::user()->role)
+        {
+            return redirect('api/questions');
+        }
+        
         if (count($check_done) === 0) 
         {
             $score  = new Score;

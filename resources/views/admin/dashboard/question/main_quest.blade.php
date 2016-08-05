@@ -28,7 +28,7 @@
         <?php $odd++; ?>
         <tbody>
             <tr>
-                <td><a href="{{url('api/questions', $question->id)}}">{{str_limit($question->title, 7)}}</a></td>
+                <td><a href="{{url('api/questions/'.$question->id.'/edit')}}">{{str_limit($question->title, 7)}}</a></td>
                 <td> {{str_limit($question->content, 20)}} </td>
                 <td> {{$question->class}} </td>
                 <td> {{$question->status}} </td>

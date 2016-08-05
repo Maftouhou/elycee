@@ -15,15 +15,16 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     $file = file_get_contents('./public/uploads/users/users.json', true);
     $data = json_decode($file, true);
 
-    foreach ($data['users']['terminal'] as $d_key => $d_val)
-    {
+//    foreach ($data['users']['terminal'] as $d_key => $d_val)
+//    {
         return [
-            'username'      => $d_val['username'],
+//            'username'      => $d_val['username'],
+            'username'      => 'Tim',
             'password'      => Hash::make('pass'),
             'role'          => 'terminal',
             'remember_token'=> str_random(10),
         ];
-    }
+//    }
 
 });
         

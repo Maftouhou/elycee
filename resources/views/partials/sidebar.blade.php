@@ -27,9 +27,6 @@
         <li>
             <a href="{{url('api/questions')}}" title="Repondre au question">Questionnaire</a>
         </li>
-        <li>
-            <p>Votre note est de __ / </p>
-        </li>
     </ul>
 </div>
 @endif
