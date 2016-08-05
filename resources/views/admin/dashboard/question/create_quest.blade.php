@@ -15,15 +15,15 @@
             <p> <input type="hidden" name="user_id" value="{{Auth::user()->id}}" /></p>
             
             <p> Nombre des choix des reponses </p>
-            <p> <input type="text" name="choice_num" placeholder="Entrer le nombre des choix possible"> </p>
+            <p> <input type="number" name="choice_num" placeholder="Entrer le nombre des choix possible" required> </p>
             <p> Titre de l'article </p>
-            <p> <input type="text" name="title" placeholder="Titre de l'Article"> </p>
+            <p> <input type="text" name="title" placeholder="Titre de l'Article" required> </p>
             <p> Contenu de l'article </p>
-            <p> <textarea name="content" id="" cols="50" rows="6" placeholder="Contenu de l article"></textarea> </p>
+            <p> <textarea name="content" id="" cols="50" rows="6" placeholder="Contenu de l article" required></textarea> </p>
             <p> Selectionner la classe <br />
-                <select name="class">
+                <select name="class" required>
                     <option> -- selectionner -- </option>
-                    <option value="premiere" > Première</option>
+                    <option value="premiere"> Première</option>
                     <option value="terminal"> Terminal</option>
                 </select>
             </p>
@@ -31,10 +31,10 @@
             <legend>Gerer la publication </legend>
             <p>
                 <label for="publish">Publier maintement </label>
-                <input id="publish" type="radio" name="status" value="publish" />
+                <input id="publish" type="radio" name="status" value="publish" required />
             
                 <label for="unpublish">Publier Plus tard </label>
-                <input id="unpublish" type="radio" name="status" value="unpublish" />
+                <input id="unpublish" type="radio" name="status" value="unpublish" required />
             </p>
             <p>
                 <input type="submit" value="Envoyer">

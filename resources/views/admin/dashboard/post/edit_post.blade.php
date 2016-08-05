@@ -16,9 +16,9 @@
             <p> <input type="hidden" name="user_id" value="{{Auth::user()->id}}" /></p>
             
             <p> Titre de l'article </p>
-            <p> <input type="text" name="title" value="{{$post->title}}" placeholder="Titre de l'Article"> </p>
+            <p> <input type="text" name="title" value="{{$post->title}}" placeholder="Titre de l'Article" required /> </p>
             <p> Contenu de l'article </p>
-            <p> <textarea name="content" id="" cols="50" rows="6" placeholder="Contenu de l article">{{$post->content}}</textarea></p>
+            <p> <textarea name="content" id="" cols="50" rows="6" placeholder="Contenu de l article" required>{{$post->content}}</textarea></p>
             
             @if($post->url_thumbnail)
                 <p>
@@ -34,10 +34,10 @@
             <legend>Gerer la publication </legend>
             <p>
                 <label for="publish">Publier maintement </label>
-                <input id="publish" type="radio" name="status" value="1" {{$post->status === 1 ? "checked" : ""}} />
+                <input id="publish" type="radio" name="status" value="1" {{$post->status === 1 ? "checked" : ""}} required />
             
                 <label for="unpublish">Publier Plus tard </label>
-                <input id="unpublish" type="radio" name="status" value="0" {{$post->status === 0 ? "checked" : ""}} />
+                <input id="unpublish" type="radio" name="status" value="0" {{$post->status === 0 ? "checked" : ""}} required />
             </p>
             <p>
                 <input type="submit" value="Envoyer">

@@ -11,10 +11,10 @@
             <legend>Identifier-vous</legend>
             
             <p>
-                <input type="text" name="username" placeholder="Your name here">
+                <input type="text" name="username" placeholder="Your name here" required="">
             </p>
             <p>
-                <input type="password" name="password" placeholder="Your password here">
+                <input type="password" name="password" placeholder="Your password here" required>
             </p>
             <p>
                 <input type="submit" value="Connection">

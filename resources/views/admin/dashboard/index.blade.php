@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading">Gestion des articles</div>
+                <div class="panel-heading"><a href="{{url('api/post')}}">Gestion des articles</a></div>
                 <div class="panel-body">
                 @foreach($posts as $p_key => $post)
                     <div class="panel-body-inner"><h4>{{$post->title}}</h4></div>

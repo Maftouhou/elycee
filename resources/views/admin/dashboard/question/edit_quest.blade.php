@@ -14,14 +14,13 @@
         {{method_field('PATCH')}}
         {{csrf_field()}}
             <p> <input type="hidden" name="user_id" value="{{Auth::user()->id}}" /></p>
-            <p> <input type="hidden" name="choice_num" value="1"> </p>
             
             <p> Titre de la question </p>
-            <p> <input type="text" name="title" placeholder="Titre de l'Article" value="{{$question->title}}"> </p>
+            <p> <input type="text" name="title" placeholder="Titre de l'Article" value="{{$question->title}}" required> </p>
             <p> Contenu de la question </p>
-            <p> <textarea name="content" id="" cols="50" rows="6" placeholder="Contenu de l article">{{$question->content}}</textarea> </p>
+            <p> <textarea name="content" id="" cols="50" rows="6" placeholder="Contenu de l article" required>{{$question->content}}</textarea> </p>
             <p> Selectionner la classe <br />
-                <select name="class">
+                <select name="class" required>
                     <option> -- selectionner -- </option>
                     <option value="premiere" {{$question->class === 'premiere' ? "selected" : "" }}> Première</option>
                     <option value="terminal" {{$question->class === 'terminal' ? "selected" : "" }}> Terminal</option>
@@ -31,10 +30,10 @@
             <legend>Gerer la publication </legend>
             <p>
                 <label for="publish">Publier maintement </label>
-                <input id="publish" type="radio" name="status" value="publish" {{$question->status === 'publish' ? "checked" : "" }} />
+                <input id="publish" type="radio" name="status" value="publish" required {{$question->status === 'publish' ? "checked" : "" }} />
             
                 <label for="unpublish">Publier Plus tard </label>
-                <input id="unpublish" type="radio" name="status" value="unpublish" {{$question->status === 'unpublish' ? "checked" : "" }} />
+                <input id="unpublish" type="radio" name="status" value="unpublish" required {{$question->status === 'unpublish' ? "checked" : "" }} />
             </p>
             <p>
                 <input type="submit" value="Envoyer">
