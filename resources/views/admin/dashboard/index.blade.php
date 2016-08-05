@@ -9,7 +9,7 @@
                     <a href="{{url('api/questions')}}">Gestion des questions</a>
                 </div>
                 @foreach($questions as $q_key => $question)
-                    <div class="panel-body">{{$question->title}}</div>
+                    <div class="panel-body">{{str_limit($question->title, 30)}}</div>
                     @if($q_key > 1) @break; 
                     @endif
                 @endforeach
