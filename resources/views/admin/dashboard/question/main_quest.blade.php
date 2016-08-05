@@ -20,7 +20,7 @@
                 <td>class</td>
                 <td>Status</td>
                 <td>Editer</td>
-                <td>Suprimer</td>
+                <td>Supprimer</td>
             </tr>
         </thead>
         <?php $odd = 0; ?>
