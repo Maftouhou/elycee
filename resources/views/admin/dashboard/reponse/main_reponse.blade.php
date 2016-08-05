@@ -17,9 +17,11 @@
         <?php $odd++; ?>
         <tbody>
             <tr class="{{$odd%2==0?'evenClass':'oddClass'}}">
-                <td><a href="{{url('api/qcm_reposne', $question->id)}}">{{str_limit($question->title, 7)}}</a></td>
+                <td><a href="{{url('api/qcm_reponse', $question->id)}}">{{str_limit($question->title, 7)}}</a></td>
                 <td>
-                
+                @foreach (App\Score::Note($question->id, Auth::user()->id) as $note)
+                    {{ $note }}
+                @endforeach
                 </td>
                 <td> {{ $class = App\Score::StatusDone($question->id, Auth::user()->id)}} <span class="{{$class}}"></span></td>
             </tr>
