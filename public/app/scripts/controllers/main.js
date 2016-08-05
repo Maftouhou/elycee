@@ -21,11 +21,20 @@ angular.module('elycee')
             $rootScope.id = this.post.id ;
          };
 
+        $scope.sizeOf = function(obj) {
+        	var val = Object.keys(obj || {}).length;
+        	if (val === 0 || val === 1) {
+        		return val+" commentaire"
+        	}else{
+        		return val+" commentaires"
+        	}
+  		};
+
 		$scope.show = function() {
 			$(".col_left .row").html('<div class="el" style="background-image:url(\'/uploads/images/' + this.post.url_thumbnail + '\')"></div>');
-			$("#home-page h1").html(this.post.title);
-			TweenLite.from("#home-page h1", 1, { opacity: 0, y: "100%", ease: Expo.easeOut});
-			TweenLite.to("#home-page h1", 1, { opacity: 1, y: "0%", ease: Expo.easeOut});
+			$("#home-page .big-title h1").html(this.post.title);
+			TweenLite.from("#home-page .big-title h1", 1, { opacity: 0, y: "100%", ease: Expo.easeOut});
+			TweenLite.to("#home-page .big-title h1", 1, { opacity: 1, y: "0%", ease: Expo.easeOut});
 			TweenLite.from(".col_left .row", 1, { opacity: 0, scale: 1.1, ease: Expo.easeOut});
 			TweenLite.to(".col_left .row", 1, { opacity: 1, scale: 1, ease: Expo.easeOut });
 			TweenLite.to(".col_left .new", 1, { opacity: 0, scale: 1, ease: Expo.easeOut });
@@ -33,10 +42,10 @@ angular.module('elycee')
 		};
 		$scope.hide = function() {
 			TweenLite.to(".col_left .row", 1, { opacity: 0, scale: 1.1, ease: Expo.easeOut });
-			TweenLite.to("#home-page h1", 1, { opacity: 0, y: "100%", ease: Quart.easeInOut});
+			TweenLite.to("#home-page .big-title h1", 1, { opacity: 0, y: "100%", ease: Quart.easeInOut});
 			TweenLite.from(".col_left .new", 1, { opacity: 0, scale: 1.1, ease: Expo.easeOut });
 			TweenLite.to(".col_left .new", 1, { opacity: 1, scale: 1, ease: Expo.easeOut });
-			console.log(this.post);
+			console.log(this.post.comment.length);
 		};
 
 		const tl = new TimelineMax({
