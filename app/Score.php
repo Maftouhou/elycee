@@ -36,6 +36,6 @@ class Score extends Model
             'question_id'   => $quest_id
         ])->get();
 
-        echo $score[0]['note'];
+        return $score;
     }
 }
