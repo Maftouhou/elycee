@@ -8,37 +8,41 @@
                 <div class="panel-heading">
                     <a href="#">Gestion des questions</a>
                 </div>
+                <div class="panel-body">
                 @foreach($questions as $q_key => $question)
-                <div class="panel-body">{{$question->title}}</div>
+                <div class="panel-body-inner"><h4>{{$question->title}}</h4></div>
                 @endforeach
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">Gestion des articles</div>
+                <div class="panel-body">
+                @foreach($posts as $p_key => $post)
+                    <div class="panel-body-inner"><h4>{{$post->title}}</h4></div>
+                    @if($p_key > 1) @break; 
+                    @endif
+                @endforeach
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">Gestion des élèves</div>
+                <div class="panel-body">
+                    <div class="panel-body-inner">Panel content</div>
+                </div>
             </div>
         </div>
         <div class="col-lg-6 col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading">Statistiques</div>
-                <div class="panel-body">{{count($comments)}} commentaires</div>
-                <div class="panel-body">{{count($posts)}} Posts publiées</div>
-                <div class="panel-body">{{count($questions)}} questions publiées</div>
-                <div class="panel-body">{{count($users)}} élèves</div>
+                <div class="panel-body">
+                    <div class="panel-body-inner"><h1>{{count($comments)}}</h1><h4>Commentaires</h4></div>
+                    <div class="panel-body-inner"><h1>{{count($posts)}}</h1><h4>Posts publiées</h4></div>
+                    <div class="panel-body-inner"><h1>{{count($questions)}}</h1><h4>Questions publiées</h4></div>
+                    <div class="panel-body-inner"><h1>{{count($users)}}</h1><h4>Élèves</h4></div>
+                </div>
             </div>
         </div>
-        <div class="col-lg-6 col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">Gestion des articles</div>
-                @foreach($posts as $p_key => $post)
-                    <div class="panel-body">{{$post->title}}</div>
-                    @if($p_key > 1) @break; 
-                    @endif
-                @endforeach
-            </div>
-        </div>
-        <div class="col-lg-6 col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">Gestion des élèves</div>
-                <div class="panel-body">Panel content</div>
-            </div>
-        </div>
-        
+       
     @elseif (Auth::user()->role === 'terminal' || Auth::user()->role === 'premiere') 
         <h2>Liste des question à repondre</h2>
         <a href="{{url('api/questions')}}" title="Repondre au question">Acceder au quesitonnaire</a>

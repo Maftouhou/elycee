@@ -1,9 +1,9 @@
 #login-page {
 	a{
-		font-family: $font;
-		font-size: 10px;
+		font-family: $maisonBold;
+		font-size: 13px;
 		text-transform: uppercase;
-		top: 68px;
+		top: 58px;
 		left: 68px;
 		color: white;
 		position: fixed;
@@ -57,8 +57,17 @@
 		}
 		button{
 			font-size: 10px;
-			opacity: 0.25;
+			opacity: 0.5;
 			cursor: pointer;
+
+			// font-size: 10px;
+		 //    cursor: pointer;
+		 //    border: none;
+		 //    width: 100%;
+		 //    // margin-left: 106px;
+		 //    line-height: 54px;
+		 //    background-color: rgb(38, 38, 38);
+		 //    margin-bottom: 125px;
 			&:hover{
 				opacity: 1;
 			}

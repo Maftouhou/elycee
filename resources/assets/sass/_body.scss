@@ -1,4 +1,3 @@
-
 article {
     width: 292px;
     min-height: 300px;
@@ -64,7 +63,7 @@ article {
                 font-size: 40px;
                 position: relative;
                 left: 15px;
-                color: #FFCA00;
+                color: black;
                 line-height: 26px;
 
                 &:hover {
@@ -112,14 +111,15 @@ article {
 }
 div.panel {
     margin-top: 14px;
+
     ul {
         li {
             font-size: 14px;
             display: inline;
-            a{
-                color:black;
-            }
 
+            a {
+                color: black;
+            }
             &:hover {
                 cursor: pointer;
             }
@@ -149,7 +149,8 @@ table.article_list {
                 line-height: 99px;
                 font-size: 14px;
                 padding: 0 3px;
-                a{
+
+                a {
                     color: black;
                 }
                 a.edit_post {
@@ -160,34 +161,47 @@ table.article_list {
                     }
                 }
                 button {
+                    background: none;
+                    border: none;
                 }
                 div.delete_post_confirmation {
                     display: none;
-                    width: 380px;
-                    height: 220px;
+                    width: 480px;
+                    // height: 460px;
                     background-color: white;
-                    border: 1px solid #3FBFBF;
-                    border-radius: 10px;
+                    border: none;
+                    border-radius: 0px;
 
                     p {
-                        margin: 65px 0 0 25px;
-                        font-size: 20px;
-                        font-family: arial;
-                        color: gray;
+                        margin: 56px auto 0;
+                        font-size: 22px;
+                        width: 56%;
+                        text-align: center;
+                        line-height: 37px;
+                        font-family: MaisonNeue-Bold;
                     }
                     form.delete_post {
-                        margin: 15px 0 0 25px;
+                        margin: 32px auto 42px;
+                        width: 50%;
+                        line-height: 89px;
 
                         input {
-                            padding: 10px 20px;
-                            color: #ffffff;
+                            font-size: 10px;
+                            width: 100%;
+                            padding: 0;
                             border: 0;
+                            float: left;
+                            margin: 0;
+                            margin-bottom: 17px;
 
                             &[type="submit"] {
-                                background-color: red;
+                                background-color: black;
+                                color: #fff;
+                                margin-bottom: 56px;
                             }
                             &[type="reset"] {
-                                background-color: gray;
+                                background-color: #e6e6e6;
+                                color: #565656;
                             }
                         }
                     }
@@ -324,7 +338,7 @@ aside#sidebar {
 }
 .SuccessMssgClass {
     padding: 5px;
-    border: 1px solid #007FC5;
+    border: none;
     margin-top: 2px;
     border-radius: 6px;
     color: #007FC5;

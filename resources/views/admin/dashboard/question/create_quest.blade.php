@@ -1,6 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
+    <h2>Ajouter un nouvel article </h2>
+    <div id="article_container">
     @if($errors->any)
     <ul class="form_field_error">
         @foreach($errors->all() as $error)
@@ -10,8 +12,6 @@
     @endif
     <form action="{{url('api/questions')}}" method="POST">
         {{csrf_field()}}
-        <fieldset>
-            <legend>Creer un nouvel article </legend>
             <p> <input type="hidden" name="user_id" value="{{Auth::user()->id}}" /></p>
             
             <p> Nombre des choix des reponses </p>
@@ -28,9 +28,6 @@
                 </select>
             </p>
             
-        </fieldset>
-
-        <fieldset>
             <legend>Gerer la publication </legend>
             <p>
                 <label for="publish">Publier maintement </label>
@@ -42,6 +39,8 @@
             <p>
                 <input type="submit" value="Envoyer">
             </p>
-        </fieldset>
+
     </form>
+
+</div>
 @endsection

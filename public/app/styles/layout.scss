@@ -35,7 +35,7 @@ body {
     display: table;
     position: absolute;
     z-index: 0;
-    background-color: #e8e8e8;
+    // background-color: #f3f3f3;
 }
 header {
 	position: fixed;
@@ -43,23 +43,41 @@ header {
 	z-index: 3;
 
 	ul {
-		margin: 68px 0 0 0;
+		margin: 58px 0 0 0;
 		padding: 0 68px 0 68px;
 		li {
 			display: inline-block;
 			margin-right: 28px;
-			font-size: 10px;
+			font-size: 13px;
+			text-transform: uppercase;
 			float: right;
+			overflow: hidden;
 			a{
 				color: black;
-				opacity: 0.5;
+				opacity: 0;
 				font-family: $maisonBold;
-				text-transform: uppercase;
+				position: relative;
 				letter-spacing: 0.2px;
 				transition: opacity 1900ms cubic-bezier(.19, 1, .22, 1);
-			}
-			a:hover{
-				opacity: 1;
+				&::after {
+						content: "";
+						height: 10px;
+						background-color: rgba(0, 0, 0, 0.12);
+						position: absolute;
+						width: 100%;
+						top: 7px;
+						left: -100%;
+						z-index: 0;
+						transition: all 900ms $easeOutExpo;
+						content: "";
+					}
+					&:hover {
+						opacity: 1;
+
+						&::after {
+							left: 0%;
+						}
+				}
 			}
 		}
 		
@@ -68,6 +86,13 @@ header {
 			float: left;
 			a{
 				color: black;
+				// color: #000;
+			 //    background: white;
+			 //    padding: 25px;
+			 //    width: 20px;
+			 //    opacity: 1;
+			 //    height: 20px;
+
 			}
 		}
 	ul li:nth-child(2) {

@@ -399,30 +399,44 @@ body {
   height: 100%;
   display: table;
   position: absolute;
-  z-index: 0;
-  background-color: #e8e8e8; }
+  z-index: 0; }
 
 header {
   position: fixed;
   width: 100%;
   z-index: 3; }
   header ul {
-    margin: 68px 0 0 0;
+    margin: 58px 0 0 0;
     padding: 0 68px 0 68px; }
     header ul li {
       display: inline-block;
       margin-right: 28px;
-      font-size: 10px;
-      float: right; }
+      font-size: 13px;
+      text-transform: uppercase;
+      float: right;
+      overflow: hidden; }
       header ul li a {
         color: black;
-        opacity: 0.5;
+        opacity: 0;
         font-family: "MaisonNeue-Bold";
-        text-transform: uppercase;
+        position: relative;
         letter-spacing: 0.2px;
         transition: opacity 1900ms cubic-bezier(0.19, 1, 0.22, 1); }
-      header ul li a:hover {
-        opacity: 1; }
+        header ul li a::after {
+          content: "";
+          height: 10px;
+          background-color: rgba(0, 0, 0, 0.12);
+          position: absolute;
+          width: 100%;
+          top: 7px;
+          left: -100%;
+          z-index: 0;
+          transition: all 900ms cubic-bezier(0.19, 1, 0.22, 1);
+          content: ""; }
+        header ul li a:hover {
+          opacity: 1; }
+          header ul li a:hover::after {
+            left: 0%; }
   header ul li:nth-child(1) {
     float: left; }
     header ul li:nth-child(1) a {
@@ -442,13 +456,29 @@ header {
 .title {
   font-size: 96px; }
 
+#home-page .big-title {
+  position: fixed;
+  width: 40%;
+  height: 70px;
+  left: 50%;
+  transform: translate(-114%, -50%);
+  top: 50%;
+  z-index: 8;
+  overflow: hidden; }
+  #home-page .big-title h1 {
+    font-size: 70px;
+    text-transform: uppercase;
+    font-family: "MaisonNeue-Bold";
+    z-index: 3;
+    margin: 0;
+    color: white; }
+
 #home-page .col_left {
   position: fixed;
   width: 70%;
   height: 100%;
   top: 0;
   left: 0;
-  /*background-color: #e8e8e8;*/
   z-index: -1; }
   #home-page .col_left .row {
     z-index: 0;
@@ -540,15 +570,6 @@ header {
   background-color: white;
   letter-spacing: 0.2px;
   transition: all 900ms cubic-bezier(0.19, 1, 0.22, 1); }
-  #home-page .col_right:hover {
-    position: absolute;
-    width: 50%;
-    z-index: 2;
-    right: 0;
-    top: 0;
-    min-width: 380px;
-    background-color: white;
-    letter-spacing: 0.2px; }
   #home-page .col_right .title {
     font-size: 49px;
     top: 75px;
@@ -611,12 +632,12 @@ header {
         transition: opacity 900ms cubic-bezier(0.19, 1, 0.22, 1);
         transition: left 0ms cubic-bezier(0.19, 1, 0.22, 1); }
         #home-page .col_right .row a .inner_bloc h1 {
-          font-size: 13px;
+          font-size: 10px;
           letter-spacing: 0.2;
           text-transform: uppercase;
           margin: 2px 0; }
         #home-page .col_right .row a .inner_bloc p {
-          font-size: 13px;
+          font-size: 10px;
           letter-spacing: 0.2;
           margin: 0;
           opacity: 0.5; }
@@ -755,12 +776,9 @@ header {
       font-size: 16px;
       padding-top: 35px;
       width: 100%;
-      border-bottom: 5px solid #e8e8e8;
       transition: all 700ms cubic-bezier(0.19, 1, 0.22, 1); }
       #single-page .col_right .comment_container .input-title:focus {
         outline: 0 !important; }
-      #single-page .col_right .comment_container .input-title:focus {
-        border-bottom: 5px solid black; }
     #single-page .col_right .comment_container .textarea {
       line-height: 30px;
       height: 30px;
@@ -770,14 +788,11 @@ header {
       width: 100%;
       background: none;
       border: none;
-      border-bottom: 5px solid #e8e8e8;
       font-family: MaisonNeue-Bold;
       font-size: 16px;
       transition: all 700ms cubic-bezier(0.19, 1, 0.22, 1); }
       #single-page .col_right .comment_container .textarea:focus {
         outline: 0 !important; }
-      #single-page .col_right .comment_container .textarea:focus {
-        border-bottom: 5px solid black; }
     #single-page .col_right .comment_container [contenteditable]:empty:not(:focus):before {
       content: attr(data-text); }
     #single-page .col_right .comment_container button {
@@ -1020,12 +1035,12 @@ header {
       transition: opacity 900ms cubic-bezier(0.19, 1, 0.22, 1);
       transition: left 0ms cubic-bezier(0.19, 1, 0.22, 1); }
       #about-page .col_right .row a .inner_bloc h1 {
-        font-size: 13px;
+        font-size: 10px;
         letter-spacing: 0.2;
         text-transform: uppercase;
         margin: 0 auto; }
       #about-page .col_right .row a .inner_bloc p {
-        font-size: 13px;
+        font-size: 10px;
         letter-spacing: 0.2;
         margin: 0;
         opacity: 0.5; }
@@ -1037,10 +1052,10 @@ header {
       transition: all 1900ms cubic-bezier(0.19, 1, 0.22, 1); }
 
 #contact-page a {
-  font-family: "MaisonNeue-Book";
-  font-size: 10px;
+  font-family: "MaisonNeue-Bold";
+  font-size: 13px;
   text-transform: uppercase;
-  top: 68px;
+  top: 58px;
   left: 68px;
   color: white;
   position: fixed;
@@ -1102,7 +1117,7 @@ header {
     transition: all 700ms cubic-bezier(0.19, 1, 0.22, 1); }
   #contact-page .row button {
     font-size: 10px;
-    opacity: 0.25;
+    opacity: 0.5;
     cursor: pointer;
     border: none;
     margin-bottom: 65px; }
@@ -1119,10 +1134,10 @@ header {
   left: 0; }
 
 #login-page a {
-  font-family: "MaisonNeue-Book";
-  font-size: 10px;
+  font-family: "MaisonNeue-Bold";
+  font-size: 13px;
   text-transform: uppercase;
-  top: 68px;
+  top: 58px;
   left: 68px;
   color: white;
   position: fixed;
@@ -1168,7 +1183,7 @@ header {
     transition: all 700ms cubic-bezier(0.19, 1, 0.22, 1); }
   #login-page .row button {
     font-size: 10px;
-    opacity: 0.25;
+    opacity: 0.5;
     cursor: pointer; }
     #login-page .row button:hover {
       opacity: 1; }
