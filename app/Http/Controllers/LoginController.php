@@ -9,6 +9,10 @@ use Auth;
 class LoginController extends Controller
 {
     public function login(Request $request){
+        if (Auth::check()) {
+            return redirect('api/dashboard');
+        }
+        
         if ($request->isMethod('POST')) {
             
             $this->validate($request, [
