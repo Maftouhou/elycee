@@ -1,7 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
-
+<h2>Modifier l'article</h2>
+<div id="article_container">
 @if(Session::has('message'))
     <p>{{Session::get('message')}}</p>
 @endif
@@ -9,9 +10,6 @@
     <form method="POST" action="{{url('post', $post->id)}}" enctype="multipart/form-data" >
         {{method_field('PATCH')}}
         {{csrf_field()}}
-        <fieldset>
-            <legend>Modifier l'article</legend>
-            
             <p>Modifier votre article le {{$curentDate}} </p>
             <input type="hidden" name="user_id" value="{{$userId}}" />
             <input type="hidden" name="updated_at" value="{{$curentDate}}" />
@@ -32,9 +30,7 @@
                 <label for="picture">Télécharger une photo</label><br>
                 <input type="file" id="picture" name="picture" />
             </p>
-        </fieldset>
 
-        <fieldset>
             <legend>Selectionner les options</legend>
             <p>Status de l'article </p>
             <p>
@@ -75,6 +71,6 @@
             <p>
                 <input type="submit" value="Envoyer">
             </p>
-        </fieldset>
     </form>
+</div>
 @endsection
