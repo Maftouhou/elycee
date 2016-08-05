@@ -28,4 +28,14 @@ class Score extends Model
             return 'A_faire';
         }
     }
+    
+    public function scopeNote($query, $quest_id, $usr_id)
+    {
+        $score = Score::select('note')->where([
+            'user_id'       => $usr_id,
+            'question_id'   => $quest_id
+        ])->get();
+
+        echo $score[0]['note'];
+    }
 }

@@ -89,7 +89,7 @@ class ResponseController extends Controller
         # $score = new Score;
         $score = Score::findOrFail($request->score_id);
         
-        if ($user_response === 0) { $score->note = 0; }
+        if ($user_response === '0') { $score->note = 0; }
         else { $score->note = 2; }
         
         $score->save();
