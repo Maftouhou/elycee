@@ -150,13 +150,13 @@
 				font-size: 16px;
 				padding-top: 35px;
 				width: 100%;
-				border-bottom: 5px solid #e8e8e8;
+				// border-bottom: 5px solid #e8e8e8;
 				transition: all 700ms $easeOutExpo;
 				&:focus {
 					outline: 0 !important;
 				}
 				&:focus{
-				border-bottom: 5px solid black;
+				// border-bottom: 5px solid black;
 				}	
 			}
 			.textarea{
@@ -168,7 +168,7 @@
 			    width: 100%;
 			    background: none;
 			    border: none;
-			    border-bottom: 5px solid #e8e8e8;
+			    // border-bottom: 5px solid #e8e8e8;
 			    font-family: MaisonNeue-Bold;
 			    font-size: 16px;
 			    transition: all 700ms $easeOutExpo;
@@ -176,7 +176,7 @@
 					outline: 0 !important;
 				}
 				&:focus{
-				border-bottom: 5px solid black;
+				// border-bottom: 5px solid black;
 				}	
 			}
 			[contenteditable]:empty:not(:focus):before{

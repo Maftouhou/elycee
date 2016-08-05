@@ -1,17 +1,16 @@
 .container-fluid {
 	position: absolute;
-    right: 0;
-    left: 380px;
-    top: 0;
-    margin-top: 100px;
+	right: 0;
+	left: 330px;
+	top: 0;
+	margin-top: 40px;
 
-    h2{
-    	line-height: 99px;
-    	font-size: 20px;
-    	font-weight: bold;
-    	margin: 0 15px;
-    }
-
+	h2 {
+		line-height: 99px;
+		font-size: 20px;
+		font-family: $maisonBold;
+		margin: 0 15px;
+	}
 	.panel.panel-default {
 		background-color: white;
 		margin-top: 30px;
@@ -25,19 +24,38 @@
 			padding-left: 46px;
 			font-family: MaisonNeue-Bold;
 			letter-spacing: 0.5px;
+
+			a {
+				color: #333333;
+			}
 		}
 		.panel-body {
 			font-family: MaisonNeue-Book;
 			text-align: left;
 			padding-left: 46px;
-			line-height: 100px;
+			margin-top: 55px;
+
+			.panel-body-inner {
+				padding-bottom: 55px;
+				margin-right: 60px;
+				display: inline-block;
+
+				h1 {
+					font-family: MaisonNeue-Bold;
+					margin: 0;
+					font-size: 20px;
+					opacity: 0.15;
+				}
+				h4 {
+					margin-top: 3px;
+				}
+			}
 		}
 	}
-
 	#article_container {
-	    background-color: white;
-	    padding-right: 20px;
-	    padding: 28px 45px;
-	    margin: 0 15px;
+		background-color: white;
+		padding-right: 20px;
+		padding: 28px 45px;
+		margin: 0 15px;
 	}
 }

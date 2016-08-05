@@ -1,7 +1,7 @@
 a.back {
 	font-family: $font;
 	font-size: 10px;
-	text-transform: uppercase;
+	// text-transform: uppercase;
 	top: 68px;
 	left: 68px;
 	color: white;
@@ -11,7 +11,7 @@ a.back {
 .row {
 	.sidebar-wrapper {
 		position: fixed;
-		width: 380px;
+		width: 330px;
 		height: 100%;
 		text-align: left;
 		left: 0%;
@@ -26,26 +26,42 @@ a.back {
 			display: block !important;
 		}
 		ul.nav.navbar-nav.side-nav {
-		    width: 246px;
-		    overflow: hidden;
-		    margin: 152px auto 0 auto;
+			transform: translateY(-50%);
+			top: 50%;
+			position: absolute;
+			overflow: hidden;
+			margin-left: 68px;
 
 			li {
 				position: relative;
-				padding-top: 40px;
+				padding-top: 16px;
 				list-style: none;
-				font-size: 30px;
+				font-size: 17px;
 				overflow: hidden;
 				font-family: MaisonNeue-Bold;
 
 				a {
 					position: relative;
 					color: white;
-					opacity: 0.25;
+					opacity: 1;
 					transition: opacity 700ms $easeOutExpo;
 
+					&::after {
+						content: "";
+						height: 5px;
+						background-color: white;
+						position: absolute;
+						width: 100%;
+						top: 18px;
+						left: -100%;
+						transition: all 900ms $easeOutExpo;
+					}
 					&:hover {
 						opacity: 1;
+
+						&::after {
+							left: 0%;
+						}
 					}
 					&:focus {
 						opacity: 1;

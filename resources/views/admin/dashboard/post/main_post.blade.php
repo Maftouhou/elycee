@@ -51,7 +51,7 @@
                             {{method_field('DELETE')}}
                             {{csrf_field()}}
                             <input class="canncel_delete" type="reset" value="Annuler">
-                            <input type="submit" value="virer-le">
+                            <input type="submit" value="Supprimer">
                         </form>
                     </div>
                 </td>

@@ -1,9 +1,9 @@
 #contact-page {
 	a {
-		font-family: $font;
-		font-size: 10px;
+		font-family: $maisonBold;
+		font-size: 13px;
 		text-transform: uppercase;
-		top: 68px;
+		top: 58px;
 		left: 68px;
 		color: white;
 		position: fixed;
@@ -78,7 +78,7 @@
 		}
 		button {
 			font-size: 10px;
-			opacity: 0.25;
+			opacity: 0.5;
 			cursor: pointer;
 			border: none;
 			margin-bottom: 65px;
