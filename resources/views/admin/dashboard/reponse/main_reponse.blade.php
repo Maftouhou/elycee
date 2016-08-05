@@ -8,7 +8,7 @@
         <thead>
             <tr>
                 <td>Titre</td>
-                <td>Class</td>
+                <td>Note</td>
                 <td>Status</td>
             </tr>
         </thead>
@@ -19,7 +19,7 @@
             <tr class="{{$odd%2==0?'evenClass':'oddClass'}}">
                 <td><a href="{{url('api/qcm_reponse', $question->id)}}">{{str_limit($question->title, 7)}}</a></td>
                 <td> {{$question->class}} </td>
-                <td> {{$question->status}} </td>
+                <td> {{$class = App\Score::StatusDone($question->id, Auth::user()->id)}} <span class="{{$class}}"></span></td>
             </tr>
         </tbody>
         @empty

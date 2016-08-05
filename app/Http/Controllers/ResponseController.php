@@ -89,9 +89,6 @@ class ResponseController extends Controller
         # $score = new Score;
         $score = Score::findOrFail($request->score_id);
         
-        # $score->user_id         = $request->user_id;
-        # $score->question_id     = $request->question_id;
-        # $score->status_question = 'done';
         if ($user_response === 0) { $score->note = 0; }
         else { $score->note = 2; }
         
