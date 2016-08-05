@@ -6,11 +6,13 @@
         <div class="col-lg-6 col-md-6 ">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <a href="#">Gestion des questions</a>
+                    <a href="{{url('api/questions')}}">Gestion des questions</a>
                 </div>
                 <div class="panel-body">
                 @foreach($questions as $q_key => $question)
-                <div class="panel-body-inner"><h4>{{$question->title}}</h4></div>
+                    <div class="panel-body-inner"><h4>{{str_limit($question->title, 30)}}</h4></div>
+                    @if($q_key > 1) @break; 
+                    @endif
                 @endforeach
                 </div>
             </div>

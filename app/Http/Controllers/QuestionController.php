@@ -136,7 +136,18 @@ class QuestionController extends Controller
     {
         Question::findOrFail($id)->update($request->all());
         
-        return redirect('api/questions');
+        $choice = Choice::where([
+            'question_id' => $id
+        ])->with('question')->get();
+
+        $choice_Arr         = json_decode($choice, true);
+        $choice_Obj         = unserialize($choice_Arr[0]['content']);
+        $content_choice_Arr = (array) $choice_Obj;
+        $choice_num         = $content_choice_Arr['choice_num'];
+        
+        # dd('$choice_Arr', $choice_Arr, '$content_choice_Arr', $content_choice_Arr);
+        # return redirect('api/questions');
+        return view('admin.dashboard.question.choices.edit_choice', compact('choice_Arr', 'content_choice_Arr', 'choice_num'));
     }
 
     /**

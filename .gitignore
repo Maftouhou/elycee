@@ -6,4 +6,5 @@ Homestead.json
 /nbproject/private/
 .env
 config/database.php
+/public/uploads/images/
 

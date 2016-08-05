@@ -33,10 +33,10 @@
                 <td> {{$question->class}} </td>
                 <td> {{$question->status}} </td>
                 <td>
-                    <a class="edit_post" href="{{url('api/questions/'.$question->id.'/edit')}}" class=""></a>
+                    <a class="edit_post" href="{{url('api/questions/'.$question->id.'/edit')}}" class="">Edit</a>
                 </td>
                 <td>
-                    <a class="delete_post_request"></a>
+                    <a class="delete_post_request">Sup</a>
                     <div class="delete_post_confirmation">
                         <p>Etes vous sûr de vouloir supprimer la question : {{$question->title}}</p>
                         <form class="delete_post" action="{{url('api/questions', $question->id)}}" method="POST">
