@@ -55,7 +55,6 @@ class PostController extends Controller
             $comments   = Comment::all();
             $questions  = Question::orderBy('created_at', 'desc')->get();
             
-            # dd($questions);
             return view('admin.dashboard.index', compact('posts', 'comments', 'questions', 'users'));
         }  
         else 
@@ -77,8 +76,11 @@ class PostController extends Controller
             $posts      = Post::all();
             $comments   = Comment::all();
             $user_role  = Auth::user()->role;
+            $posts_une  = Post::where([
+                'status'  => 1
+            ])->orderBy('created_at', 'desc')->take(5)->get();
             
-            return view('admin.dashboard.post.main_post', compact('posts', 'comments', 'user_role'));
+            return view('admin.dashboard.post.main_post', compact('posts', 'posts_une', 'comments', 'user_role'));
         }  
         else 
         {
@@ -175,14 +177,6 @@ class PostController extends Controller
      */
     public function update(PostRequest $request, $id)
     {
-        if(Auth::user()->role !== 'teacher')
-        {
-            $contentMssg    = Auth::user()->username.' Vous ne pouvez pas àccedez à cette ressource entant que '.Auth::user()->role;
-            $reposneClass   = 'ErrorMssgClass';
-
-            return back()->with(['message' => sprintf($contentMssg), 'class' => $reposneClass]);
-        }
-        
         $post = Post::findOrFail($id);
         
         $dirUpload  = public_path(env('UPLOAD_PICTURE', 'uploads'.DIRECTORY_SEPARATOR.'images'));
@@ -229,7 +223,10 @@ class PostController extends Controller
         {
             unlink($dirUpload.DIRECTORY_SEPARATOR.$post->url_thumbnail);
         }
-        
-        return redirect('api/post');
+
+        $contentMssg    = 'Article '.$post->title.' a été supprimé. ';
+        $reposneClass   = 'SuccessMssgClass';
+
+        return redirect('api/post')->with(['message' => sprintf($contentMssg), 'class' => $reposneClass]);
     }
 }

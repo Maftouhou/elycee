@@ -96,8 +96,6 @@ class QuestionController extends Controller
         
         $question->save();
         
-        # dd($choice_num, $question);
-        
         return view('admin.dashboard.question.choices.create_choice', compact('question', 'choice_num'));
     }
 
@@ -163,6 +161,9 @@ class QuestionController extends Controller
         Question::findOrFail($id)->delete();
         Choice::where('question_id', $id)->delete();
         
-        return redirect('api/questions');
+        $contentMssg    = 'Votre question est supprimée avec succès avec les choix associées';
+        $reposneClass   = 'SuccessMssgClass';
+
+        return redirect('api/questions')->with(['message' => sprintf($contentMssg), 'class' => $reposneClass]);
     }
 }
