@@ -58,10 +58,8 @@ angular
             .setStorageType('cookies');
     })
     .animation('.transition', function() {
-        console.log();
         return {
             enter: function(element, done) {
-                console.log(element);
                 TweenMax.from(element, 1, {
                     opacity: 1,
                     onComplete: done
@@ -140,7 +138,7 @@ angular
     .factory('commentService', function($http) {
 
         return {
-            get : function() {
+            get: function() {
                 return $http.get('api/articles/');
             },
             // save a comment (pass in comment data)
@@ -149,14 +147,23 @@ angular
                 return $http({
                     method: 'POST',
                     url: '/comments',
-                    data: { 
-                        content: commentText, 
-                        post_id: postId, 
+                    data: {
+                        content: commentText,
+                        post_id: postId,
                         status: status,
-                        title: title  
+                        title: title
                     }
                 });
             }
         }
 
     });
+
+const tl = new TimelineMax({
+    paused: true,
+    completed: true
+});
+tl.to("header ul li a", 1, {
+    opacity: 1
+}, 0);
+tl.restart();

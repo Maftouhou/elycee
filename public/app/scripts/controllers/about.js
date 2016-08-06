@@ -14,11 +14,9 @@ angular.module('elycee')
   	 	$http.get("api/articles")
       		.success(function(data) {
         		$scope.posts = data;
-        		console.log($scope.posts);
       	});
 
       	$scope.val = function() {
-			console.log(this.post.id);
             $rootScope.id = this.post.id ;
         };
 
@@ -34,10 +32,6 @@ angular.module('elycee')
 			TweenLite.from(".col_left .new", 1, { opacity: 0, scale: 1.1, ease: Expo.easeOut });
 			TweenLite.to(".col_left .new", 1, { opacity: 1, scale: 1, ease: Expo.easeOut });
 		};
-
-		angular.element(document).ready(function () {
-    		console.log($('.el'));
-		});
 
 	    const tl = new TimelineMax({ paused: true, completed: true});
 

@@ -28,7 +28,6 @@ angular.module('elycee')
         				$scope.comments = data[0].comment;
         				$scope.commentText = '';
         				$scope.titleText = '';
-        				console.log(data);
       				});
 	            })
 	            .error(function(data) {

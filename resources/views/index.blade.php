@@ -17,8 +17,8 @@
 
 
     	<header>
-            <ul class="nav navbar-nav">
-              <li><a href="#/">e-l</a></li>
+            <ul>
+              <li><a href="#/"><img class="logo-w"src="../dist/images/E-L.png" alt=""><img class="logo-b" src="../dist/images/E-L_b.png" alt=""></a></li>
               <li><a href="#/login">Login</a></li>
               <li><a href="#/contact">Contact</a></li>
               <li><a href="#/about">Le lycée</a></li>
