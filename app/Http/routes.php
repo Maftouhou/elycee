@@ -19,6 +19,7 @@ Route::get('/', function () {
     
     Route::resource('index', 'FrontController');
     Route::resource('comments', 'CommentController');
+    Route::get('search', 'FrontController@search');
     
 Route::group(['prefix' => 'api/'], function(){
     Route::any('login', 'LoginController@login');

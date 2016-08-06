@@ -10,7 +10,13 @@
         
 
         <style>
-            
+            .search_input{
+                background: none;
+                border-bottom: 1px solid gray;
+                border-top: 0;
+                border-left: 0;
+                border-right: 0;
+            }
         </style>
     </head>
     <body ng-app="elycee">
@@ -18,10 +24,17 @@
 
     	<header>
             <ul class="nav navbar-nav">
-              <li><a href="#/">e-l</a></li>
-              <li><a href="#/login">Login</a></li>
-              <li><a href="#/contact">Contact</a></li>
-              <li><a href="#/about">Le lycée</a></li>
+                <li><a href="#/">e-l</a></li>
+                <li><a href="#/login">Login</a></li>
+                <li><a href="#/contact">Contact</a></li>
+                <li><a href="#/about">Le lycée</a></li>
+                
+                <form action="{{ url('/search') }}" method="get">
+                    <div> <input class="search_input" type="search" name="exp" placeholder="Recherchez..."> </div>
+                    @if(isset($errors))
+                        @if($errors->has('exp')) <span class="error">{{ $errors->first('exp') }}</span> @endif
+                    @endif
+                </form>
             </ul>
         </header>
 
