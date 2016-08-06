@@ -18,13 +18,16 @@ class MailController extends Controller
      */
     public function sendEmail(Request $request)
     {
-        $user = [];
-        Mail::send('email.contact', ['user' => $user], function ($m) use ($user) {
-            $m->from('postmaster@sandbox36e8ee66196d4812899821ef23049652.mailgun.org', 'Your Application');
+        $title      = 'Title';
+        $content    = 'Content';
 
-            $m->to('maftouh.hassane@gmail.com', 'Maftouh')->subject('Your This is a message !');
+        Mail::send('emails.contact', ['title' => $title, 'content' => $content], function ($message)
+        {
+            $message->from('sandbox@sparkpostbox.com', 'Maftouh Hassane');
+            $message->to('maftouh.hassane@gmail.com');
         });
         
-        dd('Stop');
+        dd('done');
+        # return response()->json(['message' => 'Request completed']);
     }
 }
