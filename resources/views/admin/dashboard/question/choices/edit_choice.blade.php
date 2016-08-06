@@ -16,17 +16,16 @@
             <p> <input type="hidden" name="user_id" value="{{Auth::user()->id}}" /></p>
             <p> <input type="hidden" name="choice_num" value="{{$choice_num}}" /></p>
             <p> <input type="hidden" name="question_id" value="{{$choice_Arr[0]['question_id']}}" /></p>
-            
             @for ($i = 0; $i < $choice_num; $i++)
                 <?php $j = $i+1; ?>
                 <p> Reponse  {{$i+1}}</p>
                 <p> <textarea name="content_{{$i+1}}" id="" cols="50" rows="6" placeholder="Ecrire la reponse {{$i+1}}">{{$content_choice_Arr['content_'."$j"]}}</textarea> </p>
                 <p>
-                    <select name="corection_{{$i+1}}" id="corection_{{$i+1}}" required>
-                        <option>--Selectinner--</option>
-                        <option value="1">Vrais</option>
-                        <option value="0">Faux</option>
-                    </select>
+                    <label for="vrai_{{$i+1}}">Vrais </label>
+                    <input id="vrai_{{$i+1}}" type="radio" name="corection_{{$i+1}}" value="1" <?= $content_choice_Arr['corection_'."$j"] == 1 ? "checked" : "" ?> required />
+
+                    <label for="faux_{{$i+1}}">Faux </label>
+                    <input id="faux_{{$i+1}}" type="radio" name="corection_{{$i+1}}" value="0" <?= $content_choice_Arr['corection_'."$j"] == 0 ? "checked" : "" ?> required />
                 </p>
             @endfor
             

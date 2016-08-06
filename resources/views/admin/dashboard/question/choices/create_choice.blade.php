@@ -21,11 +21,11 @@
                 <p> Reponse  {{$i+1}}</p>
                 <p> <textarea name="content_{{$i+1}}" id="" cols="50" rows="6" placeholder="Ecrire la reponse {{$i+1}}" required></textarea> </p>
                 <p>
-                    <select name="corection_{{$i+1}}" id="corection_{{$i+1}}" required>
-                        <option>--Selectinner--</option>
-                        <option value="1">Vrais</option>
-                        <option value="0">Faux</option>
-                    </select>
+                    <label for="vrai_{{$i+1}}">Vrais </label>
+                    <input id="vrai_{{$i+1}}" type="radio" name="corection_{{$i+1}}" value="1" required />
+
+                    <label for="faux_{{$i+1}}">Faux </label>
+                    <input id="faux_{{$i+1}}" type="radio" name="corection_{{$i+1}}" value="0" required />
                 </p>
             @endfor
             
