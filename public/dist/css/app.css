@@ -399,12 +399,13 @@ body {
   height: 100%;
   display: table;
   position: absolute;
-  z-index: 0; }
+  z-index: 0;
+  background-color: #f3f3f3; }
 
 header {
   position: fixed;
   width: 100%;
-  z-index: 3; }
+  z-index: 2; }
   header ul {
     margin: 58px 0 0 0;
     padding: 0 68px 0 68px; }
@@ -431,16 +432,40 @@ header {
           top: 7px;
           left: -100%;
           z-index: 0;
-          transition: all 900ms cubic-bezier(0.19, 1, 0.22, 1);
-          content: ""; }
+          transition: all 900ms cubic-bezier(0.19, 1, 0.22, 1); }
         header ul li a:hover {
           opacity: 1; }
           header ul li a:hover::after {
             left: 0%; }
   header ul li:nth-child(1) {
-    float: left; }
+    float: left;
+    color: black;
+    position: fixed;
+    top: 38px;
+    left: 40px; }
     header ul li:nth-child(1) a {
-      color: black; }
+      overflow: hidden;
+      width: 60px;
+      transition: all 900ms cubic-bezier(0.19, 1, 0.22, 1); }
+      header ul li:nth-child(1) a::after {
+        content: "";
+        width: 0; }
+      header ul li:nth-child(1) a .logo-w {
+        left: 0%;
+        margin: 0;
+        top: 0;
+        position: relative;
+        transition: left 900ms cubic-bezier(0.19, 1, 0.22, 1); }
+      header ul li:nth-child(1) a .logo-b {
+        left: -100%;
+        margin: 0;
+        top: -21px;
+        position: absolute;
+        transition: left 900ms cubic-bezier(0.19, 1, 0.22, 1); }
+      header ul li:nth-child(1) a:hover .logo-b {
+        left: 0%; }
+      header ul li:nth-child(1) a:hover .logo-w {
+        left: 100%; }
   header ul li:nth-child(2) {
     margin-right: 0px; }
 
@@ -577,6 +602,7 @@ header {
   font-size: 10px;
   margin: 0 -90px;
   top: 400px;
+  opacity: 0;
   text-transform: uppercase;
   list-style: none; }
   #home-page footer ul {
@@ -588,8 +614,6 @@ header {
         opacity: 0.3;
         color: black;
         transition: opacity 900ms cubic-bezier(0.19, 1, 0.22, 1); }
-        #home-page footer ul li a:hover {
-          opacity: 1; }
       #home-page footer ul li span {
         margin-left: 10px; }
         #home-page footer ul li span svg {
@@ -602,6 +626,8 @@ header {
       #home-page footer ul li:nth-child(3):hover svg {
         opacity: 1;
         left: 0px; }
+      #home-page footer ul li:hover a {
+        opacity: 1; }
 
 #home-page .title {
   font-size: 49px;
@@ -990,7 +1016,7 @@ header {
       top: 0; }
   #about-page .col_left .new {
     position: absolute;
-    background-image: url("http://67.media.tumblr.com/170688abf0a46a7478e56ea6c645d104/tumblr_o0jctqm5Kk1u3acd7o1_1280.jpg");
+    background-image: url("../images/lycee.jpg");
     background-size: cover;
     background-position: center center;
     top: 0;

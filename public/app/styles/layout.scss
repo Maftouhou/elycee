@@ -2,24 +2,17 @@
 @import "require/_mixin.scss";
 @import "require/_fonts.scss";
 
-
 * {
 	margin: 0;
 	padding: 0;
-
 	box-sizing: border-box;
-
 	text-rendering: optimizeLegibility;
-	
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
 html, body {
-	font: 100%/1.5 $font;
-	/*-webkit-font-smoothing: antialiased;*/
+	font: 100%/1.5 $font;	/*-webkit-font-smoothing: antialiased;*/
 }
 input, textarea, select, button {
 	font: 100%/1.5 $font;
@@ -31,20 +24,21 @@ body {
 	margin: 0;
 	padding: 0;
 	width: 100%;
-    height: 100%;
-    display: table;
-    position: absolute;
-    z-index: 0;
-    // background-color: #f3f3f3;
+	height: 100%;
+	display: table;
+	position: absolute;
+	z-index: 0;
+	background-color: #f3f3f3;
 }
 header {
 	position: fixed;
 	width: 100%;
-	z-index: 3;
+	z-index: 2;
 
 	ul {
 		margin: 58px 0 0 0;
 		padding: 0 68px 0 68px;
+
 		li {
 			display: inline-block;
 			margin-right: 28px;
@@ -52,49 +46,87 @@ header {
 			text-transform: uppercase;
 			float: right;
 			overflow: hidden;
-			a{
+
+			a {
 				color: black;
 				opacity: 0;
 				font-family: $maisonBold;
 				position: relative;
 				letter-spacing: 0.2px;
 				transition: opacity 1900ms cubic-bezier(.19, 1, .22, 1);
-				&::after {
-						content: "";
-						height: 10px;
-						background-color: rgba(0, 0, 0, 0.12);
-						position: absolute;
-						width: 100%;
-						top: 7px;
-						left: -100%;
-						z-index: 0;
-						transition: all 900ms $easeOutExpo;
-						content: "";
-					}
-					&:hover {
-						opacity: 1;
 
-						&::after {
-							left: 0%;
-						}
+				&::after {
+					content: "";
+					height: 10px;
+					background-color: rgba(0, 0, 0, 0.12);
+					position: absolute;
+					width: 100%;
+					top: 7px;
+					left: -100%;
+					z-index: 0;
+					transition: all 900ms $easeOutExpo;
+				}
+				&:hover {
+					opacity: 1;
+
+					&::after {
+						left: 0%;
+					}
 				}
 			}
 		}
-		
 	}
 	ul li:nth-child(1) {
-			float: left;
-			a{
-				color: black;
-				// color: #000;
-			 //    background: white;
-			 //    padding: 25px;
-			 //    width: 20px;
-			 //    opacity: 1;
-			 //    height: 20px;
+		float: left;
+		color: black;
+		position: fixed;
+		top: 38px;
+		left: 40px;
 
+		a {
+			overflow: hidden;
+			// background-color: #fff;
+			//    padding: 17px 17px 14px;
+			width: 60px;
+			transition: all 900ms $easeOutExpo;
+
+			&::after {
+				content: "";
+				width: 0;
+				// height: 100%;
+				// background-color: #333333;
+				//    whidth: 100%;
+				//    left: -100%;
+				//    top: 0;
+				//    z-index: -1;
+			}
+			.logo-w {
+				left: 0%;
+				margin: 0;
+				top: 0;
+				position: relative;
+				transition: left 900ms $easeOutExpo;
+			}
+			.logo-b {
+				left: -100%;
+				margin: 0;
+				top: -21px;
+				position: absolute;
+				transition: left 900ms $easeOutExpo;
+			}
+			&:hover {
+				// opacity: 1;
+				// color: white;
+
+				.logo-b {
+					left: 0%;
+				}
+				.logo-w {
+					left: 100%;
+				}
 			}
 		}
+	}
 	ul li:nth-child(2) {
 		margin-right: 0px;
 	}
@@ -111,7 +143,6 @@ header {
 .title {
 	font-size: 96px;
 }
-
 @import "import/home.scss";
 @import "import/single.scss";
 @import "import/about.scss";
