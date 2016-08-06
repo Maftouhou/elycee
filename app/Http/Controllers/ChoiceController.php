@@ -17,7 +17,7 @@ class ChoiceController extends Controller
      */
     public function index()
     {
-        //
+        return back();
     }
 
     /**

@@ -1,6 +1,10 @@
 @extends('layouts.master')
 
 @section('content')
+<p class="action_response {{session('class')}}">
+    {{session('message')}}
+    <span></span>
+</p>
 <h2>liste des questions - Choisir une question pour commencer à repondres</h2>
 <div id="article_container">
     @if($questions)

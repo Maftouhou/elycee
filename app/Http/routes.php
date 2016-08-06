@@ -20,18 +20,22 @@ Route::get('/', function () {
     Route::resource('index', 'FrontController');
     Route::resource('comments', 'CommentController');
     
-Route::group(['prefix' => 'api/', 'midleware' => ['web']], function(){
+Route::group(['prefix' => 'api/'], function(){
     Route::any('login', 'LoginController@login');
     Route::any('logout', 'LoginController@logout');
     
     Route::resource('articles', 'ArticlesController');
     
-    Route::group(['midleware' => ['auth']], function(){
-        route::resource('post', 'PostController');
-        Route::resource('choices', 'ChoiceController');
-        route::resource('questions', 'QuestionController');
-        Route::resource('qcm_reponse', 'ResponseController');
-        
+    Route::group(['middleware' => ['auth']], function(){
         route::get('dashboard', 'PostController@dashboard');
+        Route::resource('qcm_reponse', 'ResponseController');
+        route::resource('questions', 'QuestionController');
+        
+        Route::group(['middleware' => ['teacher']], function(){
+            route::get('questions/{questions}', 'QuestionController@show');
+            route::resource('post', 'PostController');
+            Route::resource('choices', 'ChoiceController');
+        });
+        
     });
 });

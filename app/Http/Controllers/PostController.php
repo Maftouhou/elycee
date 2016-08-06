@@ -26,7 +26,7 @@ class PostController extends Controller
         $this->middleware('auth');
     }
     
-    private function notifications($postTitle)
+    public function notifications($postTitle)
     {
         return $NotificationMessage = [
 
@@ -132,7 +132,10 @@ class PostController extends Controller
             
             $post->save();
             
-            return redirect('api/post');
+            $contentMssg    = 'Article '.$post->title.' créer avec succès ';
+            $reposneClass   = 'SuccessMssgClass';
+            
+            return redirect('api/post')->with(['message' => sprintf($contentMssg), 'class' => $reposneClass]);
         }
     }
 
@@ -144,11 +147,9 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        
         $post = Post::find($id);
         $comment    = Comment::all();
         
-        # return $singlePost;
         return view('admin.dashboard.post.main_comments', compact('post', 'comment'));
     }
 
@@ -174,6 +175,14 @@ class PostController extends Controller
      */
     public function update(PostRequest $request, $id)
     {
+        if(Auth::user()->role !== 'teacher')
+        {
+            $contentMssg    = Auth::user()->username.' Vous ne pouvez pas àccedez à cette ressource entant que '.Auth::user()->role;
+            $reposneClass   = 'ErrorMssgClass';
+
+            return back()->with(['message' => sprintf($contentMssg), 'class' => $reposneClass]);
+        }
+        
         $post = Post::findOrFail($id);
         
         $dirUpload  = public_path(env('UPLOAD_PICTURE', 'uploads'.DIRECTORY_SEPARATOR.'images'));
@@ -198,7 +207,10 @@ class PostController extends Controller
 
         $post->save();
         
-        return redirect('api/post');
+        $contentMssg    = 'L \'Article '.$post->title.' est mit à jour avec succès';
+        $reposneClass   = 'SuccessMssgClass';
+        
+        return redirect('api/post')->with(['message' => sprintf($contentMssg), 'class' => $reposneClass]);
     }
 
     /**

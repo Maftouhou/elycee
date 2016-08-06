@@ -1,7 +1,10 @@
 @extends('layouts.master')
 
 @section('content')
-
+    <p class="action_response {{session('class')}}">
+        {{session('message')}}
+        <span></span>
+    </p>
     @if (Auth::user()->role === 'teacher')
         <div class="col-lg-6 col-md-6 ">
             <div class="panel panel-default">

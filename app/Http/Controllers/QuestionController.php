@@ -37,12 +37,6 @@ class QuestionController extends Controller
                 'status'    => 'publish'
             ])->get();
             
-//            $score = Score::where([
-//                'user_id'       => Auth::user()->id,
-//                'question_id'   => '2'
-//            ])->get();
-            
-//            dd($score);
             return view('admin.dashboard.reponse.main_reponse', compact('questions'));
         }
         else if (Auth::user()->role === 'premiere')
