@@ -51,6 +51,11 @@ angular
                 controller: 'SearchCtrl',
                 controllerAs: 'search'
             })
+            .when('/actus', {
+                templateUrl: '../app/views/actus.html',
+                controller: 'ActusCtrl',
+                controllerAs: 'actus'
+            })
             .when('/dashboard', {
                 templateUrl: '../app/views/dashboard.html',
                 controller: 'DashboardCtrl',
@@ -170,15 +175,9 @@ angular
             //     return $http.get('api/articles/');
             // },
             // save a comment (pass in comment data)
-               save: function(exp) {
- 
-               return $http({
-                   method: 'POST',
-                   url: '/search',
-                   data: {
-                       exp: exp,
-                   }
-               });
+               get: function(searchText) {
+                console.log(searchText);
+               return $http.get('search?exp=lorem');
             }
         }
 

@@ -2,7 +2,7 @@
   <a href back>back</a>
   <div class="row">
   	<h3>Search</h3>
-  	<form action="{{ url('/search') }}" method="get" ng-submit="submitSearch()" >
+  	<form ng-submit="submitSearch()" >
        <input class="search_input" type="search" name="exp" placeholder="SEARCH" ng-model="searchText">
         <!-- @if(isset($errors))
             @if($errors->has('exp')) <span class="error">{{ $errors->first('exp') }}</span> @endif

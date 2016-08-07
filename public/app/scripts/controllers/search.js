@@ -8,12 +8,12 @@
  * Controller of the elycee
  */
 angular.module('elycee')
-  	.controller('SearchCtrl', function (searchService) {
+  	.controller('SearchCtrl', function (searchService, $http, $scope, $location) {
 
 
   		$scope.submitSearch = function() {
 
-	        searchService.save($scope.searchText)
+	        searchService.get($scope.searchText)
 	            .success(function(data) {
 	            	// reload comments
 	         //    	$http.get("api/articles/"+id)
@@ -22,8 +22,9 @@ angular.module('elycee')
         		// 		$scope.commentText = '';
         		// 		$scope.titleText = '';
       				// });
+	            $location.path('/actus');
 
-	            console.log("cool "+data);
+	            console.log("cool ");
 	            })
 	            .error(function(data) {
 	                console.log("error ");

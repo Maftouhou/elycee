@@ -8,7 +8,7 @@
  * Controller of the elycee
  */
 angular.module('elycee')
-  	.controller('SingleCtrl', function ($scope, $http, $rootScope, commentService) {
+  	.controller('SingleCtrl', function ($scope, $http, $rootScope, commentService, $location) {
   		var id = $rootScope.id;
 
   	 	$http.get("api/articles/"+id)

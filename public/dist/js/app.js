@@ -51,6 +51,11 @@ angular
                 controller: 'SearchCtrl',
                 controllerAs: 'search'
             })
+            .when('/actus', {
+                templateUrl: '../app/views/actus.html',
+                controller: 'ActusCtrl',
+                controllerAs: 'actus'
+            })
             .when('/dashboard', {
                 templateUrl: '../app/views/dashboard.html',
                 controller: 'DashboardCtrl',
@@ -170,15 +175,9 @@ angular
             //     return $http.get('api/articles/');
             // },
             // save a comment (pass in comment data)
-               save: function(exp) {
- 
-               return $http({
-                   method: 'POST',
-                   url: '/search',
-                   data: {
-                       exp: exp,
-                   }
-               });
+               get: function(searchText) {
+                console.log(searchText);
+               return $http.get('search?exp=lorem');
             }
         }
 
@@ -209,6 +208,66 @@ angular.module('elycee')
       		.success(function(data) {
         		$scope.posts = data;
       	});
+
+      	$scope.val = function() {
+            $rootScope.id = this.post.id ;
+        };
+
+
+	    $scope.show = function(){
+			$(".col_left .row").html('<div class="el" style="background-image:url(\'/uploads/images/'+this.post.url_thumbnail+'\')"></div>');
+			TweenLite.from(".col_left .row", 1, { opacity: 0, scale: 1.1, ease: Expo.easeOut});
+			TweenLite.to(".col_left .row", 1, { opacity: 1, scale: 1, ease: Expo.easeOut });
+			TweenLite.to(".col_left .new", 1, { opacity: 0, scale: 1, ease: Expo.easeOut });
+		};
+		$scope.hide = function(){
+			TweenLite.to(".col_left .row", 1, { opacity: 0, scale: 1, ease: Expo.easeOut });
+			TweenLite.from(".col_left .new", 1, { opacity: 0, scale: 1.1, ease: Expo.easeOut });
+			TweenLite.to(".col_left .new", 1, { opacity: 1, scale: 1, ease: Expo.easeOut });
+		};
+
+	    const tl = new TimelineMax({ paused: true, completed: true});
+
+	  	tl.to(".col_right", 1.7, { right: "0%", ease: Expo.easeOut }, 0);
+	  	tl.from(".info", 1, { opacity: 0, x: "10%", ease: Expo.easeOut }, 1.8);
+	  	tl.from(".row", 1, { opacity: 0, x: "10%", ease: Expo.easeOut }, 2);
+
+	  	tl.staggerTo(".row a", 3.7, { opacity: 0, scale: 1.2 }, 1, 2)
+
+	  	tl.from(".col_left .new", 1.7, { opacity: 0, scale: 1.2 }, 2.2);
+	  	tl.from(".col_left h1", 1, { opacity: 0, x: "-10%", ease: Expo.easeOut }, 3.8);
+	  	tl.from(".col_left .mask", 1, { opacity: 0, x: "-10%", ease: Expo.easeOut }, 4);
+	  	tl.restart();   
+
+  });
+'use strict';
+
+/**
+ * @ngdoc function
+ * @name elycee.controller:ActusCtrl
+ * @description
+ * # ActusCtrl
+ * Controller of the elycee
+ */
+angular.module('elycee')
+  	.controller('ActusCtrl', function ($scope, $http, $rootScope, searchService) {
+
+
+  	 	$http.get("search")
+      		.success(function(data) {
+        		$scope.posts = data;
+        		console.log(data);
+      	});
+
+     //    searchService.get()
+	    //         .success(function(data) {
+
+	    //        	$scope.posts = data;
+	    //         console.log("ahah "+data);
+	    //         })
+	    //         .error(function(data) {
+	    //             console.log("error ");
+	    // });
 
       	$scope.val = function() {
             $rootScope.id = this.post.id ;
@@ -396,12 +455,12 @@ angular.module('elycee')
  * Controller of the elycee
  */
 angular.module('elycee')
-  	.controller('SearchCtrl', function (searchService) {
+  	.controller('SearchCtrl', function (searchService, $http, $scope, $location) {
 
 
   		$scope.submitSearch = function() {
 
-	        searchService.save($scope.searchText)
+	        searchService.get($scope.searchText)
 	            .success(function(data) {
 	            	// reload comments
 	         //    	$http.get("api/articles/"+id)
@@ -410,8 +469,9 @@ angular.module('elycee')
         		// 		$scope.commentText = '';
         		// 		$scope.titleText = '';
       				// });
+	            $location.path('/actus');
 
-	            console.log("cool "+data);
+	            console.log("cool ");
 	            })
 	            .error(function(data) {
 	                console.log("error ");
@@ -436,7 +496,7 @@ angular.module('elycee')
  * Controller of the elycee
  */
 angular.module('elycee')
-  	.controller('SingleCtrl', function ($scope, $http, $rootScope, commentService) {
+  	.controller('SingleCtrl', function ($scope, $http, $rootScope, commentService, $location) {
   		var id = $rootScope.id;
 
   	 	$http.get("api/articles/"+id)
