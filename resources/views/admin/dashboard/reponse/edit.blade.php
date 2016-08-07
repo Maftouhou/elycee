@@ -55,7 +55,7 @@
                     @endforelse
                 </select>
             </p>
-            <p>Selectionner une des mots clé <br>
+            <p>Selectionner un des mots clés <br>
                 <select name="tag_id[]" id="" multiple>
                     @forelse($tags as $tag_id => $tag_value)
                         @if(!is_null($tag_value))

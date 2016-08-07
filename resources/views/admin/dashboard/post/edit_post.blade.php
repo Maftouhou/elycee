@@ -14,7 +14,7 @@
         {{method_field('PATCH')}}
         {{csrf_field()}}
             <p> <input type="hidden" name="user_id" value="{{Auth::user()->id}}" /></p>
-            
+
             <p> Titre de l'article </p>
             <p> <input type="text" name="title" value="{{$post->title}}" placeholder="Titre de l'Article" required /> </p>
             <p> Contenu de l'article </p>
@@ -24,14 +24,14 @@
                 <p>
                     @if($post->url_thumbnail)
                     <img width="90" src="{{url('uploads/images/', $post->url_thumbnail)}}" alt="">
-                    @else Vous pouvez ajouter une photo en clicant ci-dessous
+                    @else Vous pouvez ajouter une photo en cliquant ci-dessous
                     @endif
                 </p>
             @endif
             <p> <label for="picture">Télécharger une photo</label></p>
             <p> <input type="file" id="picture" name="url_thumbnail" /> </p>
 
-            <legend>Gerer la publication </legend>
+            <legend>Gérer la publication</legend>
             <p>
                 <label for="publish">Publier maintement </label>
                 <input id="publish" type="radio" name="status" value="1" {{$post->status === 1 ? "checked" : ""}} required />

@@ -21,7 +21,7 @@
                 <p> <label for="picture">Télécharger une photo</label></p>
                 <p> <input type="file" id="picture" name="url_thumbnail" /> </p>
 
-                <legend>Gerer la publication </legend>
+                <legend>Gérer la publication </legend>
                 <p>
                     <label for="publish">Publier maintement </label>
                     <input id="publish" type="radio" name="status" value="1" required />
