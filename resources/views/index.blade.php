@@ -31,9 +31,10 @@
     	<header>
             <ul class="nav navbar-nav">
                 <li><a href="#/"><img src="dist/images/E-L.png" class="logo-w"><img src="dist/images/E-L_b.png" class="logo-b"></a></li>
+                 <!--<li><a href="{{url('/login')}}">Login</a></li>--> 
                 <li><a href="#/login">Login</a></li>
-               <!--  <li><a href="{{url('/contact')}}">Contact</a></li> -->
-                <li><a href="#/contact">Contact</a></li>
+                 <li><a href="{{url('/contact')}}">Contact</a></li> 
+                <!--<li><a href="#/contact">Contact</a></li>-->
                 <li><a href="#/about">Le lycée</a></li>
                 <li><a href="#/search">Search</a></li>
                 
