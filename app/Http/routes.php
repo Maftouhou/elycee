@@ -20,32 +20,9 @@ Route::get('/', function () {
     Route::resource('index', 'FrontController');
     Route::resource('comments', 'CommentController');
     Route::get('search', 'FrontController@search');
-    
-    /**
-     * Mail Route
-     */
-    Route::any('send', function(){
-        # dd(Config::get('mail'));
-        # return 'We are Here !!!';
-        Mail::send('emails.contact', ['user' => 'Maf'], function($m){
-            $m->from('maftouh.hassane@gmail.com', 'Maftouh');
-            $m->to('maftouh@outlook.com', 'Charle')->subject('MailTesting');
-            
-            return 'Mail Sent success';
-        });
-    });
-    
-    Route::get('sparkpost', function () {
-        Mail::send('emails.contact', [], function ($message) {
-          $message
-            ->from('sandbox@sparkpostbox.com', 'Your Name')
-            ->to('maftouh.hassane@gmail.com', 'Receiver Name')
-            ->subject('From SparkPost with');
-        });
-    });
-    /**
-     * End mail route
-     */
+
+    Route::any('send', 'MailController@sendEmail');
+    Route::get('contact', 'MailController@contact');
     
 Route::group(['prefix' => 'api/'], function(){
     Route::any('login', 'LoginController@login');
@@ -63,6 +40,5 @@ Route::group(['prefix' => 'api/'], function(){
             route::resource('post', 'PostController');
             Route::resource('choices', 'ChoiceController');
         });
-        
     });
 });

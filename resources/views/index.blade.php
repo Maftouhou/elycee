@@ -26,7 +26,8 @@
             <ul class="nav navbar-nav">
                 <li><a href="#/">e-l</a></li>
                 <li><a href="#/login">Login</a></li>
-                <li><a href="#/contact">Contact</a></li>
+                <li><a href="{{url('/contact')}}">Contact</a></li>
+                <!--<li><a href="#/contact">Contact</a></li>-->
                 <li><a href="#/about">Le lycée</a></li>
                 
                 <form action="{{ url('/search') }}" method="get">

@@ -5,7 +5,16 @@
 	<title>Document</title>
 </head>
 <body>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-
+    <br />
+    {{$nom}}
+    <br />
+    {{$prenom}}
+    <br />
+    {{$email}}
+    <br />
+    {{$title}}
+    <br />
+    <br />
+    {{$content}}
 </body>
 </html>
