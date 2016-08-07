@@ -6,10 +6,18 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use Config;
+
 use Mail;
 
 class MailController extends Controller
 {
+    
+    public function contact()
+    {
+        
+        return view('front.contact');
+    }
     /**
      * Send an e-mail to the Administrator.
      *
@@ -18,13 +26,24 @@ class MailController extends Controller
      */
     public function sendEmail(Request $request)
     {
-        $user = [];
-        Mail::send('email.contact', ['user' => $user], function ($m) use ($user) {
-            $m->from('postmaster@sandbox36e8ee66196d4812899821ef23049652.mailgun.org', 'Your Application');
-
-            $m->to('maftouh.hassane@gmail.com', 'Maftouh')->subject('Your This is a message !');
+        $nom        = $request->nom;
+        $prenom     = $request->prenom;
+        $title      = $request->titre;
+        $email      = $request->email;
+        $message    = $request->message;
+        
+        Mail::send('emails.contact', [
+            'nom'       => $nom,
+            'prenom'    => $prenom,
+            'email'     => $email,
+            'title'     => $title,
+            'content'   => $message
+                ], function($m){
+            $m->from('mafthib@gmail.com', 'Elycée Contact');
+            $m->to('mafthib@gmail.com', 'Mafthib');
+            $m->subject('Contact from E-Lycée');
         });
         
-        dd('Stop');
+        return redirect('/');
     }
 }

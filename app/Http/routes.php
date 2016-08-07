@@ -20,7 +20,9 @@ Route::get('/', function () {
     Route::resource('index', 'FrontController');
     Route::resource('comments', 'CommentController');
     Route::get('search', 'FrontController@search');
-    Route::any('sendmail', 'MailController@sendEmail');
+
+    Route::any('send', 'MailController@sendEmail');
+    Route::get('contact', 'MailController@contact');
     
 Route::group(['prefix' => 'api/'], function(){
     Route::any('login', 'LoginController@login');
@@ -38,6 +40,5 @@ Route::group(['prefix' => 'api/'], function(){
             route::resource('post', 'PostController');
             Route::resource('choices', 'ChoiceController');
         });
-        
     });
 });
