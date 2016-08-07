@@ -1,0 +1,54 @@
+form.dashboard  p {
+    margin: 15px
+}
+
+form.dashboard  p input[type=text],
+form.dashboard  p input[type=number],
+form.dashboard  p input[type=password] {
+    width: 245px;
+    height: 40px;
+    border: 0;
+    background-color: #F3F3F3!important;
+    padding-left: 7px
+}
+
+form.dashboard  p input[type=number]{
+    width: 100px !important;
+}
+
+form.dashboard  p input[type=submit] {
+    padding: 10px 20px;
+    background-color: #272727;
+    color: #fff;
+    border: 0
+}
+
+form.dashboard  p select {
+    width: 165px;
+    background-color: #E2E2E2;
+    color: #000;
+    font-size: 16px
+}
+
+form.dashboard  p select[name=category_id] {
+    height: 31px;
+    border: 0
+}
+
+form.dashboard  p select[name="tag_id[]"] {
+    border: 1px solid gray
+}
+
+form.dashboard  p select[name="tag_id[]"] option:nth-child(even) {
+    background-color: #CCDFFF
+}
+
+form.dashboard  p select[name="tag_id[]"] option:nth-child(odd) {
+    background-color: #fff
+}
+
+.form_field_error{
+    background-color: #ffe6e6;
+    color: red;
+    font-weight: bold;
+}

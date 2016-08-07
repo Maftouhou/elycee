@@ -10,7 +10,7 @@
     @endif
     <h2>Editer l'article</h2>
     <div id="article_container">
-    <form action="{{url('api/post', $post->id)}}" method="POST" enctype="multipart/form-data">
+    <form class="dashboard" action="{{url('api/post', $post->id)}}" method="POST" enctype="multipart/form-data">
         {{method_field('PATCH')}}
         {{csrf_field()}}
             <p> <input type="hidden" name="user_id" value="{{Auth::user()->id}}" /></p>

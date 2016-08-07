@@ -10,7 +10,7 @@
         @endforeach
     </ul>
     @endif
-    <form action="{{url('api/questions', $question->id)}}" method="POST">
+    <form class="dashboard" action="{{url('api/questions', $question->id)}}" method="POST">
         {{method_field('PATCH')}}
         {{csrf_field()}}
             <p> <input type="hidden" name="user_id" value="{{Auth::user()->id}}" /></p>
@@ -26,7 +26,7 @@
                 </select>
             </p>
             
-            <legend>Gérer la publication </legend>
+            <p>Gérer la publication </p>
             <p>
                 <label for="publish">Publier maintenant </label>
                 <input id="publish" type="radio" name="status" value="publish" required {{$question->status === 'publish' ? "checked" : "" }} />

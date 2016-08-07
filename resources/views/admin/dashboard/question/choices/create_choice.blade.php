@@ -10,7 +10,7 @@
         @endforeach
     </ul>
     @endif
-    <form action="{{url('api/choices')}}" method="POST">
+    <form class="dashboard" action="{{url('api/choices')}}" method="POST">
         {{csrf_field()}}
 
             <p> <input type="hidden" name="user_id" value="{{Auth::user()->id}}" /></p>

@@ -4,6 +4,9 @@
 <div class="bloc_question">
 <h2>Creation des questions</h2>
 <div id="article_container">
+    <div class="page_pagination">
+        {{$questions->links()}}
+    </div>
     <div class="panel">
         <p class="action_response {{session('class')}}">
             {{session('message')}} <span></span>

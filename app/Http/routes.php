@@ -21,7 +21,7 @@ Route::get('/', function () {
     Route::resource('comments', 'CommentController');
     Route::get('search', 'FrontController@search');
 
-    Route::any('send', 'MailController@sendEmail');
+    Route::post('send', 'MailController@sendEmail');
     Route::get('contact', 'MailController@contact');
     
 Route::group(['prefix' => 'api/'], function(){

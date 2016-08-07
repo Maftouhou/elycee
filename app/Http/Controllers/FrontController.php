@@ -113,6 +113,7 @@ class FrontController extends Controller
         
         $posts = $posts->paginate(10)->setPath('recherche?exp=' . $expression);
 
-        return view('front.search_result', compact('expression', 'title', 'posts'));
+        return $posts;
+        # return view('front.search_result', compact('expression', 'title', 'posts'));
     }
 }
