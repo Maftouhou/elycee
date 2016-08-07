@@ -21,6 +21,15 @@ angular.module('elycee')
             $rootScope.id = this.post.id ;
         };
 
+        $scope.show = function() {
+			$(".big-title h1").html(this.post.title);
+			TweenLite.from(".big-title h1", 1, { opacity: 0, y: "100%", ease: Expo.easeOut});
+			TweenLite.to(".big-title h1", 1, { opacity: 1, y: "0%", ease: Expo.easeOut});
+		};
+		$scope.hide = function() {
+			TweenLite.to(".big-title h1", 1, { opacity: 0, y: "100%", ease: Quart.easeOut});
+		};
+
 	    const tl = new TimelineMax({ paused: true, completed: true});
 
 	  	tl.to(".col_right", 1.7, { right: "0%", ease: Expo.easeOut }, 0);
