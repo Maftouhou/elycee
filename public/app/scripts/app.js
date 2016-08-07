@@ -145,6 +145,26 @@ angular
         }
 
     })
+    .factory('contactService', function($http) {
+
+        return {
+            save: function(nom, prenom, email, title, content) {
+                console.log(nom, prenom, email, title, content);
+                return $http({
+                    method: 'POST',
+                    url: '/send',
+                    data: {
+                        nom: nom,
+                        prenom: prenom,
+                        title: title,
+                        email: email,
+                        content: content
+                    }
+                });
+            }
+        }
+
+    })
     .factory('commentService', function($http) {
 
         return {
