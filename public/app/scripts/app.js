@@ -156,8 +156,8 @@ angular
                     data: {
                         nom: nom,
                         prenom: prenom,
-                        title: title,
                         email: email,
+                        title: title,
                         content: content
                     }
                 });
@@ -184,20 +184,6 @@ angular
                         title: title
                     }
                 });
-            }
-        }
-
-    })
-    .factory('searchService', function($http) {
-
-        return {
-            // get: function() {
-            //     return $http.get('api/articles/');
-            // },
-            // save a comment (pass in comment data)
-               get: function(searchText) {
-                console.log(searchText);
-               return $http.get('search?exp=lorem');
             }
         }
 

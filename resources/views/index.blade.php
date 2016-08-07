@@ -37,14 +37,14 @@
                 <li><a href="#/about">Le lycée</a></li>
                 <li><a href="#/search">Search</a></li>
                 
-                <li>
+                <!-- <li>
                 <form action="{{ url('/search') }}" method="get">
                     <div> <input class="search_input" type="search" name="exp" placeholder="SEARCH"> </div>
                     @if(isset($errors))
                         @if($errors->has('exp')) <span class="error">{{ $errors->first('exp') }}</span> @endif
                     @endif
                 </form>
-                </li>
+                </li> -->
             </ul>
         </header>
 
