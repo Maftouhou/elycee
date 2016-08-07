@@ -17,6 +17,12 @@
                 border-left: 0;
                 border-right: 0;
             }
+            input,button:focus {
+            outline: 0 !important;
+            &:focus.underline{
+            border-bottom: 5px solid white;
+            padding-bottom: 0px;
+        }
         </style>
     </head>
     <body ng-app="elycee">
@@ -29,6 +35,7 @@
                 <li><a href="{{url('/contact')}}">Contact</a></li>
                 <!--<li><a href="#/contact">Contact</a></li>-->
                 <li><a href="#/about">Le lycée</a></li>
+                <li><a href="#/search">Search</a></li>
                 
                 <li>
                 <form action="{{ url('/search') }}" method="get">
