@@ -25,7 +25,7 @@
                 <p> Reponse  {{$i+1}}</p>
                 <?php $j = $i+1; ?>
                 <p>{{$content_choice_Arr[ 'content_'."$j"]}}</p>
-                <p> <input type="radio" name="choice_repose" value="{{'content_'.$j}}" /> </p>
+                <p> <input type="radio" name="choice_repose" value="{{'content_'.$j}}" required /> </p>
             @endfor
             <p>
                 <input type="submit" value="Envoyer">

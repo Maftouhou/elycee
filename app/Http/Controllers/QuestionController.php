@@ -37,12 +37,6 @@ class QuestionController extends Controller
                 'status'    => 'publish'
             ])->get();
             
-//            $score = Score::where([
-//                'user_id'       => Auth::user()->id,
-//                'question_id'   => '2'
-//            ])->get();
-            
-//            dd($score);
             return view('admin.dashboard.reponse.main_reponse', compact('questions'));
         }
         else if (Auth::user()->role === 'premiere')
@@ -101,8 +95,6 @@ class QuestionController extends Controller
         $question->status       = $request->status;
         
         $question->save();
-        
-        # dd($choice_num, $question);
         
         return view('admin.dashboard.question.choices.create_choice', compact('question', 'choice_num'));
     }
@@ -169,6 +161,9 @@ class QuestionController extends Controller
         Question::findOrFail($id)->delete();
         Choice::where('question_id', $id)->delete();
         
-        return redirect('api/questions');
+        $contentMssg    = 'Votre question est supprimée avec succès avec les choix associées';
+        $reposneClass   = 'SuccessMssgClass';
+
+        return redirect('api/questions')->with(['message' => sprintf($contentMssg), 'class' => $reposneClass]);
     }
 }

@@ -26,7 +26,7 @@ class PostController extends Controller
         $this->middleware('auth');
     }
     
-    private function notifications($postTitle)
+    public function notifications($postTitle)
     {
         return $NotificationMessage = [
 
@@ -55,7 +55,6 @@ class PostController extends Controller
             $comments   = Comment::all();
             $questions  = Question::orderBy('created_at', 'desc')->get();
             
-            # dd($questions);
             return view('admin.dashboard.index', compact('posts', 'comments', 'questions', 'users'));
         }  
         else 
@@ -77,8 +76,11 @@ class PostController extends Controller
             $posts      = Post::all();
             $comments   = Comment::all();
             $user_role  = Auth::user()->role;
+            $posts_une  = Post::where([
+                'status'  => 1
+            ])->orderBy('created_at', 'desc')->take(5)->get();
             
-            return view('admin.dashboard.post.main_post', compact('posts', 'comments', 'user_role'));
+            return view('admin.dashboard.post.main_post', compact('posts', 'posts_une', 'comments', 'user_role'));
         }  
         else 
         {
@@ -132,7 +134,10 @@ class PostController extends Controller
             
             $post->save();
             
-            return redirect('api/post');
+            $contentMssg    = 'Article '.$post->title.' créer avec succès ';
+            $reposneClass   = 'SuccessMssgClass';
+            
+            return redirect('api/post')->with(['message' => sprintf($contentMssg), 'class' => $reposneClass]);
         }
     }
 
@@ -144,11 +149,9 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        
         $post = Post::find($id);
         $comment    = Comment::all();
         
-        # return $singlePost;
         return view('admin.dashboard.post.main_comments', compact('post', 'comment'));
     }
 
@@ -198,7 +201,10 @@ class PostController extends Controller
 
         $post->save();
         
-        return redirect('api/post');
+        $contentMssg    = 'L \'Article '.$post->title.' est mit à jour avec succès';
+        $reposneClass   = 'SuccessMssgClass';
+        
+        return redirect('api/post')->with(['message' => sprintf($contentMssg), 'class' => $reposneClass]);
     }
 
     /**
@@ -217,7 +223,10 @@ class PostController extends Controller
         {
             unlink($dirUpload.DIRECTORY_SEPARATOR.$post->url_thumbnail);
         }
-        
-        return redirect('api/post');
+
+        $contentMssg    = 'Article '.$post->title.' a été supprimé. ';
+        $reposneClass   = 'SuccessMssgClass';
+
+        return redirect('api/post')->with(['message' => sprintf($contentMssg), 'class' => $reposneClass]);
     }
 }

@@ -99,4 +99,20 @@ class FrontController extends Controller
     {
         //
     }
+    
+    public function search(Request $request)
+    {
+        $expression = $request->get('exp');
+        $title = 'Résultats de la recherche';
+
+        $posts = Post::with('user')->where('status', 1)->where(function ($query) use ($expression)
+        {
+            $query->orWhere('title', 'LIKE', "%$expression%");
+            $query->orWhere('content', 'LIKE', "%$expression%");
+        })->orderBy('created_at');
+        
+        $posts = $posts->paginate(10)->setPath('recherche?exp=' . $expression);
+
+        return view('front.search_result', compact('expression', 'title', 'posts'));
+    }
 }

@@ -16,17 +16,21 @@
             <p> <input type="hidden" name="user_id" value="{{Auth::user()->id}}" /></p>
             <p> <input type="hidden" name="choice_num" value="{{$choice_num}}" /></p>
             <p> <input type="hidden" name="question_id" value="{{$choice_Arr[0]['question_id']}}" /></p>
-            
             @for ($i = 0; $i < $choice_num; $i++)
                 <?php $j = $i+1; ?>
                 <p> Reponse  {{$i+1}}</p>
                 <p> <textarea name="content_{{$i+1}}" id="" cols="50" rows="6" placeholder="Ecrire la reponse {{$i+1}}">{{$content_choice_Arr['content_'."$j"]}}</textarea> </p>
                 <p>
+<<<<<<< HEAD
                     <label for="vrai_{{$i+1}}">Vrai </label>
                     <input id="vrai_{{$i+1}}" type="checkbox" name="vrai_{{$i+1}}" value="1" />
+=======
+                    <label for="vrai_{{$i+1}}">Vrais </label>
+                    <input id="vrai_{{$i+1}}" type="radio" name="corection_{{$i+1}}" value="1" <?= $content_choice_Arr['corection_'."$j"] == 1 ? "checked" : "" ?> required />
+>>>>>>> 70eab476ff7704ab4d3f87e5e17362916f5d944d
 
                     <label for="faux_{{$i+1}}">Faux </label>
-                    <input id="faux_{{$i+1}}" type="checkbox" name="faux_{{$i+1}}" value="0" />
+                    <input id="faux_{{$i+1}}" type="radio" name="corection_{{$i+1}}" value="0" <?= $content_choice_Arr['corection_'."$j"] == 0 ? "checked" : "" ?> required />
                 </p>
             @endfor
             

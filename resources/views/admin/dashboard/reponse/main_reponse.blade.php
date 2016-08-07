@@ -1,6 +1,10 @@
 @extends('layouts.master')
 
 @section('content')
+<p class="action_response {{session('class')}}">
+    {{session('message')}}
+    <span></span>
+</p>
 <h2>liste des questions - Choisir une question pour commencer à repondres</h2>
 <div id="article_container">
     @if($questions)
@@ -17,7 +21,7 @@
         <?php $odd++; ?>
         <tbody>
             <tr class="{{$odd%2==0?'evenClass':'oddClass'}}">
-                <td><a href="{{url('api/qcm_reponse', $question->id)}}">{{str_limit($question->title, 7)}}</a></td>
+                <td><a href="{{url('api/qcm_reponse', $question->id)}}">{{str_limit($question->title, 30)}}</a></td>
                 <td>
                 @foreach (App\Score::Note($question->id, Auth::user()->id) as $note)
                     {{ $note }}

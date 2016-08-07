@@ -17,7 +17,7 @@ class ChoiceController extends Controller
      */
     public function index()
     {
-        //
+        return back();
     }
 
     /**
@@ -65,7 +65,10 @@ class ChoiceController extends Controller
         
         $choices->save();
         
-        return redirect('api/questions');
+        $contentMssg    = 'Votre question est créée avec succès';
+        $reposneClass   = 'SuccessMssgClass';
+
+        return redirect('api/questions')->with(['message' => sprintf($contentMssg), 'class' => $reposneClass]);
     }
 
     /**
@@ -119,7 +122,10 @@ class ChoiceController extends Controller
         
         $choices->save();
         
-        return redirect('api/questions');
+        $contentMssg    = 'Votre question est mise à jour avec succès';
+        $reposneClass   = 'SuccessMssgClass';
+
+        return redirect('api/questions')->with(['message' => sprintf($contentMssg), 'class' => $reposneClass]);
     }
 
     /**
