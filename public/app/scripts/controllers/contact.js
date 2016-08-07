@@ -15,7 +15,7 @@ angular.module('elycee')
 
 	        contactService.save($scope.firstname, $scope.lastname, $scope.email, $scope.title, $scope.content)
 	            .success(function(data) {
-	            	// send nom, prenom, email, title, content
+	            	$location.path('/');
 	            })
 	            .error(function(data) {
 	                console.log("error ");

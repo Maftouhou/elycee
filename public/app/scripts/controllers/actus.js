@@ -11,11 +11,16 @@ angular.module('elycee')
   	.controller('ActusCtrl', function ($scope, $http, $rootScope) {
 
   		var searchName = $rootScope.search
+  		console.log($rootScope.search);
+  		if ($rootScope.search = undefined) {
+  			console.log("nuuiuuuuuul");
 
-  	 	$http.get("search?exp="+searchName)
-      		.success(function(data) {
-        		$scope.posts = data.data;
-      	});
+  		}else{
+		  	$http.get("search?exp="+searchName)
+		    	.success(function(data) {
+		        	$scope.posts = data.data;
+		    	});
+      	}
 
       	$scope.val = function() {
             $rootScope.id = this.post.id ;

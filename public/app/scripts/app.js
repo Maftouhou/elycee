@@ -157,8 +157,8 @@ angular
                         nom: nom,
                         prenom: prenom,
                         email: email,
-                        title: title,
-                        content: content
+                        titre: title,
+                        message: content
                     }
                 });
             }

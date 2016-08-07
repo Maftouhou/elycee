@@ -19,9 +19,9 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 //    {
         return [
 //            'username'      => $d_val['username'],
-            'username'      => 'Tim',
+            'username'      => 'Steve',
             'password'      => Hash::make('pass'),
-            'role'          => 'terminal',
+            'role'          => 'premiere',
             'remember_token'=> str_random(10),
         ];
 //    }
