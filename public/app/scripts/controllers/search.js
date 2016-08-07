@@ -8,27 +8,12 @@
  * Controller of the elycee
  */
 angular.module('elycee')
-  	.controller('SearchCtrl', function (searchService, $http, $scope, $location) {
+  	.controller('SearchCtrl', function ($http, $scope, $location, $rootScope) {
 
 
   		$scope.submitSearch = function() {
-
-	        searchService.get($scope.searchText)
-	            .success(function(data) {
-	            	// reload comments
-	         //    	$http.get("api/articles/"+id)
-      				// 	.success(function(data) {
-        		// 		$scope.comments = data[0].comment;
-        		// 		$scope.commentText = '';
-        		// 		$scope.titleText = '';
-      				// });
+	            $rootScope.search = $scope.searchText;
 	            $location.path('/actus');
-
-	            console.log("cool ");
-	            })
-	            .error(function(data) {
-	                console.log("error ");
-	            });
     	};
 
 

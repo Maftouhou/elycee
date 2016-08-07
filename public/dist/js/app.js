@@ -145,6 +145,26 @@ angular
         }
 
     })
+    .factory('contactService', function($http) {
+
+        return {
+            save: function(nom, prenom, email, title, content) {
+                console.log(nom, prenom, email, title, content);
+                return $http({
+                    method: 'POST',
+                    url: '/send',
+                    data: {
+                        nom: nom,
+                        prenom: prenom,
+                        email: email,
+                        title: title,
+                        content: content
+                    }
+                });
+            }
+        }
+
+    })
     .factory('commentService', function($http) {
 
         return {
@@ -164,20 +184,6 @@ angular
                         title: title
                     }
                 });
-            }
-        }
-
-    })
-    .factory('searchService', function($http) {
-
-        return {
-            // get: function() {
-            //     return $http.get('api/articles/');
-            // },
-            // save a comment (pass in comment data)
-               get: function(searchText) {
-                console.log(searchText);
-               return $http.get('search?exp=lorem');
             }
         }
 
@@ -250,53 +256,25 @@ angular.module('elycee')
  * Controller of the elycee
  */
 angular.module('elycee')
-  	.controller('ActusCtrl', function ($scope, $http, $rootScope, searchService) {
+  	.controller('ActusCtrl', function ($scope, $http, $rootScope) {
 
+  		var searchName = $rootScope.search
 
-  	 	$http.get("search")
+  	 	$http.get("search?exp="+searchName)
       		.success(function(data) {
-        		$scope.posts = data;
-        		console.log(data);
+        		$scope.posts = data.data;
       	});
-
-     //    searchService.get()
-	    //         .success(function(data) {
-
-	    //        	$scope.posts = data;
-	    //         console.log("ahah "+data);
-	    //         })
-	    //         .error(function(data) {
-	    //             console.log("error ");
-	    // });
 
       	$scope.val = function() {
             $rootScope.id = this.post.id ;
         };
-
-
-	    $scope.show = function(){
-			$(".col_left .row").html('<div class="el" style="background-image:url(\'/uploads/images/'+this.post.url_thumbnail+'\')"></div>');
-			TweenLite.from(".col_left .row", 1, { opacity: 0, scale: 1.1, ease: Expo.easeOut});
-			TweenLite.to(".col_left .row", 1, { opacity: 1, scale: 1, ease: Expo.easeOut });
-			TweenLite.to(".col_left .new", 1, { opacity: 0, scale: 1, ease: Expo.easeOut });
-		};
-		$scope.hide = function(){
-			TweenLite.to(".col_left .row", 1, { opacity: 0, scale: 1, ease: Expo.easeOut });
-			TweenLite.from(".col_left .new", 1, { opacity: 0, scale: 1.1, ease: Expo.easeOut });
-			TweenLite.to(".col_left .new", 1, { opacity: 1, scale: 1, ease: Expo.easeOut });
-		};
 
 	    const tl = new TimelineMax({ paused: true, completed: true});
 
 	  	tl.to(".col_right", 1.7, { right: "0%", ease: Expo.easeOut }, 0);
 	  	tl.from(".info", 1, { opacity: 0, x: "10%", ease: Expo.easeOut }, 1.8);
 	  	tl.from(".row", 1, { opacity: 0, x: "10%", ease: Expo.easeOut }, 2);
-
 	  	tl.staggerTo(".row a", 3.7, { opacity: 0, scale: 1.2 }, 1, 2)
-
-	  	tl.from(".col_left .new", 1.7, { opacity: 0, scale: 1.2 }, 2.2);
-	  	tl.from(".col_left h1", 1, { opacity: 0, x: "-10%", ease: Expo.easeOut }, 3.8);
-	  	tl.from(".col_left .mask", 1, { opacity: 0, x: "-10%", ease: Expo.easeOut }, 4);
 	  	tl.restart();   
 
   });
@@ -310,7 +288,22 @@ angular.module('elycee')
  * Controller of the elycee
  */
 angular.module('elycee')
-  	.controller('ContactCtrl', function () {
+  	.controller('ContactCtrl', function ($scope, $http, contactService, $location) {
+
+
+  		$scope.submitContact = function() {
+
+	        contactService.save($scope.firstname, $scope.lastname, $scope.email, $scope.title, $scope.content)
+	            .success(function(data) {
+	            	// send nom, prenom, email, title, content
+	            })
+	            .error(function(data) {
+	                console.log("error ");
+	            });
+    	};
+
+
+
 	    const tl = new TimelineMax({ paused: true, completed: true});
 		  	tl.from(".bg", 1.7, { x: "100%", ease: Expo.easeOut }, 0);
 		  	tl.from(".row", 1.7, { x: "100%", opacity:0, ease: Expo.easeOut }, 0.2);
@@ -455,27 +448,12 @@ angular.module('elycee')
  * Controller of the elycee
  */
 angular.module('elycee')
-  	.controller('SearchCtrl', function (searchService, $http, $scope, $location) {
+  	.controller('SearchCtrl', function ($http, $scope, $location, $rootScope) {
 
 
   		$scope.submitSearch = function() {
-
-	        searchService.get($scope.searchText)
-	            .success(function(data) {
-	            	// reload comments
-	         //    	$http.get("api/articles/"+id)
-      				// 	.success(function(data) {
-        		// 		$scope.comments = data[0].comment;
-        		// 		$scope.commentText = '';
-        		// 		$scope.titleText = '';
-      				// });
+	            $rootScope.search = $scope.searchText;
 	            $location.path('/actus');
-
-	            console.log("cool ");
-	            })
-	            .error(function(data) {
-	                console.log("error ");
-	            });
     	};
 
 

@@ -145,6 +145,26 @@ angular
         }
 
     })
+    .factory('contactService', function($http) {
+
+        return {
+            save: function(nom, prenom, email, title, content) {
+                console.log(nom, prenom, email, title, content);
+                return $http({
+                    method: 'POST',
+                    url: '/send',
+                    data: {
+                        nom: nom,
+                        prenom: prenom,
+                        email: email,
+                        title: title,
+                        content: content
+                    }
+                });
+            }
+        }
+
+    })
     .factory('commentService', function($http) {
 
         return {
@@ -164,20 +184,6 @@ angular
                         title: title
                     }
                 });
-            }
-        }
-
-    })
-    .factory('searchService', function($http) {
-
-        return {
-            // get: function() {
-            //     return $http.get('api/articles/');
-            // },
-            // save a comment (pass in comment data)
-               get: function(searchText) {
-                console.log(searchText);
-               return $http.get('search?exp=lorem');
             }
         }
 

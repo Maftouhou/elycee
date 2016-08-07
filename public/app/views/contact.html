@@ -2,11 +2,12 @@
   <a href back>back</a>
   <div class="row">
   	<h3>Contact</h3>
-  	<form>
-	    <input class="input-email underline" type="text" placeholder="Votre nom">
-	    <input class="input-email underline" type="text" placeholder="Votre prénom">
-	    <input class="input-email underline" type="email" placeholder="Votre adresse e-mail">
-	    <textarea class="input-text" type="textarea" placeholder="Votre message"></textarea>
+  	<form ng-submit="submitContact()">
+	    <input class="input-email underline" type="text" placeholder="Votre nom" ng-model="firstname">
+	    <input class="input-email underline" type="text" placeholder="Votre prénom" ng-model="lastname">
+	    <input class="input-email underline" type="email" placeholder="Votre adresse e-mail" ng-model="email">
+	    <input class="input-email underline" type="text" placeholder="Votre titre" ng-model="title">
+	    <textarea class="input-text" type="textarea" placeholder="Votre message" ng-model="content"></textarea>
 		<button type="submit">Envoyer votre message</button>
 	</form>
   </div>
