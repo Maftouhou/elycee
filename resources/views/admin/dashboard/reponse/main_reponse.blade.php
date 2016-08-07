@@ -5,7 +5,7 @@
     {{session('message')}}
     <span></span>
 </p>
-<h2>liste des questions - Choisir une question pour commencer à repondres</h2>
+<h2>liste des questions - Choisir une question pour commencer à répondre</h2>
 <div id="article_container">
     @if($questions)
     <table class="article_list">
@@ -31,7 +31,7 @@
             </tr>
         </tbody>
         @empty
-            <p>Pas de question à repondre</p>
+            <p>Pas de question.</p>
         @endforelse
     </table>
     @else Vous n'avez pas de QCM à faire

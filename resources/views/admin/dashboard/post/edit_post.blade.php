@@ -14,18 +14,11 @@
         {{method_field('PATCH')}}
         {{csrf_field()}}
             <p> <input type="hidden" name="user_id" value="{{Auth::user()->id}}" /></p>
-            
-<<<<<<< HEAD
-            <p>Titre de l'article</p>
-            <p> <input type="text" name="title" value="{{$post->title}}" placeholder="Titre de l'Article"> </p>
-            <p>Contenu de l'article</p>
-            <p> <textarea name="content" id="" cols="50" rows="6" placeholder="Contenu de l article">{{$post->content}}</textarea></p>
-=======
+
             <p> Titre de l'article </p>
             <p> <input type="text" name="title" value="{{$post->title}}" placeholder="Titre de l'Article" required /> </p>
             <p> Contenu de l'article </p>
             <p> <textarea name="content" id="" cols="50" rows="6" placeholder="Contenu de l article" required>{{$post->content}}</textarea></p>
->>>>>>> 70eab476ff7704ab4d3f87e5e17362916f5d944d
             
             @if($post->url_thumbnail)
                 <p>

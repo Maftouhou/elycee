@@ -21,13 +21,8 @@
                 <p> Reponse  {{$i+1}}</p>
                 <p> <textarea name="content_{{$i+1}}" id="" cols="50" rows="6" placeholder="Ecrire la reponse {{$i+1}}" required></textarea> </p>
                 <p>
-<<<<<<< HEAD
                     <label for="vrai_{{$i+1}}">Vrai </label>
-                    <input id="vrai_{{$i+1}}" type="checkbox" name="vrai_{{$i+1}}" value="1" />
-=======
-                    <label for="vrai_{{$i+1}}">Vrais </label>
                     <input id="vrai_{{$i+1}}" type="radio" name="corection_{{$i+1}}" value="1" required />
->>>>>>> 70eab476ff7704ab4d3f87e5e17362916f5d944d
 
                     <label for="faux_{{$i+1}}">Faux </label>
                     <input id="faux_{{$i+1}}" type="radio" name="corection_{{$i+1}}" value="0" required />

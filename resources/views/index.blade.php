@@ -12,7 +12,7 @@
         <style>
             .search_input{
                 background: none;
-                border-bottom: 1px solid gray;
+                /*border-bottom: 1px solid gray;*/
                 border-top: 0;
                 border-left: 0;
                 border-right: 0;
@@ -24,17 +24,19 @@
 
     	<header>
             <ul class="nav navbar-nav">
-                <li><a href="#/">e-l</a></li>
+                <li><a href="#/"><img src="dist/images/E-L.png" class="logo-w"><img src="dist/images/E-L_b.png" class="logo-b"></a></li>
                 <li><a href="#/login">Login</a></li>
                 <li><a href="#/contact">Contact</a></li>
                 <li><a href="#/about">Le lycée</a></li>
                 
+                <li>
                 <form action="{{ url('/search') }}" method="get">
-                    <div> <input class="search_input" type="search" name="exp" placeholder="Recherchez..."> </div>
+                    <div> <input class="search_input" type="search" name="exp" placeholder="SEARCH"> </div>
                     @if(isset($errors))
                         @if($errors->has('exp')) <span class="error">{{ $errors->first('exp') }}</span> @endif
                     @endif
                 </form>
+                </li>
             </ul>
         </header>
 
