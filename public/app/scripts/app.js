@@ -46,6 +46,11 @@ angular
                 controller: 'LoginCtrl',
                 controllerAs: 'login'
             })
+            .when('/search', {
+                templateUrl: '../app/views/search.html',
+                controller: 'SearchCtrl',
+                controllerAs: 'search'
+            })
             .when('/dashboard', {
                 templateUrl: '../app/views/dashboard.html',
                 controller: 'DashboardCtrl',
@@ -154,6 +159,26 @@ angular
                         title: title
                     }
                 });
+            }
+        }
+
+    })
+    .factory('searchService', function($http) {
+
+        return {
+            // get: function() {
+            //     return $http.get('api/articles/');
+            // },
+            // save a comment (pass in comment data)
+               save: function(exp) {
+ 
+               return $http({
+                   method: 'POST',
+                   url: '/search',
+                   data: {
+                       exp: exp,
+                   }
+               });
             }
         }
 

@@ -47,6 +47,12 @@ header {
 			float: right;
 			overflow: hidden;
 
+			input.search_input {
+					border: none;
+					width: 50px;
+					font-family: MaisonNeue-Bold;
+				}
+
 			a {
 				color: black;
 				opacity: 0;

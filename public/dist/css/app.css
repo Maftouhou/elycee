@@ -416,6 +416,10 @@ header {
       text-transform: uppercase;
       float: right;
       overflow: hidden; }
+      header ul li input.search_input {
+        border: none;
+        width: 50px;
+        font-family: MaisonNeue-Bold; }
       header ul li a {
         color: black;
         opacity: 0;
