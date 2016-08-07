@@ -73,7 +73,7 @@ class PostController extends Controller
     {
         if (Auth::user()) 
         {
-            $posts      = Post::all();
+            $posts      = Post::paginate(10);
             $comments   = Comment::all();
             $user_role  = Auth::user()->role;
             $posts_une  = Post::where([

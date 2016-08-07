@@ -7,6 +7,9 @@
 </p>
 <h2>liste des questions - Choisir une question pour commencer à répondre</h2>
 <div id="article_container">
+    <div class="page_pagination">
+        {{$questions->links()}}
+    </div>
     @if($questions)
     <table class="article_list">
         <thead>

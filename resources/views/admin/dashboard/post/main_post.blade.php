@@ -3,6 +3,9 @@
 @section('content')
 <h2>Création un article</h2>
 <div id="article_container">
+    <div class="page_pagination">
+        {{$posts->links()}}
+    </div>
     <div class="panel">
         <p class="action_response {{session('class')}}">
             {{session('message')}}

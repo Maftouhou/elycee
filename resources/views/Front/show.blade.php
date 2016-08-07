@@ -18,7 +18,7 @@
                 By <span class="meta_data_user">{{$post->user->username}}</span>
                 @else
                 @endif
-                <span class="meta_data_date"> on {{$post->created_at}}</span>
+                <span class="meta_data_date"> on {{$post->created_at->format('m/d/Y')}}</span>
             </p>
             <p class="article_content">
                 {{$post->content}}

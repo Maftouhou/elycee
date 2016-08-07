@@ -10,7 +10,7 @@
         @endforeach
     </ul>
     @endif
-    <form action="{{url('api/qcm_reponse')}}" method="POST">
+    <form class="dashboard" action="{{url('api/qcm_reponse')}}" method="POST">
         {{csrf_field()}}
             <p> <input type="hidden" name="user_id" value="{{Auth::user()->id}}" /></p>
             <p> <input type="hidden" name="question_id" value="{{$choice_Arr[0]['question_id']}}" /></p>

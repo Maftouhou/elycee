@@ -35,7 +35,7 @@ class QuestionController extends Controller
             $questions  = Question::where([
                 'class'     => 'terminal',
                 'status'    => 'publish'
-            ])->get();
+            ])->paginate(10);
             
             return view('admin.dashboard.reponse.main_reponse', compact('questions'));
         }
@@ -44,13 +44,13 @@ class QuestionController extends Controller
             $questions  = Question::where([
                 'class'     => 'premiere',
                 'status'    => 'publish'
-            ])->get();
+            ])->paginate(10);
             
             return view('admin.dashboard.reponse.main_reponse', compact('questions'));
         }
         else if (Auth::user()->role === 'teacher')
         {
-            $questions  = Question::all();
+            $questions  = Question::paginate(10);
 
             return view('admin.dashboard.question.main_quest', compact('questions'));
         }
