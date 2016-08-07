@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<h2>Creation un article</h2>
+<h2>Création un article</h2>
 <div id="article_container">
     <div class="panel">
         <p class="action_response {{session('class')}}">
@@ -20,7 +20,7 @@
                 <td>comment</td>
                 <td>Status</td>
                 <td>Editer</td>
-                <td>Suprimer</td>
+                <td>Supprimer</td>
             </tr>
         </thead>
         <?php $odd = 0; ?>

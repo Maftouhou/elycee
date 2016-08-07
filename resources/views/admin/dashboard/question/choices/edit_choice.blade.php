@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<h2>Enregistrer les reponse à la question <b><u>{{$choice_Arr[0]['question']['title']}}</u></b></h2>
+<h2>Enregistrer les réponses à la question <b><u>{{$choice_Arr[0]['question']['title']}}</u></b></h2>
 <div id="article_container">
     @if($errors->any)
     <ul class="form_field_error">
@@ -22,7 +22,7 @@
                 <p> Reponse  {{$i+1}}</p>
                 <p> <textarea name="content_{{$i+1}}" id="" cols="50" rows="6" placeholder="Ecrire la reponse {{$i+1}}">{{$content_choice_Arr['content_'."$j"]}}</textarea> </p>
                 <p>
-                    <label for="vrai_{{$i+1}}">Vrais </label>
+                    <label for="vrai_{{$i+1}}">Vrai </label>
                     <input id="vrai_{{$i+1}}" type="checkbox" name="vrai_{{$i+1}}" value="1" />
 
                     <label for="faux_{{$i+1}}">Faux </label>

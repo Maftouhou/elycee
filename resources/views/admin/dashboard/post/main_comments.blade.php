@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<h2>Liste des commentaires associé au posts {{$post->title}} </h2>
+<h2>Liste des commentaires associés au posts {{$post->title}} </h2>
 <div id="article_container">
     @if(count($post->comment) !== 0)
     <table class="article_list">

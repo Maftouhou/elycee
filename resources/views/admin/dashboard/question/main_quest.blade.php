@@ -17,7 +17,7 @@
             <tr>
                 <td>Titre</td>
                 <td>Contenu</td>
-                <td>class</td>
+                <td>Classe</td>
                 <td>Status</td>
                 <td>Editer</td>
                 <td>Supprimer</td>
@@ -38,7 +38,7 @@
                 <td>
                     <a class="delete_post_request">Sup</a>
                     <div class="delete_post_confirmation">
-                        <p>Etes vous sûr de vouloir supprimer la question : {{$question->title}}</p>
+                        <p>Êtes-vous sûr de vouloir supprimer la question : {{$question->title}}</p>
                         <form class="delete_post" action="{{url('api/questions', $question->id)}}" method="POST">
                             {{method_field('DELETE')}}
                             {{csrf_field()}}

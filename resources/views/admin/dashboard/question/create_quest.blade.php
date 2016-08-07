@@ -14,15 +14,15 @@
         {{csrf_field()}}
             <p> <input type="hidden" name="user_id" value="{{Auth::user()->id}}" /></p>
             
-            <p> Nombre des choix des reponses </p>
-            <p> <input type="text" name="choice_num" placeholder="Entrer le nombre des choix possible"> </p>
+            <p> Nombre de réponses possibles</p>
+            <p> <input type="text" name="choice_num" placeholder="Entrez le nombre de choix possibles..."> </p>
             <p> Titre de l'article </p>
             <p> <input type="text" name="title" placeholder="Titre de l'Article"> </p>
             <p> Contenu de l'article </p>
-            <p> <textarea name="content" id="" cols="50" rows="6" placeholder="Contenu de l article"></textarea> </p>
-            <p> Selectionner la classe <br />
+            <p> <textarea name="content" id="" cols="50" rows="6" placeholder="Contenu de l'article"></textarea> </p>
+            <p> Sélectionner la classe <br />
                 <select name="class">
-                    <option> -- selectionner -- </option>
+                    <option> -- sélectionner -- </option>
                     <option value="premiere" > Première</option>
                     <option value="terminal"> Terminal</option>
                 </select>
@@ -30,10 +30,10 @@
             
             <legend>Gerer la publication </legend>
             <p>
-                <label for="publish">Publier maintement </label>
+                <label for="publish">Publier maintenant </label>
                 <input id="publish" type="radio" name="status" value="publish" />
             
-                <label for="unpublish">Publier Plus tard </label>
+                <label for="unpublish">Publier plus tard </label>
                 <input id="unpublish" type="radio" name="status" value="unpublish" />
             </p>
             <p>

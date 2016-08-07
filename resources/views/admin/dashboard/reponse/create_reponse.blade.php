@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<h2>Reponse à la question <b><u>{{ $choice_Arr[0]['question']['title'] }}</u></b></h2>
+<h2>Réponse à la question <b><u>{{ $choice_Arr[0]['question']['title'] }}</u></b></h2>
 <div id="article_container">
     @if($errors->any)
     <ul class="form_field_error">
