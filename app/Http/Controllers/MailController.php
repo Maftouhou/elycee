@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EmailRequest;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -24,7 +26,7 @@ class MailController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function sendEmail(Request $request)
+    public function sendEmail(EmailRequest $request)
     {
         $nom        = $request->nom;
         $prenom     = $request->prenom;

@@ -18,14 +18,17 @@
             <p> <input type="hidden" name="score_id" value="{{$score->id}}" /></p>
             
             @if($choice_Arr[0]['question'])
+            <p>Question : </p>
             <p> {{$choice_Arr[0]['question']['content']}} </p>
             @endif
             
             @for ($i = 0; $i < $content_choice_Arr['choice_num']; $i++)
                 <p> Reponse  {{$i+1}}</p>
                 <?php $j = $i+1; ?>
-                <p>{{$content_choice_Arr[ 'content_'."$j"]}}</p>
-                <p> <input type="radio" name="choice_repose" value="{{'content_'.$j}}" required /> </p>
+                <p>
+                    <label for="{{'choice_'.$j}}"> {{$content_choice_Arr[ 'content_'."$j"]}} </label> <br />
+                    <input id="{{'choice_'.$j}}" type="radio" name="choice_repose" value="{{'content_'.$j}}" required /> 
+                </p>
             @endfor
             <p>
                 <input type="submit" value="Envoyer">
