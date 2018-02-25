@@ -7,4 +7,5 @@ Homestead.json
 .env
 config/database.php
 /public/uploads/images/
+composer.lock
 
